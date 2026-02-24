@@ -1,7 +1,12 @@
 "use client";
 
 import Navbar from "../components/layout/Navbar";
+import Link from "next/link";
 import Image from "next/image";
+
+import SideNav from "@/app/components/project/SideNav";
+import { useScrollObserver } from "../components/hooks/useScrollObserver";
+
 import { GlobeIcon, ArrowDownIcon } from "@radix-ui/react-icons";
 import {
   ReactCompareSlider,
@@ -10,13 +15,32 @@ import {
 } from "react-compare-slider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Scrollbar } from "swiper/modules";
+import { useEffect, useState } from "react";
 
 import "swiper/css";
-import 'swiper/css/scrollbar';
+import "swiper/css/scrollbar";
+
+export type SectionId =
+  | "tldr"
+  | "overview"
+  | "finalsolution"
+  | "problem"
+  | "problemspace"
+  | "researchinsights"
+  | "challenge"
+  | "hmwstatement"
+  | "designprinciples"
+  | "userflow"
+  | "figma"
+  | "development"
+  | "solution"
+  | "reflection";
 
 export default function InstagramProject() {
+  const { activeSection, isParentActive } = useScrollObserver<SectionId>();
+
   return (
-    <main className="pt-4 flex flex-col justify-center items-center w-screen page-gradient">
+    <main className="pt-4 flex flex-col justify-center items-center w-screen page-gradient scroll-smooth">
       <Navbar />
 
       <header className="px-24 pt-24 pb-8 max-w-[1980px] w-full">
@@ -41,9 +65,13 @@ export default function InstagramProject() {
             <div>Figma, Visual Studio Code,</div>
             <div>HTML, CSS, REST APIs</div>
           </div>
-          <div className="p-2 bg-white inline-flex items-center justify-center rounded-lg">
+          <Link
+            href="https://jaineinstaaccessibility.netlify.app/"
+            target="_blank"
+            className="p-2 bg-white inline-flex items-center justify-center rounded-lg"
+          >
             <GlobeIcon className="w-6 h-6" />
-          </div>
+          </Link>
         </div>
       </header>
 
@@ -59,80 +87,82 @@ export default function InstagramProject() {
       </div>
 
       <div className="pt-12 px-48 flex max-w-[1500px]">
-        <nav className="flex-[3] relative">
-          <ul className="sticky top-20 text-sm leading-[35px] text-[#a3a3a3]">
-            <li>
-              TL;DR
-              <ul>
-                <li>Overview</li>
-                <li>Final solution</li>
-              </ul>
-            </li>
-            <li>
-              Problem
-              <ul>
-                <li>Problem space</li>
-                <li>Research insights</li>
-              </ul>
-            </li>
-            <li>
-              Challenge
-              <ul>
-                <li>HMW statement</li>
-                <li>Design principles</li>
-                <li>User flow</li>
-                <li>Figma prototype</li>
-                <li>Development</li>
-              </ul>
-            </li>
-            <li>Solution</li>
-            <li>Reflection</li>
-          </ul>
-        </nav>
+        <SideNav
+          activeSection={activeSection}
+          isParentActive={isParentActive}
+        />
 
         <div className="flex-[9]">
           {/* TL;DR */}
-          <section className="flex flex-col gap-[100px] mb-[100px]">
+          <section
+            id="tldr"
+            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+          >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
               <h2>{"< TL;DR >"}</h2>
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
 
-            <article className="flex flex-col gap-[20px]">
+            <article
+              id="overview"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <h3>Overview</h3>
               <div>
                 Instagram has become one of the most essential photo-sharing
                 platforms today. However, Instagram's current alt text feature
-                is <strong>hidden and inconsistently used</strong>, limiting accessibility for
-                people with visual impairments. <br /> <br />
-                This project aims to <strong>improve the visibility and accessibility of
-                alt text</strong>, while providing AI support to help users write more
-                effective descriptions by applying an inclusive design spectrum.{" "}
+                is <strong>hidden and inconsistently used</strong>, limiting
+                accessibility for people with visual impairments. <br /> <br />
+                This project aims to{" "}
+                <strong>
+                  improve the visibility and accessibility of alt text
+                </strong>
+                , while providing AI support to help users write more effective
+                descriptions by applying an inclusive design spectrum. <br />
                 <br />
-                <br />
-                The redesigned flow <strong>reduces steps by 20%</strong> and strengthens
-                accessibility without increasing cognitive load.
+                The redesigned flow <strong>reduces steps by 20%</strong> and
+                strengthens accessibility without increasing cognitive load.
               </div>
             </article>
-            <article className="flex flex-col gap-[20px]">
+            <article
+              id="finalsolution"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <h2>Final Solution</h2>
-              <div>
-                Main Feed → Discoverability Pick Photo → AI assist Add ALT →
-                workflow integration Edit ALT → screen reader hierarchy
+              <div className="flex h-full w-full">
+                <p className="flex-[4]">
+                  Main Feed → Discoverability Pick Photo → AI assist Add ALT →
+                  workflow integration Edit ALT → screen reader hierarchy
+                </p>
+                <div className="w-[300px] h-full">
+                  <Image
+                    src="/images/instagram/problem1.svg"
+                    alt="problem"
+                    width={300}
+                    height={700}
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </article>
           </section>
 
           {/* PROBLEM */}
-          <section className="flex flex-col gap-[100px] mb-[100px]">
+          <section
+            id="problem"
+            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+          >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
               <h2>{"< PROBLEM >"}</h2>
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
 
-            <article className="flex flex-col gap-[20px]">
+            <article
+              id="problemspace"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <h3>Problem</h3>
               <div className="flex">
                 <div className="flex-[4] pr-16 flex flex-col justify-between">
@@ -238,7 +268,10 @@ export default function InstagramProject() {
               </div>
             </article>
 
-            <article className="flex flex-col gap-[100px]">
+            <article
+              id="researchinsights"
+              className="flex flex-col gap-[100px] scroll-mt-20"
+            >
               <div className="flex flex-col gap-[20px]">
                 <h3>Research insights</h3>
                 <div className="flex flex-col">
@@ -313,13 +346,20 @@ export default function InstagramProject() {
           </section>
 
           {/* CHALLENGE */}
-          <section className="flex flex-col gap-[100px] mb-[100px]">
+          <section
+            id="challenge"
+            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+          >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
               <h2>{"< CHALLENGE >"}</h2>
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
-            <article className="flex flex-col gap-[20px]">
+
+            <article
+              id="hmwstatement"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <p>
                 The challenge wasn’t just improving accessibility. Instagram’s
                 posting flow is{" "}
@@ -347,7 +387,10 @@ export default function InstagramProject() {
               </p>
             </article>
 
-            <article className="flex flex-col gap-[100px]">
+            <article
+              id="designprinciples"
+              className="flex flex-col gap-[100px] scroll-mt-20"
+            >
               <div className="flex flex-col gap-[20px]">
                 <h3>Design principles</h3>
                 <p>
@@ -477,7 +520,10 @@ export default function InstagramProject() {
               </div>
             </article>
 
-            <article className="flex flex-col gap-[20px]">
+            <article
+              id="userflow"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <h3>User flow</h3>
               <p>
                 I redesigned user flow to cut down{" "}
@@ -514,7 +560,10 @@ export default function InstagramProject() {
               />
             </article>
 
-            <article className="flex flex-col gap-[20px]">
+            <article
+              id="figma"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <h3>Figma Prototyping</h3>
               <p>
                 I redesigned user flow to cut down 20% fewer steps and increases
@@ -529,7 +578,10 @@ export default function InstagramProject() {
               />
             </article>
 
-            <article className="flex flex-col gap-[20px]">
+            <article
+              id="development"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <h3>Development</h3>
               <div className="w-full">
                 <Image
@@ -549,7 +601,10 @@ export default function InstagramProject() {
           </section>
 
           {/* SOLUTION */}
-          <section className="flex flex-col gap-[100px] mb-[100px]">
+          <section
+            id="solution"
+            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+          >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
               <h2>{"< SOLUTION >"}</h2>
@@ -697,7 +752,10 @@ export default function InstagramProject() {
           </section>
 
           {/* IMPACT & TAKEAWAYS */}
-          <section className="flex flex-col gap-[100px] mb-[100px]">
+          <section
+            id="reflection"
+            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+          >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
               <h2>{"< REFLECTION >"}</h2>
