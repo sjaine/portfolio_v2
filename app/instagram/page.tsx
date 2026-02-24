@@ -8,6 +8,11 @@ import {
   ReactCompareSliderHandle,
   ReactCompareSliderImage,
 } from "react-compare-slider";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Scrollbar } from "swiper/modules";
+
+import "swiper/css";
+import 'swiper/css/scrollbar';
 
 export default function InstagramProject() {
   return (
@@ -15,24 +20,24 @@ export default function InstagramProject() {
       <Navbar />
 
       <header className="px-24 pt-24 pb-8 max-w-[1980px] w-full">
-        <div>Instagram Accessibility</div>
+        <div className="text-8xl font-bold pb-12">Instagram Accessibility</div>
         <div className="flex w-full justify-between items-start">
           <div>
-            <div>{"<role>"}</div>
+            <div className="point pb-2">{"<ROLE>"}</div>
             <div>UI/UX Designer</div>
             <div>Front-end Developer</div>
           </div>
           <div>
-            <div>{"<timeline>"}</div>
+            <div className="point pb-2">{"<TIMELINE>"}</div>
             <div>From August 2023</div>
             <div>From December 2023</div>
           </div>
           <div>
-            <div>{"<team>"}</div>
+            <div className="point pb-2">{"<TEAM>"}</div>
             <div>Solo project</div>
           </div>
           <div>
-            <div>{"<tools>"}</div>
+            <div className="point pb-2">{"<TOOLS>"}</div>
             <div>Figma, Visual Studio Code,</div>
             <div>HTML, CSS, REST APIs</div>
           </div>
@@ -42,13 +47,20 @@ export default function InstagramProject() {
         </div>
       </header>
 
-      <div className="h-[800px] w-full bg-black">
-        <img></img>
+      <div className="h-[800px] w-full bg-black overflow-hidden">
+        <video
+          src="/images/preview.mov"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full"
+        />
       </div>
 
-      <div className="pt-12 px-48 flex max-w-[1600px]">
+      <div className="pt-12 px-48 flex max-w-[1500px]">
         <nav className="flex-[3] relative">
-          <ul className="sticky top-18 text-sm leading-[35px] text-[#a3a3a3]">
+          <ul className="sticky top-20 text-sm leading-[35px] text-[#a3a3a3]">
             <li>
               TL;DR
               <ul>
@@ -92,14 +104,14 @@ export default function InstagramProject() {
               <div>
                 Instagram has become one of the most essential photo-sharing
                 platforms today. However, Instagram's current alt text feature
-                is hidden and inconsistently used, limiting accessibility for
+                is <strong>hidden and inconsistently used</strong>, limiting accessibility for
                 people with visual impairments. <br /> <br />
-                This project aims to improve the visibility and accessibility of
-                alt text, while providing AI support to help users write more
+                This project aims to <strong>improve the visibility and accessibility of
+                alt text</strong>, while providing AI support to help users write more
                 effective descriptions by applying an inclusive design spectrum.{" "}
                 <br />
                 <br />
-                The redesigned flow reduces steps by 20% and strengthens
+                The redesigned flow <strong>reduces steps by 20%</strong> and strengthens
                 accessibility without increasing cognitive load.
               </div>
             </article>
@@ -148,13 +160,58 @@ export default function InstagramProject() {
                     * based on the 2023 Instagram interface
                   </p>
                 </div>
-                <Image
-                  src="/images/instagram/problem1.png"
-                  alt="problem"
-                  width={300}
-                  height={700}
-                  className="object-cover flex-[3]"
-                />
+                <div className="w-[300px] h-full">
+                  <Swiper
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
+                    scrollbar={{
+                      draggable: true,
+                    }}
+                    modules={[Scrollbar, Autoplay]}
+                    className="mySwiper w-full h-full"
+                  >
+                    <SwiperSlide>
+                      <Image
+                        src="/images/instagram/problem1.svg"
+                        alt="problem"
+                        width={300}
+                        height={700}
+                        className="object-cover"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Image
+                        src="/images/instagram/problem2.svg"
+                        alt="problem"
+                        width={300}
+                        height={700}
+                        className="object-cover"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Image
+                        src="/images/instagram/problem3.svg"
+                        alt="problem"
+                        width={300}
+                        height={700}
+                        className="object-cover"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Image
+                        src="/images/instagram/problem4.svg"
+                        alt="problem"
+                        width={300}
+                        height={700}
+                        className="object-cover"
+                      />
+                    </SwiperSlide>
+                  </Swiper>
+                </div>
               </div>
             </article>
 
@@ -474,9 +531,19 @@ export default function InstagramProject() {
 
             <article className="flex flex-col gap-[20px]">
               <h3>Development</h3>
+              <div className="w-full">
+                <Image
+                  src="/images/instagram/dev.svg"
+                  alt="development"
+                  width={500}
+                  height={500}
+                  className="w-full h-auto"
+                />
+              </div>
               <p>
                 For development phase, I used HTML, CSS, and Javascript, and
-                used Educative.io API to implement the voiceover function.
+                used Educative.io API to implement the voiceover function.{" "}
+                {"(WIP)"}
               </p>
             </article>
           </section>
@@ -489,7 +556,6 @@ export default function InstagramProject() {
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
             <article className="flex flex-col gap-[20px]">
-              <h3>Final Solution</h3>
               <div className="flex flex-col gap-[150px]">
                 <div className="flex">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
@@ -576,8 +642,9 @@ export default function InstagramProject() {
                       <p className="text-2xl font-bold">Add alt text</p>
                       <p className="text-lg">
                         Alt text button has been moved to the Filter/Edit page.
-                        An AI suggestion box <strong>helps users write alt text more
-                        easily</strong>, or they can skip it and apply the AI-generated
+                        An AI suggestion box{" "}
+                        <strong>helps users write alt text more easily</strong>,
+                        or they can skip it and apply the AI-generated
                         description automatically.
                       </p>
                     </div>
@@ -608,10 +675,10 @@ export default function InstagramProject() {
                     <div className="flex flex-col gap-[10px] pr-24">
                       <p className="text-2xl font-bold">Edit alt text</p>
                       <p className="text-lg">
-                        Users can <strong>review</strong> their ALT text before uploading the
-                        photo. Since screen readers typically read from the top,
-                        the ALT text is placed below the caption for better
-                        accessibility.
+                        Users can <strong>review</strong> their ALT text before
+                        uploading the photo. Since screen readers typically read
+                        from the top, the ALT text is placed below the caption
+                        for better accessibility.
                       </p>
                     </div>
                   </div>

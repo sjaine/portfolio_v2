@@ -1,35 +1,41 @@
 import Link from "next/link";
-import Button from "@/app/components/ui/LinkButton"
+import Button from "@/app/components/ui/LinkButton";
 import Image from "next/image";
 import { useRef } from "react";
 
 type CaseStudyItemProps = {
+  id: string;
+  index: number;
+  title: string;
+  href: string;
+  thumbnail: string;
+  description: string;
+  onHover: (data: {
     id: string;
-    index: number;
-    title: string;
-    href: string;
     thumbnail: string;
+    title: string;
     description: string;
-    onHover: (data: { id: string; thumbnail: string, title: string, description: string }) => void;
-    onLeave: () => void;
+  }) => void;
+  onLeave: () => void;
 };
 
 export default function CaseStudyItem({
-    id,
-    index,
-    title,
-    href,
-    thumbnail,
-    description,
-    onHover,
-    onLeave,
+  id,
+  index,
+  title,
+  href,
+  thumbnail,
+  description,
+  onHover,
+  onLeave,
 }: CaseStudyItemProps) {
-    const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   return (
     <Link
-        href={href}
-        className="
+      href={href}
+      className="
+        cursor-pointer
         relative
         block 
 
@@ -45,30 +51,29 @@ export default function CaseStudyItem({
 
         hover:before:opacity-100
         "
-        onMouseEnter={() => {
-            if (leaveTimeoutRef.current) {
-              clearTimeout(leaveTimeoutRef.current);
-              leaveTimeoutRef.current = null;
-            }
-          
-            onHover({ id, thumbnail, title, description });
-          }}
-        onMouseLeave={() => {
-            leaveTimeoutRef.current = setTimeout(() => {
-              onLeave();
-            }, 3000);
-          }}
-          
+      onMouseEnter={() => {
+        if (leaveTimeoutRef.current) {
+          clearTimeout(leaveTimeoutRef.current);
+          leaveTimeoutRef.current = null;
+        }
+
+        onHover({ id, thumbnail, title, description });
+      }}
+      onMouseLeave={() => {
+        leaveTimeoutRef.current = setTimeout(() => {
+          onLeave();
+        }, 3000);
+      }}
     >
       <div className="relative z-10 flex w-full justify-between items-end group">
         <div className="flex gap-6">
           {/* Thumbnail */}
-          <div className="relative w-[50px] h-[50px] rounded-lg">
+          <div className="relative w-[50px] h-[50px] rounded-lg aspect-square">
             <Image
-                src={thumbnail}
-                alt={title}
-                fill
-                className="object-cover rounded-lg"
+              src={thumbnail}
+              alt={title}
+              fill
+              className="object-cover rounded-lg"
             />
           </div>
 
@@ -77,9 +82,7 @@ export default function CaseStudyItem({
             <div className="text-sm opacity-60">
               {String(index).padStart(2, "0")}.
             </div>
-            <div className="text-lg">
-              {title}
-            </div>
+            <div className="text-lg leading-[140%]">{title}</div>
           </div>
         </div>
 

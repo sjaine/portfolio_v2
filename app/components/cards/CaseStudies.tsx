@@ -40,7 +40,7 @@ type CaseStudiesProps = {
 export default function CaseStudies({ onHover }: CaseStudiesProps) {
   return (
     <div className="max-w-[280px] w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-full">
         {/* title */}
         <div className="flex gap-2 items-center">
           <AvailabilityDot />
@@ -48,7 +48,7 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
         </div>
         {/* description */}
         <p className="text-xs text-gray-500">
-          Switch to dev case studies by turning on {"<Dev Mode>"}.
+          {/* Switch to dev case studies by turning on {"<Dev Mode>"}. */}
         </p>
       </div>
 

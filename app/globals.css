@@ -38,6 +38,12 @@ h3 {
   color: #a3a3a3;
 }
 
+.point {
+  font-family: var(--font-dm-mono); 
+  letter-spacing: 1.2px;
+  color: #a3a3a3;
+} 
+
 .higlight-gray {
   color: #a3a3a3;
 }
@@ -123,3 +129,12 @@ ul ul {
   padding-left: 16px;
   border-left: 1px solid #eee;
 }
+
+.swiper-container {
+  width: 600px; /* or a percentage, e.g., 80% */
+  height: 300px; /* Optional, define height */
+}
+ 
+.swiper-scrollbar {
+  transform: scale(0.8);
+} 
