@@ -87,7 +87,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="tldr"
-            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -210,7 +210,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="problem"
-            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -330,7 +330,7 @@ export default function InstagramProject() {
 
             <article
               id="researchinsights"
-              className="flex flex-col gap-[120px] scroll-mt-20"
+              className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] scroll-mt-20"
             >
               <div className="flex flex-col gap-[20px]">
                 <h3>Research insights</h3>
@@ -409,7 +409,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="challenge"
-            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -507,7 +507,7 @@ export default function InstagramProject() {
 
             <article
               id="designprinciples"
-              className="flex flex-col gap-[120px] scroll-mt-20"
+              className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] scroll-mt-20"
             >
               <div className="flex flex-col gap-[20px]">
                 <h3>Design principles</h3>
@@ -620,10 +620,6 @@ export default function InstagramProject() {
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h3>Figma Prototyping</h3>
-              <p>
-                I redesigned user flow to cut down 20% fewer steps and increases
-                efficiency by 20%.
-              </p>
               <Image
                 src="/images/instagram/figmaprototype.svg"
                 alt="Figma Prototype"
@@ -658,7 +654,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="solution"
-            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -666,7 +662,7 @@ export default function InstagramProject() {
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
             <article className="flex flex-col gap-[20px]">
-              <div className="flex flex-col gap-[120px]">
+              <div className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px]">
                 <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
                     <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
@@ -809,7 +805,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="reflection"
-            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
