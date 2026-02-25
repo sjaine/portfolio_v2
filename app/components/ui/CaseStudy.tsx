@@ -67,8 +67,8 @@ export default function CaseStudyItem({
         }, 3000);
       }}
     >
-      <div className="relative z-10 flex w-full justify-between items-center group">
-        <div className="flex gap-6">
+      <div className="relative z-10 flex w-full justify-between items-center group gap-3">
+        <div className="flex gap-3 items-center">
           {/* Thumbnail */}
           <div className="relative w-[50px] h-[50px] rounded-lg aspect-square">
             <Image

@@ -33,11 +33,18 @@ export default function Home() {
   };
 
   return (
-    <div className="overflow-hidden gradient">
+    <div className="overflow-hidden gradient scrollbar-hide">
       <Navbar />
       <div className="flex flex-col md:flex-row items-center justify-between w-screen h-screen">
-        <ConstellationCanvas hidden={!isMobile && !!hoveredCase} />
-        {!isMobile && <CaseStudyPreview caseStudy={hoveredCase} />}
+        <div className="relative flex-1 flex items-center justify-center h-full">
+          <ConstellationCanvas hidden={!isMobile && !!hoveredCase} />
+          
+          {!isMobile && hoveredCase && (
+            <div className="absolute inset-0 flex items-center justify-center">
+               <CaseStudyPreview caseStudy={hoveredCase} />
+            </div>
+          )}
+        </div>
         
         <SidePanel onHover={handleHover} />
       </div>

@@ -1,31 +1,52 @@
 import Button from "@/app/components/ui/LinkButton";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProjectModal from "../ui/RoughCutsModal";
+import ProfileModal from "../ui/ProfileModal";
 import { SizeIcon } from "@radix-ui/react-icons";
-
 
 export default function Profile() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
-    <div className="max-w-full md:max-w-[280px]  w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
+    <div className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
       <div className="w-[80px] h-[80px] bg-black rounded-lg relative">
-        <Image src="/images/jaine2.png" alt="jaine" fill className="object-cover rounded-lg" />
+        <Image
+          src="/images/jaine2.png"
+          alt="jaine"
+          fill
+          className="object-cover rounded-lg"
+        />
       </div>
 
       <div className="flex w-full justify-between gap-18">
-        <p>ROUGH CUTS 💡</p>
-        <Button 
-          onClick={() => setIsModalOpen(true)}>
-            <SizeIcon />
+        <p>{isMobile ? "HELLO, JAINE! 👋" : "ROUGH CUTS 💡"}</p>
+        <Button onClick={() => setIsModalOpen(true)}>
+          <SizeIcon />
         </Button>
       </div>
 
-      <ProjectModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
+      {isMobile ? (
+        <ProfileModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      ) : (
+        <ProjectModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </div>
   );
 }

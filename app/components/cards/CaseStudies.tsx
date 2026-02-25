@@ -41,7 +41,7 @@ type CaseStudiesProps = {
 
 export default function CaseStudies({ onHover }: CaseStudiesProps) {
   return (
-    <div className="max-w-full md:max-w-[280px] w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
+    <div className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
       <div className="flex flex-col gap-2 w-full">
         {/* title */}
         <div className="flex gap-2 items-center">

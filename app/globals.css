@@ -151,3 +151,12 @@ ul ul {
   margin-left: 0 !important;
   margin-right: 0 !important;  
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}

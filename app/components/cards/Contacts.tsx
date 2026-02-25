@@ -17,7 +17,7 @@ export default function Contacts() {
   return (
     <motion.div
       initial={false}
-      className="max-w-full md:max-w-[280px]  w-full flex flex-col px-6 py-4 bg-white/50 rounded-lg border border-white overflow-hidden"
+      className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-6 py-4 bg-white/50 rounded-lg border border-white overflow-hidden"
       style={{ gap: isOpen ? "10px md:20px" : "0px" }}
     >
       {/* Header */}

@@ -66,13 +66,13 @@ export default function ProfileModal({
               <Cross2Icon />
             </LinkButton>
 
-            <div className="w-full flex flex-row p-3 justify-center items-center relative">
+            <div className="w-full flex flex-col md:flex-row p-0 md:p-3 justify-center items-center relative gap-8 md:gap-6 mt-8 md:mt-0">
               <motion.div
                 drag
                 dragElastic={0.2}
                 whileTap={{ scale: 1.2, rotate: 0 }}
                 initial={{ rotate: 10 }}
-                className="absolute top-2 right-4 cursor-grab active:cursor-grabbing select-none z-50"
+                className="absolute top-[55%] right-16 md:top-2 md:right-4 cursor-grab active:cursor-grabbing select-none z-50 w-16 md:w-[100px]"
               >
                 <Image
                   src="/images/mouse.svg"
@@ -88,7 +88,7 @@ export default function ProfileModal({
                 dragElastic={0.2}
                 whileTap={{ scale: 1.2, rotate: 0 }}
                 initial={{ rotate: -10 }}
-                className="absolute bottom-0 left-4 cursor-grab active:cursor-grabbing select-none z-50"
+                className="absolute top-[60%] right-0 md:top-auto md:bottom-0 md:left-4 cursor-grab active:cursor-grabbing select-none z-50 w-16 md:w-[100px]"
               >
                 <Image
                   src="/images/sun.svg"
@@ -168,14 +168,13 @@ export default function ProfileModal({
                   foundation.
                 </p>
                 <p>
-                  Outside of work, you can find her watching films, taking
-                  photos, or climbing. Track her movie journey on the handmade
-                  site!
+                  Outside of work, you can find her <span className="text-[#6D8EEB] font-bold">watching films, taking
+                  photos, or climbing.</span> :D
                 </p>
               </div>
             </div>
 
-            <h2 className="px-6 py-6">Let me show you a little bit more...</h2>
+            <h2 className="px-0 py-6 md:px-3">Let me show you a little bit more...</h2>
 
             <div className="w-full overflow-hidden">
               <motion.div
