@@ -18,7 +18,7 @@ export default function Contacts() {
     <motion.div
       initial={false}
       className="max-w-full md:max-w-[280px]  w-full flex flex-col px-6 py-4 bg-white/50 rounded-lg border border-white overflow-hidden"
-      style={{ gap: isOpen ? "20px" : "0px" }}
+      style={{ gap: isOpen ? "10px md:20px" : "0px" }}
     >
       {/* Header */}
       <div className="flex w-full justify-between items-center h-[32px]">
@@ -96,7 +96,7 @@ function ContactLink({ label, href }: { label: string; href: string }) {
     >
       <div className="relative flex items-center gap-3">
         <span className="transition-colors">{renderIcon()}</span>
-        <span className="group-hover:text-black">
+        <span className="text-sm md:text-base">
           {label}
         </span>
       </div>
