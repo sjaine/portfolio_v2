@@ -2,10 +2,19 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
 import LinkButton from "./LinkButton";
 import { Cross2Icon } from "@radix-ui/react-icons";
+
+const PROJECT_IMAGES = [
+  "/images/archive/filmclothing.gif",
+  "/images/archive/vhsplayer.png",
+  "/images/archive/arborday.gif",
+  "/images/archive/watering.png",
+  "/images/archive/book.png",
+  "/images/archive/movienight.png",
+  "/images/archive/movieposter.png",
+];
 
 export default function ProfileModal({
   isOpen,
@@ -14,27 +23,11 @@ export default function ProfileModal({
   isOpen: boolean;
   onClose: () => void;
 }) {
-  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    if (!containerRef) return;
-
-    const updateScale = () => {
-      const paddingFactor = 0.6;
-      const newScale = (containerRef.offsetWidth / 1920) * paddingFactor;
-      setScale(newScale);
-    };
-
-    updateScale();
-    window.addEventListener("resize", updateScale);
-    return () => window.removeEventListener("resize", updateScale);
-  }, [containerRef, isOpen]);
-
   return (
     <AnimatePresence>
       {isOpen && (
         <>
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -43,13 +36,14 @@ export default function ProfileModal({
             className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[99]"
           />
 
+          {/* Modal Content */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            ref={setContainerRef}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1300px] bg-white rounded-[24px] p-12 shadow-2xl z-[100] overflow-scroll h-[800px]"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1300px] bg-white rounded-[24px] p-12 shadow-2xl z-[100] overflow-y-auto h-[80vh]"
           >
+            {/* Close Button */}
             <LinkButton
             onClick={onClose}
             className="absolute top-6 left-6 text-gray-400 hover:text-black transition-colors"
@@ -57,29 +51,29 @@ export default function ProfileModal({
               <Cross2Icon />
             </LinkButton>
 
-            <div className="h-[450px] flex">
-                <div
-                className="aspect-video"
-                style={{
-                    width: "1920px",
-                    height: "1080px",
-                    transform: `scale(${scale})`,
-                    transformOrigin: "top left",
-                    left: "0px",
-                    top: "0px",
-                }}
-                >
-                <iframe
-                    src="https://filmclothing.vercel.app/"
-                    className="w-full h-full border-none pointer-events-auto"
-                    title="Film Clothing"
-                    loading="lazy"
-                    style={{ willChange: "transform" }}
-                />
-                </div>
-                <p>FilmsClothing</p>
-            </div>
+            <div className="flex flex-col gap-8 mt-4">
+              <h2>Welcome to my lab!</h2>
 
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {PROJECT_IMAGES.map((src, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="relative aspect-video w-full rounded-xl overflow-hidden bg-gray-100 group shadow-sm border border-gray-100"
+                  >
+                    <Image
+                      src={src}
+                      alt={`Project Image ${index + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </>
       )}
