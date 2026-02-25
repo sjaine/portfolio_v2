@@ -16,14 +16,14 @@ const CASE_STUDIES = [
     id: "modea",
     title: "Modea",
     href: "/modea",
-    thumbnail: "/images/project/pawlart.png",
+    thumbnail: "/images/preview.png",
     description: "Redefining context switching in remote work.",
   },
   {
     id: "gwsk",
     title: "GWSK Studio",
     href: "/gwsk",
-    thumbnail: "/images/project/trial1.png",
+    thumbnail: "/images/gwsk.png",
     description: "Redesigned & Developed GWSK studio's new website.",
   },
 ];
