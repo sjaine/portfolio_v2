@@ -64,15 +64,15 @@ export default function InstagramProject() {
         link="https://jaineinstaaccessibility.netlify.app/"
       />
 
-      <div className="h-[800px] w-full bg-black overflow-hidden">
+      <div className="h-full w-full bg-black overflow-hidden">
         <video
-          src="/images/preview.mov"
+          src="/images/instagram/instagram.mp4"
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
-          className="w-full"
+          className="object-cover"
         />
       </div>
 
@@ -87,7 +87,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="tldr"
-            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -122,18 +122,76 @@ export default function InstagramProject() {
             >
               <h2>Final Solution</h2>
               <div className="flex h-full w-full">
-                <p className="flex-[4]">
-                  Main Feed → Discoverability Pick Photo → AI assist Add ALT →
-                  workflow integration Edit ALT → screen reader hierarchy
-                </p>
+              <div className="flex-[4] pr-16 flex flex-col justify-between">
+                  <p>
+                    <span className="text-[#6196F0] font-bold">Main Feed</span><br />Surface alt text directly below each photo for
+                    immediate access.
+                    <br />
+                    <br />
+                    <br />
+                    <span className="text-[#6196F0] font-bold">Photo Selection</span><br />Provide AI-generated descriptions to support
+                    image understanding during selection.
+                    <br />
+                    <br />
+                    <br />
+                    <span className="text-[#6196F0] font-bold">Add & Edit Alt Text</span><br />Relocate the alt text feature to the
+                    Filter & Edit stage, with AI-generated text as the default and
+                    easy manual editing available.
+                  </p>
+
+              </div>
                 <div className="w-[300px] h-full">
-                  <Image
-                    src="/images/instagram/problem1.svg"
-                    alt="problem"
-                    width={300}
-                    height={700}
-                    className="object-cover"
-                  />
+                  <Swiper
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    loop={true}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
+                    scrollbar={{
+                      draggable: true,
+                    }}
+                    modules={[Scrollbar, Autoplay]}
+                    className="mySwiper w-full h-full"
+                  >
+                    <SwiperSlide>
+                      <Image
+                        src="/images/instagram/solution1.gif"
+                        alt="solution"
+                        width={300}
+                        height={700}
+                        className="object-cover rounded-2xl"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Image
+                        src="/images/instagram/solution2.gif"
+                        alt="solution"
+                        width={300}
+                        height={700}
+                        className="object-cover rounded-2xl"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Image
+                        src="/images/instagram/solution3.gif"
+                        alt="solution"
+                        width={300}
+                        height={700}
+                        className="object-cover rounded-2xl"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Image
+                        src="/images/instagram/solution4.gif"
+                        alt="solution"
+                        width={300}
+                        height={700}
+                        className="object-cover rounded-2xl"
+                      />
+                    </SwiperSlide>
+                  </Swiper>
                 </div>
               </div>
             </article>
@@ -143,7 +201,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="problem"
-            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -263,7 +321,7 @@ export default function InstagramProject() {
 
             <article
               id="researchinsights"
-              className="flex flex-col gap-[100px] scroll-mt-20"
+              className="flex flex-col gap-[120px] scroll-mt-20"
             >
               <div className="flex flex-col gap-[20px]">
                 <h3>Research insights</h3>
@@ -342,7 +400,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="challenge"
-            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -381,35 +439,66 @@ export default function InstagramProject() {
               </p>
             </article>
 
-            <article>
-              <h3>User Understanding</h3>
-              <p>
-                Through persona development, context scenarios, and empathy
-                mapping, I identified two primary user groups:
-                <br />
-                <br />
-                <span className="rounded-full bg-[#6D8EEB] text-white px-4 py-1 font-bold">
-                  ① General Users
-                </span>
-                <br />
-                Often unaware of where the alt text feature is located. Even
-                when they intend to use accessibility features, the hidden
-                interface and multi-step process discourage engagement. <br />
-                <br />
-                <span className="rounded-full bg-[#6D8EEB] text-white px-4 py-1 font-bold">
-                  ② Users with Visual Impairments
-                </span>
-                <br />
-                Rely heavily on descriptive metadata to understand visual
-                content. However, inconsistent alt text availability and limited
-                visibility of accessibility tools reduce their overall
-                experience and trust in the platform.
-              </p>
+            <article className="space-y-8">
+              <div className="flex flex-col gap-2">
+                <h3>User Understanding</h3>
+                <p>
+                  Through persona development, context scenarios, and empathy
+                  mapping, I identified two primary user groups.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="group p-6 bg-white/50 rounded-2xl border border-white">
+                  <div className="flex flex-col gap-4">
+                    <span className="w-fit rounded-full bg-white text-[#6D8EEB] px-4 py-1.5 font-bold text-xs">
+                      01. GENERAL USERS
+                    </span>
+                    <div>
+                      <h4 className="font-bold text-lg mb-2 text-gray-800">
+                        Hidden & Complex
+                      </h4>
+                      <p className="text-sm leading-relaxed text-gray-600">
+                        Often unaware of where the alt text feature is located.
+                        Even when they intend to use accessibility features, the{" "}
+                        <span className="text-[#6D8EEB] font-bold">
+                          hidden interface and multi-step process
+                        </span>{" "}
+                        discourage engagement.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="group p-6 bg-white/50 rounded-2xl border border-white">
+                  <div className="flex flex-col gap-4">
+                    <span className="w-fit rounded-full bg-white text-[#6D8EEB] px-4 py-1.5 font-bold text-xs">
+                      02. VISUALLY IMPAIRED
+                    </span>
+                    <div>
+                      <h4 className="font-bold text-lg mb-2 text-gray-800">
+                        Inconsistent Experience
+                      </h4>
+                      <p className="text-sm leading-relaxed text-gray-600">
+                        Rely heavily on descriptive metadata to understand
+                        visual content. However, inconsistent alt text
+                        availability and limited visibility of accessibility
+                        tools{" "}
+                        <span className="text-[#6D8EEB] font-bold">
+                          reduce their overall experience and trust in the
+                          platform
+                        </span>
+                        .
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </article>
 
             <article
               id="designprinciples"
-              className="flex flex-col gap-[100px] scroll-mt-20"
+              className="flex flex-col gap-[120px] scroll-mt-20"
             >
               <div className="flex flex-col gap-[20px]">
                 <h3>Design principles</h3>
@@ -614,8 +703,7 @@ export default function InstagramProject() {
               </div>
               <p>
                 For development phase, I used HTML, CSS, and Javascript, and
-                used Educative.io API to implement the voiceover function.{" "}
-                {"(WIP)"}
+                used Educative.io API to implement the voiceover function.
               </p>
             </article>
           </motion.section>
@@ -624,7 +712,7 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="solution"
-            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -632,7 +720,7 @@ export default function InstagramProject() {
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
             <article className="flex flex-col gap-[20px]">
-              <div className="flex flex-col gap-[150px]">
+              <div className="flex flex-col gap-[120px]">
                 <div className="flex">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
                     <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
@@ -775,101 +863,141 @@ export default function InstagramProject() {
           <motion.section
             {...fadeIn}
             id="reflection"
-            className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
               <h2>{"< REFLECTION >"}</h2>
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
-            <article className="flex flex-col gap-[20px]">
+            <article className="flex flex-col gap-[20px] py-10">
               <h3>Impact & Expected Metrics</h3>
               <p>
-                1. Usability & Efficiency Reduced Drop-off Rate & Task
-                Completion Time By placing the alt text feature directly within
-                the main posting flow and reducing the number of steps by 20%, I
-                aimed to lower user friction and make the process feel more
-                seamless. Simplified Content Creation With AI-assisted
-                description generation, users can create alt text more easily.
-                This helps ensure accessibility information is included—even
-                when users might otherwise skip writing it manually.
+                As this was an academic project with time constraints, formal
+                usability testing on the final solution was not conducted.
+                However, I defined the following success metrics based on my
+                initial hypotheses.
               </p>
-
-              <p>
-                2. User Satisfaction & Accessibility Improved Experience for
-                Screen Reader Users By providing clearer and more consistent
-                AI-generated descriptions, the goal is to help visually impaired
-                users better understand visual content and improve their overall
-                browsing experience. Lower Barrier for General Users Moving the
-                feature from hidden settings into a more visible and guided
-                interface reduces confusion and makes accessibility feel less
-                overwhelming, encouraging more users to participate in creating
-                inclusive content.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white/50 rounded-2xl border border-white p-6">
+                  <div className="text-[#6D8EEB] font-black text-3xl mb-2">
+                    20% ↑
+                  </div>
+                  <h4 className="font-bold mb-2">Usability & Efficiency</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    By integrating alt text directly into the posting flow and
+                    reducing the steps by 20%, the process becomes{" "}
+                    <span className="text-[#6D8EEB] font-bold">
+                      smoother and more intuitive.
+                    </span>
+                    <br />
+                    <br />
+                    AI-assisted descriptions also help ensure accessibility
+                    information is included,{" "}
+                    <span className="text-[#6D8EEB] font-bold">
+                      even when users skip manual input.
+                    </span>
+                  </p>
+                </div>
+                <div className="bg-white/50 rounded-2xl border border-white p-6">
+                  <div className="text-[#6D8EEB] font-black text-3xl mb-2">
+                    High
+                  </div>
+                  <h4 className="font-bold mb-2">User Satisfaction</h4>
+                  <p className="leading-relaxed text-gray-600 text-sm">
+                    By moving the accessibility feature from hidden settings
+                    into a more visible and guided interface, I made it easier{" "}
+                    <span className="text-[#6D8EEB] font-bold">
+                      for general users
+                    </span>{" "}
+                    to participate in creating inclusive content. <br /> <br />
+                    As a result,{" "}
+                    <span className="text-[#6D8EEB] font-bold">
+                      screen reader users
+                    </span>{" "}
+                    can receive more consistent and meaningful descriptions,
+                    helping them better understand visual posts and navigate the
+                    platform with greater confidence.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article className="flex flex-col gap-6">
+              <h3>Future Opportunities</h3>
+              <div className="flex flex-col gap-4 py-6 bg-white/50 border border-white px-6 rounded-3xl">
+                {[
+                  {
+                    title: "Expanding Formats",
+                    desc: "The current solution focuses on feed posts. As a next step, I would adapt the AI-guided alt text system to Stories and Reels to create a more consistent accessibility experience across the platform.",
+                  },
+                  {
+                    title: "Real-user Testing",
+                    desc: "Since this project was based on heuristic evaluation and research, the next step would be usability testing with real screen reader users (e.g., VoiceOver, TalkBack) to refine the interface based on real interaction patterns.",
+                  },
+                  {
+                    title: "AI Refinement",
+                    desc: "I would also work on improving AI description accuracy while designing simple ways for users to review and edit suggestions, keeping users in control of the final output.",
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-4 items-start p-4 bg-white rounded-xl"
+                  >
+                    <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-[#6D8EEB] text-white rounded text-base font-bold">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h4 className="font-bold">{item.title}</h4>
+                      <p className="text-sm text-gray-500 mt-2 leading-[170%]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </article>
             <article className="flex flex-col gap-[20px]">
-              <h3>Future Opportunities & Next Steps</h3>
-              <p>
-                1. Expanding Accessibility Across Content Formats Right now, the
-                solution focuses mainly on static feed posts. However, since
-                Stories and Reels are a big part of how people use Instagram
-                today, the next step would be to adapt the AI-guided alt text
-                feature to those formats as well. Expanding this system would
-                help create a more consistent and inclusive experience across
-                the platform.
-              </p>
-              <p>
-                2. Testing with Real Assistive Technology Users This project was
-                based on heuristic evaluation and competitor research, but I
-                believe real validation is essential. As a next step, I would
-                like to conduct usability testing with actual screen reader
-                users (such as VoiceOver or TalkBack users) to better understand
-                how they interact with the interface in real situations. This
-                would help refine the UI based on real assistive technology
-                behavior, not just assumptions.
-              </p>
-              <p>
-                3. Improving AI Accuracy with Human Oversight To improve the
-                experience further, I would explore ways to make AI-generated
-                descriptions more accurate while keeping users in control. This
-                means designing simple and intuitive ways for users to review
-                and edit AI suggestions, balancing automation with human
-                judgment.
-              </p>
-              <h3>Takeaways & Reflectionc</h3>
-              <p>
-                Shift from Sympathy to Inclusive Thinking Through this project,
-                I realized that accessibility isn’t about creating a “special”
-                feature for a small group of users. It’s about designing systems
-                that work better for everyone. Using the Inclusive Design
-                Spectrum helped me see how permanent disabilities and temporary
-                or situational constraints (like low bandwidth or cognitive
-                overload) often share similar friction points. This shifted my
-                approach from solving for a niche case to designing a more
-                universal and resilient experience.
-              </p>
-              <p>
-                Designing Within Real User Constraints While refining the flow,
-                I learned that even small interaction gaps can break the entire
-                experience. For example, supporting multi-photo uploads required
-                rethinking how AI suggestions were structured. I had to ensure
-                the interface remained clear and lightweight, even as the task
-                became more complex. This taught me how to balance accessibility
-                improvements with Instagram’s core value of speed and
-                simplicity.
-              </p>
-              <p>
-                Connecting Design with Technical Reality Researching Assistive
-                Technology APIs changed how I think about design. I realized
-                that accessibility decisions don’t stop at visual layouts—they
-                depend heavily on how metadata is structured and interpreted by
-                screen readers. By understanding how tools like VoiceOver parse
-                semantic information, I was able to design a UI hierarchy that
-                is not only visually clear but also technically implementable.
-                This experience strengthened my belief that designers should
-                understand technical systems, especially when working on
-                accessibility.
-              </p>
+              <h3>Takeaways & Reflection</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                {/* Reflection 1 */}
+                <div className="relative p-6 bg-black text-white rounded-2xl flex flex-col">
+                  <h4 className="font-bold text-lg mb-2 leading-snug">
+                    From Sympathy to <br className="hidden lg:block" />{" "}
+                    Inclusive Thinking
+                  </h4>
+                  <p className="leading-relaxed opacity-90 flex-grow">
+                    I learned that accessibility isn’t about building a separate
+                    solution for a minority, but about designing systems that
+                    work better for everyone.
+                  </p>
+                </div>
+
+                {/* Reflection 2 */}
+                <div className="relative p-6 bg-black text-white rounded-2xl flex flex-col">
+                  <h4 className="font-bold text-lg mb-2">
+                    Designing Within <br className="hidden lg:block" /> Real
+                    Constraints
+                  </h4>
+                  <p className="leading-relaxed opacity-90 flex-grow">
+                    I learned to balance complex accessibility requirements with
+                    Instagram's core value of speed and simplicity.
+                  </p>
+                </div>
+
+                {/* Reflection 3 */}
+                <div className="relative p-6 bg-black text-white rounded-2xl flex flex-col">
+                  <h4 className="font-bold text-lg mb-2">
+                    Connecting Design with <br className="hidden lg:block" />{" "}
+                    Technical Reality
+                  </h4>
+                  <p className="leading-relaxed opacity-90 flex-grow">
+                    Understanding how screen readers interpret metadata helped
+                    me design a structure that is both visually clear and
+                    technically feasible.
+                  </p>
+                </div>
+              </div>
             </article>
           </motion.section>
         </div>

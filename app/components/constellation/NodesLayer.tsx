@@ -1,8 +1,10 @@
+import { ReactNode } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import GradientOrb from "@/app/components/ui/GradientOrb";
 import { nodePositions, nodeLabels } from "./data";
 import type { NodeId } from "./data";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 
 interface Props {
   hovered: NodeId | null;
@@ -12,10 +14,20 @@ interface Props {
   onCenterClick?: () => void; 
 }
 
-const BUBBLE_CONTENT: Record<string, string> = {
-  uiux: "Crafting seamless flows with user-centered solutions :D",
-  creative: "Exploring, interacting, and expressing ideas through <code>!",
-  jaine: "Annyeong, Welcome! I'm Jaine Shin :DDD Click me if you want to know about me!",
+const BUBBLE_CONTENT: Record<string, ReactNode> = {
+  uiux: "I’m passionate about crafting seamless flows through user-centered solutions :D",
+  creative: (
+    <>I love exploring, interacting, and expressing ideas through <code>&lt;code&gt;</code>!</>
+  ),
+  jaine: (
+    <>
+      Annyeong, Welcome! <br />
+      <span className="relative inline-block">
+  <span className="relative z-10">Let me introduce myself...</span>
+  <span className="absolute bottom-1 left-0 w-full h-[8px] bg-yellow-200/60 -z-0 rounded-full group-hover:bg-yellow-300 transition-colors" />
+</span>
+    </>
+  ),
 };
 
 const ROLE_NODES: NodeId[] = ["uiux", "creative", "jaine"];
@@ -62,7 +74,7 @@ export function NodesLayer({ hovered, onHover, width, height, onCenterClick }: P
                   initial={{ opacity: 0, y: 5, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 5, scale: 0.9 }}
-                  className="absolute bottom-full mb-7 w-48 p-3 bg-white/50 backdrop-blur-xs border border-white text-black shadow-lg rounded-2xl text-sm leading-relaxed z-50 pointer-events-none"
+                  className="absolute bottom-full mb-7 w-50 p-3 bg-white/50 backdrop-blur-xs border border-white text-black shadow-lg rounded-2xl text-sm leading-relaxed z-50 pointer-events-none"
                 >
                   {BUBBLE_CONTENT[nodeId]}
                   <div
