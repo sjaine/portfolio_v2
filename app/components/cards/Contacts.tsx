@@ -21,7 +21,7 @@ export default function Contacts() {
       style={{ gap: isOpen ? "20px" : "0px" }}
     >
       {/* Header */}
-      <div className="flex w-full justify-between items-center h-[32px]">
+      <div onClick={() => setIsOpen(!isOpen)} className="flex w-full justify-between items-center h-[32px cursor-pointer">
         <motion.p layout className="">
           CONTACT
         </motion.p>

@@ -53,7 +53,7 @@ export default function InstagramProject() {
   const { activeSection, isParentActive } = useScrollObserver<SectionId>();
 
   return (
-    <main className="pt-4 flex flex-col justify-center items-center w-screen overflow-hidden page-gradient scroll-smooth">
+    <main className="pt-4 flex flex-col justify-center items-center w-screen page-gradient scroll-smooth">
       <Navbar />
       <ProjectHeader
         title="Instagram Accessibility"
