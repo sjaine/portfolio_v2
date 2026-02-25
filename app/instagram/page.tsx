@@ -214,7 +214,7 @@ export default function InstagramProject() {
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h3>Problem</h3>
-              <div className="flex flex-col md:flow-row">
+              <div className="flex flex-col md:flex-row">
                 <div className="flex-[4] pb-12 md:pb-0 pr-0 md:pr-16 flex flex-col justify-between">
                   <p>
                     Post, Story, Reels… <br />

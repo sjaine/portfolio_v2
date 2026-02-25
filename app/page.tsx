@@ -4,7 +4,7 @@ import Navbar from "@/app/components/layout/Navbar";
 import SidePanel from "@/app/components/layout/SidePanel";
 import ConstellationCanvas from "./components/constellation/ConstellationCanvas";
 import CaseStudyPreview from "./components/layout/CaseStudyPreview";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type HoveredCase = {
   id: string;
@@ -15,14 +15,31 @@ type HoveredCase = {
 
 export default function Home() {
   const [hoveredCase, setHoveredCase] = useState<HoveredCase>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleHover = (data: HoveredCase) => {
+    if (isMobile) return;
+    setHoveredCase(data);
+  };
 
   return (
     <div className="overflow-hidden gradient">
       <Navbar />
-      <div className="flex flex-row items-center justify-between w-screen h-screen">
-        <ConstellationCanvas hidden={!!hoveredCase} />
-        <CaseStudyPreview caseStudy={hoveredCase} />
-        <SidePanel onHover={setHoveredCase} />
+      <div className="flex flex-col md:flex-row items-center justify-between w-screen h-screen">
+        <ConstellationCanvas hidden={!isMobile && !!hoveredCase} />
+        {!isMobile && <CaseStudyPreview caseStudy={hoveredCase} />}
+        
+        <SidePanel onHover={handleHover} />
       </div>
     </div>
   );
