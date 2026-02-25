@@ -13,7 +13,7 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import "swiper/css";
 import "swiper/css/effect-cards";
 
-const images = ["/images/jaine.jpg", "/images/jaine2.png", "/images/jaine.png"];
+const images = ["/images/about/1.png", "/images/about/2.png", "/images/about/3.png", "/images/about/4.png", "/images/about/5.png", "/images/about/6.png"];
   const duplicatedImages = [...images, ...images, ...images];
 
 export default function ProfileModal({
@@ -123,7 +123,7 @@ export default function ProfileModal({
                 <SwiperSlide>
                   <div className="w-5/6 p-3 bg-white border border-black/10 rounded-xl">
                     <Image
-                      src="/images/jaine2.png"
+                      src="/images/about/8.png"
                       alt="Jaine!"
                       width={500}
                       height={500}
@@ -134,7 +134,7 @@ export default function ProfileModal({
                 <SwiperSlide>
                   <div className="w-5/6 p-3 bg-white border border-black/10 rounded-xl">
                     <Image
-                      src="/images/jaine.png"
+                      src="/images/about/jaine.png"
                       alt="Jaine!"
                       width={500}
                       height={500}
@@ -145,7 +145,7 @@ export default function ProfileModal({
                 <SwiperSlide>
                   <div className="w-5/6 p-3 bg-white border border-black/10 rounded-xl">
                     <Image
-                      src="/images/jaine.png"
+                      src="/images/about/7.png"
                       alt="Jaine!"
                       width={500}
                       height={500}
