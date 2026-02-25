@@ -53,7 +53,7 @@ export default function InstagramProject() {
   const { activeSection, isParentActive } = useScrollObserver<SectionId>();
 
   return (
-    <main className="pt-4 flex flex-col justify-center items-center w-screen page-gradient scroll-smooth">
+    <main className="pt-4 flex flex-col justify-center items-center w-screen overflow-hidden page-gradient scroll-smooth">
       <Navbar />
       <ProjectHeader
         title="Instagram Accessibility"
@@ -122,24 +122,33 @@ export default function InstagramProject() {
             >
               <h2>Final Solution</h2>
               <div className="flex h-full w-full flex-col md:flex-row">
-              <div className="flex-[4] pb-16 md:pb-0 pr-0 md:pr-16 flex justify-between">
+                <div className="flex-[4] pb-16 md:pb-0 pr-0 md:pr-16 flex justify-between">
                   <p>
-                    <span className="text-[#6196F0] font-bold">Main Feed</span><br />Surface alt text directly below each photo for
-                    immediate access.
+                    <span className="text-[#6196F0] font-bold">Main Feed</span>
+                    <br />
+                    Surface alt text directly below each photo for immediate
+                    access.
                     <br />
                     <br />
                     <br />
-                    <span className="text-[#6196F0] font-bold">Photo Selection</span><br />Provide AI-generated descriptions to support
-                    image understanding during selection.
+                    <span className="text-[#6196F0] font-bold">
+                      Photo Selection
+                    </span>
+                    <br />
+                    Provide AI-generated descriptions to support image
+                    understanding during selection.
                     <br />
                     <br />
                     <br />
-                    <span className="text-[#6196F0] font-bold">Add & Edit Alt Text</span><br />Relocate the alt text feature to the
-                    Filter & Edit stage, with AI-generated text as the default and
-                    easy manual editing available.
+                    <span className="text-[#6196F0] font-bold">
+                      Add & Edit Alt Text
+                    </span>
+                    <br />
+                    Relocate the alt text feature to the Filter & Edit stage,
+                    with AI-generated text as the default and easy manual
+                    editing available.
                   </p>
-
-              </div>
+                </div>
                 <div className="w-[300px] h-full">
                   <Swiper
                     spaceBetween={30}
@@ -373,7 +382,7 @@ export default function InstagramProject() {
                 visual impairments avoid using Instagram or feel dissatisfied
                 with the platform.
               </p>
-              <div className="flex gap-12">
+              <div className="flex gap-12 flex-col md:flex-row">
                 <div className="flex flex-col items-center bg-black text-white p-10 flex-1 rounded-2xl">
                   <h4 className="text-6xl text-bold font-[IBM_Plex_Sans] pb-5">
                     ①
@@ -510,45 +519,60 @@ export default function InstagramProject() {
                   design principles depending on the situations.
                 </p>
               </div>
-              {/* 1. 부모 컨테이너를 grid로 변경: 기본 1열, 중형 2열, 대형 4열 */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4">
-  {/* 각 아이템 (아이템 4개 모두에 공통 적용) */}
-  {[
-    { id: "permanent", text: "Consider <strong>screen reader</strong> compatibility" },
-    { id: "temporary", text: "Ensure usability with <strong>screen zoom & voice assistance</strong>" },
-    { id: "situational", text: "Make the alt text option more <strong>visible and accessible</strong>" },
-    { id: "general", text: "<strong>Use AI</strong> to help users write better alt text" }
-  ].map((item) => (
-    <div key={item.id} className="flex flex-col gap-[24px] items-center w-full max-w-[240px] mx-auto lg:max-w-[200px]">
-      <Image
-        src={`/images/instagram/${item.id}user.svg`}
-        alt={`${item.id} User`}
-        width={500}
-        height={500}
-        className="w-full h-auto"
-      />
-      <Image
-        src={`/images/instagram/${item.id}bubble.svg`}
-        alt={`${item.id} Bubble`}
-        width={500}
-        height={500}
-        className="w-full h-auto"
-      />
-      <ArrowDownIcon className="w-8 h-10 shrink-0" />
-      
-      {/* 텍스트 박스: 높이를 고정(h-[148px])하면 모바일에서 텍스트가 넘칠 수 있으므로 md 이상에서만 고정 */}
-      <div className="flex flex-col w-full bg-black text-white p-6 gap-2 rounded-lg min-h-[148px] md:h-[148px]">
-        <Image
-          src="/images/instagram/staricon.svg"
-          alt="Star Icon"
-          width={20}
-          height={20}
-        />
-        <p className="text-sm md:text-base leading-snug" dangerouslySetInnerHTML={{ __html: item.text }} />
-      </div>
-    </div>
-  ))}
-</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4">
+                {[
+                  {
+                    id: "permanent",
+                    text: "Consider <strong>screen reader</strong> compatibility",
+                  },
+                  {
+                    id: "temporary",
+                    text: "Ensure usability with <strong>screen zoom & voice assistance</strong>",
+                  },
+                  {
+                    id: "situational",
+                    text: "Make the alt text option more <strong>visible and accessible</strong>",
+                  },
+                  {
+                    id: "general",
+                    text: "<strong>Use AI</strong> to help users write better alt text",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex flex-col gap-[24px] items-center w-full max-w-[240px] mx-auto lg:max-w-[200px]"
+                  >
+                    <Image
+                      src={`/images/instagram/${item.id}user.svg`}
+                      alt={`${item.id} User`}
+                      width={500}
+                      height={500}
+                      className="w-full h-auto"
+                    />
+                    <Image
+                      src={`/images/instagram/${item.id}bubble.svg`}
+                      alt={`${item.id} Bubble`}
+                      width={500}
+                      height={500}
+                      className="w-full h-auto"
+                    />
+                    <ArrowDownIcon className="w-8 h-10 shrink-0" />
+
+                    <div className="flex flex-col w-full bg-black text-white p-6 gap-2 rounded-lg min-h-[148px] md:h-[148px]">
+                      <Image
+                        src="/images/instagram/staricon.svg"
+                        alt="Star Icon"
+                        width={20}
+                        height={20}
+                      />
+                      <p
+                        className="text-sm md:text-base leading-snug"
+                        dangerouslySetInnerHTML={{ __html: item.text }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </article>
 
             <article
@@ -643,7 +667,7 @@ export default function InstagramProject() {
             </header>
             <article className="flex flex-col gap-[20px]">
               <div className="flex flex-col gap-[120px]">
-                <div className="flex">
+                <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
                     <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
                       <Image
@@ -657,7 +681,7 @@ export default function InstagramProject() {
                         <strong>visible and accessible</strong>
                       </p>
                     </div>
-                    <div className="flex flex-col gap-[10px] pr-24">
+                    <div className="flex flex-col gap-[10px] pr-0 md:pr-24">
                       <p className="text-2xl font-bold">Main Feed</p>
                       <p className="text-lg">
                         In the main feed, the ALT text box is positioned below
@@ -676,7 +700,7 @@ export default function InstagramProject() {
                     />
                   </div>
                 </div>
-                <div className="flex">
+                <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
                     <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
                       <Image
@@ -690,7 +714,7 @@ export default function InstagramProject() {
                         <strong>screen zoom & voice assistance</strong>
                       </p>
                     </div>
-                    <div className="flex flex-col gap-[10px] pr-24">
+                    <div className="flex flex-col gap-[10px] pr-0 md:pr-24">
                       <p className="text-2xl font-bold">Pick a Photo</p>
                       <p className="text-lg">
                         When a photo is clicked, <strong>VoiceOver</strong>{" "}
@@ -709,7 +733,7 @@ export default function InstagramProject() {
                     />
                   </div>
                 </div>
-                <div className="flex">
+                <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
                     <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
                       <Image
@@ -723,7 +747,7 @@ export default function InstagramProject() {
                         text
                       </p>
                     </div>
-                    <div className="flex flex-col gap-[10px] pr-24">
+                    <div className="flex flex-col gap-[10px] pr-0 md:pr-24">
                       <p className="text-2xl font-bold">Add alt text</p>
                       <p className="text-lg">
                         Alt text button has been moved to the Filter/Edit page.
@@ -744,7 +768,7 @@ export default function InstagramProject() {
                     />
                   </div>
                 </div>
-                <div className="flex">
+                <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
                     <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
                       <Image
@@ -757,7 +781,7 @@ export default function InstagramProject() {
                         Consider <strong>screen reader</strong> compatibility
                       </p>
                     </div>
-                    <div className="flex flex-col gap-[10px] pr-24">
+                    <div className="flex flex-col gap-[10px] pr-0 md:pr-24">
                       <p className="text-2xl font-bold">Edit alt text</p>
                       <p className="text-lg">
                         Users can <strong>review</strong> their ALT text before

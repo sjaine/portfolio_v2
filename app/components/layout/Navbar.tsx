@@ -29,7 +29,7 @@ export default function Navbar() {
             /jaineysshin.com
           </Link>
           <LocationTimeBadge />
-          <div className="hidden md:block flex gap-2 items-center">
+          <div className="hidden md:flex flex gap-2 items-center">
             <AvailabilityDot />
             <div>AVAILABLE FOR WORK</div>
           </div>
