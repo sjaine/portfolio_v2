@@ -18,7 +18,7 @@ export default function Contacts() {
     <motion.div
       initial={false}
       className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-6 py-4 bg-white/50 rounded-lg border border-white overflow-hidden"
-      style={{ gap: isOpen ? "10px md:20px" : "0px" }}
+      style={{ gap: isOpen ? "20px" : "0px" }}
     >
       {/* Header */}
       <div className="flex w-full justify-between items-center h-[32px]">
@@ -50,7 +50,7 @@ export default function Contacts() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="flex flex-col gap-3 pb-2"
+            className="flex flex-row md:flex-col gap-3 pb-2 justify-between"
           >
             <ContactLink
               label="Resume"
