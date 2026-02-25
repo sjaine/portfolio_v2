@@ -30,7 +30,7 @@ export default function Profile() {
       </div>
 
       <div className="flex w-full justify-between gap-18">
-        <p>{isMobile ? "HELLO, JAINE! 👋" : "ROUGH CUTS 💡"}</p>
+        <p>{isMobile ? "HELLO, JAINE! 👋" : "ARCHIVE 💡"}</p>
         <Button onClick={() => setIsModalOpen(true)}>
           <SizeIcon />
         </Button>
