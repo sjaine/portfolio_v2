@@ -19,7 +19,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/"
-            className="relative py-1 text-base cursor-pointer
+            className="hidden md:block relative py-1 text-base cursor-pointer
             transition-colors
             before:absolute before:inset-y-0 before:-inset-x-3
             before:rounded-md before:bg-transparent
@@ -29,7 +29,7 @@ export default function Navbar() {
             /jaineysshin.com
           </Link>
           <LocationTimeBadge />
-          <div className="flex gap-2 items-center">
+          <div className="hidden md:block flex gap-2 items-center">
             <AvailabilityDot />
             <div>AVAILABLE FOR WORK</div>
           </div>

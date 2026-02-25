@@ -72,11 +72,11 @@ export default function InstagramProject() {
           loop
           playsInline
           preload="metadata"
-          className="object-cover"
+          className="hidden md:block object-cover"
         />
       </div>
 
-      <div className="pt-12 px-48 flex max-w-[1500px]">
+      <div className="pt-0 px-4 w-full md:pt-12 md:px-48 flex max-w-[1500px]">
         <SideNav
           activeSection={activeSection}
           isParentActive={isParentActive}
@@ -121,8 +121,8 @@ export default function InstagramProject() {
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h2>Final Solution</h2>
-              <div className="flex h-full w-full">
-              <div className="flex-[4] pr-16 flex flex-col justify-between">
+              <div className="flex h-full w-full flex-col md:flex-row">
+              <div className="flex-[4] pb-16 md:pb-0 pr-0 md:pr-16 flex justify-between">
                   <p>
                     <span className="text-[#6196F0] font-bold">Main Feed</span><br />Surface alt text directly below each photo for
                     immediate access.
@@ -214,8 +214,8 @@ export default function InstagramProject() {
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h3>Problem</h3>
-              <div className="flex">
-                <div className="flex-[4] pr-16 flex flex-col justify-between">
+              <div className="flex flex-col md:flow-row">
+                <div className="flex-[4] pb-12 md:pb-0 pr-0 md:pr-16 flex flex-col justify-between">
                   <p>
                     Post, Story, Reels… <br />
                     <br />I love scrolling through Instagram — <br />
@@ -236,7 +236,7 @@ export default function InstagramProject() {
                     , but also for <strong>general users</strong> who want to
                     provide accessible content.
                   </p>
-                  <p className="text-[#a3a3a3] text-xs">
+                  <p className="text-[#a3a3a3] text-xs pt-8 md:pt-0">
                     * based on the 2023 Instagram interface
                   </p>
                 </div>
@@ -326,7 +326,7 @@ export default function InstagramProject() {
               <div className="flex flex-col gap-[20px]">
                 <h3>Research insights</h3>
                 <div className="flex flex-col">
-                  <div className="grid grid-cols-3 gap-12 text-center">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                     <div>
                       <div className="font-bold text-6xl text-[#6196F0] pb-5">
                         <Counter to={35} suffix="%" />
@@ -510,123 +510,45 @@ export default function InstagramProject() {
                   design principles depending on the situations.
                 </p>
               </div>
-              <div className="flex justify-between">
-                <div className="flex flex-col gap-[24px] items-center w-full max-w-[200px]">
-                  <Image
-                    src="/images/instagram/permanentuser.svg"
-                    alt="Permanent User"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                  <Image
-                    src="/images/instagram/permanentbubble.svg"
-                    alt="Permanent User"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                  <ArrowDownIcon className="w-8 h-10" />
-                  <div className="flex flex-col w-full bg-black text-white p-6 gap-2 rounded-lg h-[148px]">
-                    <Image
-                      src="/images/instagram/staricon.svg"
-                      alt="Star Icon"
-                      width={20}
-                      height={20}
-                    />
-                    <p>
-                      Consider <strong>screen reader</strong> compatibility
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-[24px] items-center w-full max-w-[200px]">
-                  <Image
-                    src="/images/instagram/temporaryuser.svg"
-                    alt="Permanent User"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                  <Image
-                    src="/images/instagram/temporarybubble.svg"
-                    alt="Permanent User"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                  <ArrowDownIcon className="w-8 h-10" />
-                  <div className="flex flex-col w-full bg-black text-white p-6 gap-2 rounded-lg h-[148px]">
-                    <Image
-                      src="/images/instagram/staricon.svg"
-                      alt="Star Icon"
-                      width={20}
-                      height={20}
-                    />
-                    <p>
-                      Ensure usability with{" "}
-                      <strong>screen zoom & voice assistance</strong>
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-[24px] items-center w-full max-w-[200px]">
-                  <Image
-                    src="/images/instagram/situationaluser.svg"
-                    alt="Permanent User"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                  <Image
-                    src="/images/instagram/situationalbubble.svg"
-                    alt="Permanent User"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                  <ArrowDownIcon className="w-8 h-10" />
-                  <div className="flex flex-col w-full bg-black text-white p-6 gap-2 rounded-lg h-[148px]">
-                    <Image
-                      src="/images/instagram/staricon.svg"
-                      alt="Star Icon"
-                      width={20}
-                      height={20}
-                    />
-                    <p>
-                      Make the alt text option more{" "}
-                      <strong>visible and accessible</strong>
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-[24px] items-center w-full max-w-[200px]">
-                  <Image
-                    src="/images/instagram/generaluser.svg"
-                    alt="Permanent User"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                  <Image
-                    src="/images/instagram/generalbubble.svg"
-                    alt="Permanent User"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                  <ArrowDownIcon className="w-8 h-10" />
-                  <div className="flex flex-col w-full bg-black text-white p-6 gap-2 rounded-lg h-[148px]">
-                    <Image
-                      src="/images/instagram/staricon.svg"
-                      alt="Star Icon"
-                      width={20}
-                      height={20}
-                    />
-                    <p>
-                      <strong>Use AI</strong> to help users write better alt
-                      text
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {/* 1. 부모 컨테이너를 grid로 변경: 기본 1열, 중형 2열, 대형 4열 */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4">
+  {/* 각 아이템 (아이템 4개 모두에 공통 적용) */}
+  {[
+    { id: "permanent", text: "Consider <strong>screen reader</strong> compatibility" },
+    { id: "temporary", text: "Ensure usability with <strong>screen zoom & voice assistance</strong>" },
+    { id: "situational", text: "Make the alt text option more <strong>visible and accessible</strong>" },
+    { id: "general", text: "<strong>Use AI</strong> to help users write better alt text" }
+  ].map((item) => (
+    <div key={item.id} className="flex flex-col gap-[24px] items-center w-full max-w-[240px] mx-auto lg:max-w-[200px]">
+      <Image
+        src={`/images/instagram/${item.id}user.svg`}
+        alt={`${item.id} User`}
+        width={500}
+        height={500}
+        className="w-full h-auto"
+      />
+      <Image
+        src={`/images/instagram/${item.id}bubble.svg`}
+        alt={`${item.id} Bubble`}
+        width={500}
+        height={500}
+        className="w-full h-auto"
+      />
+      <ArrowDownIcon className="w-8 h-10 shrink-0" />
+      
+      {/* 텍스트 박스: 높이를 고정(h-[148px])하면 모바일에서 텍스트가 넘칠 수 있으므로 md 이상에서만 고정 */}
+      <div className="flex flex-col w-full bg-black text-white p-6 gap-2 rounded-lg min-h-[148px] md:h-[148px]">
+        <Image
+          src="/images/instagram/staricon.svg"
+          alt="Star Icon"
+          width={20}
+          height={20}
+        />
+        <p className="text-sm md:text-base leading-snug" dangerouslySetInnerHTML={{ __html: item.text }} />
+      </div>
+    </div>
+  ))}
+</div>
             </article>
 
             <article

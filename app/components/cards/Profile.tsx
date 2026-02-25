@@ -9,7 +9,7 @@ export default function Profile() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="max-w-[280px] w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
+    <div className="max-w-full md:max-w-[280px]  w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
       <div className="w-[80px] h-[80px] bg-black rounded-lg relative">
         <Image src="/images/jaine2.png" alt="jaine" fill className="object-cover rounded-lg" />
       </div>

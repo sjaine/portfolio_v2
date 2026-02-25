@@ -34,7 +34,7 @@ export default function LocationTimeBadge() {
     <button
       type="button"
       onClick={toggleLocation}
-      className="px-3 py-1 rounded-md text-base
+      className="hidden md:block px-3 py-1 rounded-md text-base
                  transition-colors hover:bg-black/10 cursor-pointer"
       aria-label="Toggle location time"
     >

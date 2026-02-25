@@ -18,8 +18,8 @@ type SidePanelProps = {
 
 export default function SidePanel({ onHover }: SidePanelProps) {
   return (
-    <div className="relative z-2 flex flex-col h-full justify-between py-5 px-4">
-      <div className="flex flex-col gap-4 items-end">
+    <div className="w-full md:w-auto relative z-2 flex flex-col h-full justify-between py-5 px-4">
+      <div className="flex flex-col gap-4 items-end pt-10 md:pt-0">
         {/* <SwitchBtn /> */}
         <Profile />
         <Contacts />

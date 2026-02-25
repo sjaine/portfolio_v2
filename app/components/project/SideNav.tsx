@@ -7,7 +7,7 @@ interface SideNavProps {
 
 export default function SideNav({ activeSection, isParentActive }: SideNavProps) {
   return (
-    <nav className="flex-[3] relative">
+    <nav className="flex-[3] relative hidden md:block ">
       <ul className="sticky top-20 text-sm leading-[35px] text-[#a3a3a3]">
         {INSTAGRAM_PROJECT_SECTIONS.map((parent) => {
           const childIds = parent.children.map((c) => c.id);
