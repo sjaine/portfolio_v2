@@ -1,28 +1,30 @@
 import Link from "next/link";
 import AvailabilityDot from "@/app/components/ui/AvailabilityDot";
 import CaseStudyItem from "@/app/components/ui/CaseStudy";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const CASE_STUDIES = [
   {
     id: "Instagram Accessibility",
     title: "Instagram Accessibility",
     href: "/instagram",
-    thumbnail: "/images/project/trial1.png",
-    description: "coming soon!",
-  },
-  {
-    id: "collab",
-    title: "Collab",
-    href: "/case1",
     thumbnail: "/images/project/trial2.png",
-    description: "coming soon!",
+    description: "Improving Instagram's Accessibility for people with visual impairments.",
   },
   {
-    id: "instagram",
-    title: "Instagram",
-    href: "/case2",
+    id: "modea",
+    title: "Modea",
+    href: "/modea",
     thumbnail: "/images/project/pawlart.png",
-    description: "coming soon!",
+    description: "Redefining context switching in remote work.",
+  },
+  {
+    id: "gwsk",
+    title: "GWSK Studio",
+    href: "/gwsk",
+    thumbnail: "/images/project/trial1.png",
+    description: "Redesigned & Developed GWSK studio's new website.",
   },
 ];
 
@@ -47,9 +49,9 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
           <div>CASE STUDIES</div>
         </div>
         {/* description */}
-        <p className="text-xs text-gray-500">
-          {/* Switch to dev case studies by turning on {"<Dev Mode>"}. */}
-        </p>
+        {/* <p className="text-xs text-gray-500">
+          Switch to dev case studies by turning on {"<Dev Mode>"}.
+        </p> */}
       </div>
 
       <div className="flex w-full flex-col gap-6">

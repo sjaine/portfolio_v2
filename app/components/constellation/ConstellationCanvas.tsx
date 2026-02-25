@@ -6,6 +6,8 @@ import { LinesLayer } from "./LinesLayer";
 import { useCanvasSize } from "./useCanvasSize";
 import type { NodeId } from "./data";
 
+import ProfileModal from "../ui/ProfileModal";
+
 const SCALE_MD = 1440;
 const SCALE_XL = 1920;
 
@@ -19,6 +21,7 @@ export default function ConstellationCanvas({
   const { ref, size } = useCanvasSize();
   const [hovered, setHovered] = useState<NodeId | null>(null);
   const [scale, setScale] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const updateScale = () => {
@@ -65,9 +68,17 @@ export default function ConstellationCanvas({
             onHover={setHovered}
             width={size.width}
             height={size.height}
+            // 중앙 노드 클릭 시 모달 오픈 함수 전달
+            onCenterClick={() => setIsModalOpen(true)} 
           />
         </div>
       </div>
+
+      {/* Profile Modal 연결 */}
+      <ProfileModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 }

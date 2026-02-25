@@ -1,13 +1,15 @@
 "use client";
 
 import Navbar from "../components/layout/Navbar";
-import Link from "next/link";
 import Image from "next/image";
 
+import ProjectHeader from "../components/project/ProjectHeader";
 import SideNav from "@/app/components/project/SideNav";
 import { useScrollObserver } from "../components/hooks/useScrollObserver";
+import Counter from "../components/project/Counter";
 
-import { GlobeIcon, ArrowDownIcon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
+import { ArrowDownIcon } from "@radix-ui/react-icons";
 import {
   ReactCompareSlider,
   ReactCompareSliderHandle,
@@ -15,10 +17,21 @@ import {
 } from "react-compare-slider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Scrollbar } from "swiper/modules";
-import { useEffect, useState } from "react";
 
 import "swiper/css";
 import "swiper/css/scrollbar";
+
+const fadeIn = {
+  initial: { opacity: 0, y: 100 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-50px" },
+  transition: {
+    type: "spring",
+    stiffness: 150,
+    damping: 20,
+    duration: 0.8,
+  },
+} as const;
 
 export type SectionId =
   | "tldr"
@@ -42,38 +55,14 @@ export default function InstagramProject() {
   return (
     <main className="pt-4 flex flex-col justify-center items-center w-screen page-gradient scroll-smooth">
       <Navbar />
-
-      <header className="px-24 pt-24 pb-8 max-w-[1980px] w-full">
-        <div className="text-8xl font-bold pb-12">Instagram Accessibility</div>
-        <div className="flex w-full justify-between items-start">
-          <div>
-            <div className="point pb-2">{"<ROLE>"}</div>
-            <div>UI/UX Designer</div>
-            <div>Front-end Developer</div>
-          </div>
-          <div>
-            <div className="point pb-2">{"<TIMELINE>"}</div>
-            <div>From August 2023</div>
-            <div>From December 2023</div>
-          </div>
-          <div>
-            <div className="point pb-2">{"<TEAM>"}</div>
-            <div>Solo project</div>
-          </div>
-          <div>
-            <div className="point pb-2">{"<TOOLS>"}</div>
-            <div>Figma, Visual Studio Code,</div>
-            <div>HTML, CSS, REST APIs</div>
-          </div>
-          <Link
-            href="https://jaineinstaaccessibility.netlify.app/"
-            target="_blank"
-            className="p-2 bg-white inline-flex items-center justify-center rounded-lg"
-          >
-            <GlobeIcon className="w-6 h-6" />
-          </Link>
-        </div>
-      </header>
+      <ProjectHeader
+        title="Instagram Accessibility"
+        role={["UI/UX Designer", "Front-end Developer"]}
+        timeline={["From August 2023", "From December 2023"]}
+        team="Solo project"
+        tools={["Figma, Visual Studio Code,", "HTML, CSS, REST APIs"]}
+        link="https://jaineinstaaccessibility.netlify.app/"
+      />
 
       <div className="h-[800px] w-full bg-black overflow-hidden">
         <video
@@ -82,6 +71,7 @@ export default function InstagramProject() {
           muted
           loop
           playsInline
+          preload="metadata"
           className="w-full"
         />
       </div>
@@ -94,7 +84,8 @@ export default function InstagramProject() {
 
         <div className="flex-[9]">
           {/* TL;DR */}
-          <section
+          <motion.section
+            {...fadeIn}
             id="tldr"
             className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
           >
@@ -146,10 +137,11 @@ export default function InstagramProject() {
                 </div>
               </div>
             </article>
-          </section>
+          </motion.section>
 
           {/* PROBLEM */}
-          <section
+          <motion.section
+            {...fadeIn}
             id="problem"
             className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
           >
@@ -194,6 +186,7 @@ export default function InstagramProject() {
                   <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
+                    loop={true}
                     autoplay={{
                       delay: 2500,
                       disableOnInteraction: false,
@@ -278,7 +271,7 @@ export default function InstagramProject() {
                   <div className="grid grid-cols-3 gap-12 text-center">
                     <div>
                       <div className="font-bold text-6xl text-[#6196F0] pb-5">
-                        35%
+                        <Counter to={35} suffix="%" />
                       </div>
                       <p>
                         Users struggle <strong>to find</strong> the alt text
@@ -287,7 +280,7 @@ export default function InstagramProject() {
                     </div>
                     <div>
                       <div className="font-bold text-6xl text-[#6196F0] pb-5">
-                        34%
+                        <Counter to={34} suffix="%" />
                       </div>
                       <p>
                         Visually impaired users are{" "}
@@ -298,7 +291,7 @@ export default function InstagramProject() {
                     </div>
                     <div>
                       <div className="font-bold text-6xl text-[#6196F0] pb-5">
-                        #5 / 5
+                        <Counter to={5} prefix="#" suffix=" / 5" />
                       </div>
                       <p>
                         Instagram ranked{" "}
@@ -343,10 +336,11 @@ export default function InstagramProject() {
                 </div>
               </div>
             </article>
-          </section>
+          </motion.section>
 
           {/* CHALLENGE */}
-          <section
+          <motion.section
+            {...fadeIn}
             id="challenge"
             className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
           >
@@ -384,6 +378,32 @@ export default function InstagramProject() {
                 To address this, I explored{" "}
                 <strong>integrating AI support</strong> into the alt text flow
                 to reduce cognitive load while improving overall accessibility.
+              </p>
+            </article>
+
+            <article>
+              <h3>User Understanding</h3>
+              <p>
+                Through persona development, context scenarios, and empathy
+                mapping, I identified two primary user groups:
+                <br />
+                <br />
+                <span className="rounded-full bg-[#6D8EEB] text-white px-4 py-1 font-bold">
+                  ① General Users
+                </span>
+                <br />
+                Often unaware of where the alt text feature is located. Even
+                when they intend to use accessibility features, the hidden
+                interface and multi-step process discourage engagement. <br />
+                <br />
+                <span className="rounded-full bg-[#6D8EEB] text-white px-4 py-1 font-bold">
+                  ② Users with Visual Impairments
+                </span>
+                <br />
+                Rely heavily on descriptive metadata to understand visual
+                content. However, inconsistent alt text availability and limited
+                visibility of accessibility tools reduce their overall
+                experience and trust in the platform.
               </p>
             </article>
 
@@ -598,10 +618,11 @@ export default function InstagramProject() {
                 {"(WIP)"}
               </p>
             </article>
-          </section>
+          </motion.section>
 
           {/* SOLUTION */}
-          <section
+          <motion.section
+            {...fadeIn}
             id="solution"
             className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
           >
@@ -631,8 +652,7 @@ export default function InstagramProject() {
                       <p className="text-lg">
                         In the main feed, the ALT text box is positioned below
                         each photo. When a user clicks on a photo,{" "}
-                        <strong>VoiceOver</strong>
-                        reads the ALT text.
+                        <strong>VoiceOver</strong> reads the ALT text.
                       </p>
                     </div>
                   </div>
@@ -749,10 +769,11 @@ export default function InstagramProject() {
                 </div>
               </div>
             </article>
-          </section>
+          </motion.section>
 
           {/* IMPACT & TAKEAWAYS */}
-          <section
+          <motion.section
+            {...fadeIn}
             id="reflection"
             className="flex flex-col gap-[100px] mb-[100px] scroll-mt-20"
           >
@@ -762,13 +783,95 @@ export default function InstagramProject() {
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
             <article className="flex flex-col gap-[20px]">
-              <h3>Overview</h3>
-              <p>dd</p>
+              <h3>Impact & Expected Metrics</h3>
+              <p>
+                1. Usability & Efficiency Reduced Drop-off Rate & Task
+                Completion Time By placing the alt text feature directly within
+                the main posting flow and reducing the number of steps by 20%, I
+                aimed to lower user friction and make the process feel more
+                seamless. Simplified Content Creation With AI-assisted
+                description generation, users can create alt text more easily.
+                This helps ensure accessibility information is included—even
+                when users might otherwise skip writing it manually.
+              </p>
+
+              <p>
+                2. User Satisfaction & Accessibility Improved Experience for
+                Screen Reader Users By providing clearer and more consistent
+                AI-generated descriptions, the goal is to help visually impaired
+                users better understand visual content and improve their overall
+                browsing experience. Lower Barrier for General Users Moving the
+                feature from hidden settings into a more visible and guided
+                interface reduces confusion and makes accessibility feel less
+                overwhelming, encouraging more users to participate in creating
+                inclusive content.
+              </p>
             </article>
             <article className="flex flex-col gap-[20px]">
-              <h3>Final Solution</h3>
+              <h3>Future Opportunities & Next Steps</h3>
+              <p>
+                1. Expanding Accessibility Across Content Formats Right now, the
+                solution focuses mainly on static feed posts. However, since
+                Stories and Reels are a big part of how people use Instagram
+                today, the next step would be to adapt the AI-guided alt text
+                feature to those formats as well. Expanding this system would
+                help create a more consistent and inclusive experience across
+                the platform.
+              </p>
+              <p>
+                2. Testing with Real Assistive Technology Users This project was
+                based on heuristic evaluation and competitor research, but I
+                believe real validation is essential. As a next step, I would
+                like to conduct usability testing with actual screen reader
+                users (such as VoiceOver or TalkBack users) to better understand
+                how they interact with the interface in real situations. This
+                would help refine the UI based on real assistive technology
+                behavior, not just assumptions.
+              </p>
+              <p>
+                3. Improving AI Accuracy with Human Oversight To improve the
+                experience further, I would explore ways to make AI-generated
+                descriptions more accurate while keeping users in control. This
+                means designing simple and intuitive ways for users to review
+                and edit AI suggestions, balancing automation with human
+                judgment.
+              </p>
+              <h3>Takeaways & Reflectionc</h3>
+              <p>
+                Shift from Sympathy to Inclusive Thinking Through this project,
+                I realized that accessibility isn’t about creating a “special”
+                feature for a small group of users. It’s about designing systems
+                that work better for everyone. Using the Inclusive Design
+                Spectrum helped me see how permanent disabilities and temporary
+                or situational constraints (like low bandwidth or cognitive
+                overload) often share similar friction points. This shifted my
+                approach from solving for a niche case to designing a more
+                universal and resilient experience.
+              </p>
+              <p>
+                Designing Within Real User Constraints While refining the flow,
+                I learned that even small interaction gaps can break the entire
+                experience. For example, supporting multi-photo uploads required
+                rethinking how AI suggestions were structured. I had to ensure
+                the interface remained clear and lightweight, even as the task
+                became more complex. This taught me how to balance accessibility
+                improvements with Instagram’s core value of speed and
+                simplicity.
+              </p>
+              <p>
+                Connecting Design with Technical Reality Researching Assistive
+                Technology APIs changed how I think about design. I realized
+                that accessibility decisions don’t stop at visual layouts—they
+                depend heavily on how metadata is structured and interpreted by
+                screen readers. By understanding how tools like VoiceOver parse
+                semantic information, I was able to design a UI hierarchy that
+                is not only visually clear but also technically implementable.
+                This experience strengthened my belief that designers should
+                understand technical systems, especially when working on
+                accessibility.
+              </p>
             </article>
-          </section>
+          </motion.section>
         </div>
       </div>
     </main>

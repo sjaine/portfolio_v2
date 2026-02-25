@@ -1,4 +1,3 @@
-import React from "react";
 import { INSTAGRAM_PROJECT_SECTIONS } from "./navigation"
 
 interface SideNavProps {
@@ -16,7 +15,6 @@ export default function SideNav({ activeSection, isParentActive }: SideNavProps)
 
           return (
             <li key={parent.id} className="relative group mt-2">
-              {/* 대단원 (부모) */}
               <a
                 href={`#${parent.id}`}
                 className={`transition-all duration-300 block ${
@@ -36,7 +34,6 @@ export default function SideNav({ activeSection, isParentActive }: SideNavProps)
                 {parent.label}
               </a>
 
-              {/* 소단원 (자식) 리스트 */}
               {parent.children.length > 0 && (
                 <ul
                   className={`border-l border-gray-200 overflow-hidden transition-all duration-500 max-h-0 opacity-0 

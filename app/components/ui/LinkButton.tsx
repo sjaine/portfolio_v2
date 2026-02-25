@@ -1,9 +1,23 @@
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { ReactNode } from "react";
 
-export default function IconButton() {
+interface IconButtonProps {
+  onClick?: () => void;
+  children?: ReactNode; 
+  className?: string; 
+}
+
+export default function IconButton({ onClick, children, className }: IconButtonProps) {
   return (
-    <button className="bg-white rounded-md p-1 aspect-square w-[24px] h-[24px] cursor-pointer">
-      <ArrowTopRightIcon />
+    <button
+      onClick={onClick}
+      disabled={!onClick}
+      className={`
+        bg-white rounded-md p-1 aspect-square w-[24px] h-[24px] 
+        flex items-center justify-center cursor-pointer
+        ${className || ""}
+      `}
+    >
+      {children}
     </button>
   );
 }

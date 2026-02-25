@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import Button from "@/app/components/ui/LinkButton";
 import Image from "next/image";
 import { useRef } from "react";
+
 
 type CaseStudyItemProps = {
   id: string;
@@ -65,7 +67,7 @@ export default function CaseStudyItem({
         }, 3000);
       }}
     >
-      <div className="relative z-10 flex w-full justify-between items-end group">
+      <div className="relative z-10 flex w-full justify-between items-center group">
         <div className="flex gap-6">
           {/* Thumbnail */}
           <div className="relative w-[50px] h-[50px] rounded-lg aspect-square">
@@ -82,11 +84,13 @@ export default function CaseStudyItem({
             <div className="text-sm opacity-60">
               {String(index).padStart(2, "0")}.
             </div>
-            <div className="text-lg leading-[140%]">{title}</div>
+            <div className="text-base leading-[140%]">{title}</div>
           </div>
         </div>
 
-        <Button />
+        <Button>
+          <ArrowTopRightIcon />
+        </Button>
       </div>
     </Link>
   );
