@@ -107,7 +107,7 @@ export default function ProfileModal({
                   perSlideRotate: 2,
                 }}
                 modules={[EffectCards]}
-                className="mySwiper w-[400px]"
+                className="mySwiper w-[300px] md:w-[400px]"
               >
                 <SwiperSlide>
                   <div className="w-5/6 p-3 bg-white border border-black/10 rounded-xl">
