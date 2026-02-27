@@ -19,7 +19,13 @@
 
 html {
   scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
 } 
+ 
+html::-webkit-scrollbar { 
+  display: none;  /* Older Safari and Chromium */
+}
 
 body {
   background: var(--background);
@@ -145,13 +151,4 @@ ul ul {
 .swiper {
   margin-left: 0 !important;
   margin-right: 0 !important;  
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none !important; /* IE and Edge */
-  scrollbar-width: none !important; /* Firefox */
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none !important; /* Chrome, Safari, Opera */
 }

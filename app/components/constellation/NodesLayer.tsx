@@ -100,6 +100,8 @@ export function NodesLayer({ hovered, onHover, width, height, onCenterClick }: P
                   ? { scale: 1.1, y: -2 }
                   : { scale: 1, y: 0 }
               }
+              whileTap={isRole ? { scale: 0.95, rotate: -2 } : { scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
               className="flex flex-col items-center"
             >
               {isCenter && (
