@@ -47,6 +47,7 @@ export function NodesLayer({ hovered, onHover, width, height, onCenterClick }: P
         const isCenter = nodeId === CENTER_NODE;
         const isRole = ROLE_NODES.includes(nodeId) && !isCenter;
         const isHovered = hovered === nodeId;
+        const isClickable = isCenter || isRole;
 
         const hasBubble = (isCenter || isRole) && BUBBLE_CONTENT[nodeId];
 
@@ -96,12 +97,25 @@ export function NodesLayer({ hovered, onHover, width, height, onCenterClick }: P
 
             <motion.div
               animate={
-                hasBubble && isHovered
-                  ? { scale: 1.1, y: -2 }
-                  : { scale: 1, y: 0 }
+                isHovered
+                  ? { scale: 1.1, y: -5 }
+                  : { 
+                      y: isClickable ? [0, -4, 0] : [0, -2, 0],
+                    }
+              }
+              transition={
+                isHovered 
+                  ? { type: "spring", stiffness: 400, damping: 17 } 
+                  : {
+                      y: {
+                        duration: isClickable ? 3 : 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.2
+                      }
+                    }
               }
               whileTap={isRole ? { scale: 0.95, rotate: -2 } : { scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
               className="flex flex-col items-center"
             >
               {isCenter && (
