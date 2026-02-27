@@ -29,7 +29,7 @@ export default function ConstellationCanvas({
       const width = window.innerWidth;
 
       if (width >= SCALE_XL) {
-        setScale(1.4);
+        setScale(1.2);
       } else if (width >= SCALE_MD) {
         setScale(1.2);
       } else if (width <= SCALE_SM) {
