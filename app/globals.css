@@ -17,14 +17,22 @@
   --color-warm-white: var(--warm-white);
 }
 
-html {
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
-} 
- 
-html::-webkit-scrollbar { 
-  display: none;  /* Older Safari and Chromium */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 body {
