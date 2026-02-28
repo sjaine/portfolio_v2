@@ -48,6 +48,8 @@ export default function Home() {
         
         <SidePanel onHover={handleHover} />
       </div>
+
+      <div className="fixed bottom-4 left-4 point uppercase tracking-tighter text-sm">© 2026 Jaine Shin. Hand-coded with {"<3"}</div>
     </div>
   );
 }
