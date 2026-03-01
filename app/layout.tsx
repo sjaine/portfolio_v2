@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import { DM_Mono } from "next/font/google";
+import { Analytics } from '@vercel/analytics/react';
 import "./globals.css";
 
 const ibmSans = IBM_Plex_Sans({
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${ibmSans.variable} ${dmMono.variable} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
