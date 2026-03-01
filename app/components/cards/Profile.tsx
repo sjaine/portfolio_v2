@@ -64,7 +64,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="relative max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
+    <div className="relative max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white z-[999]">
       <div
         onClick={() => setIsModalOpen(true)}
         className="absolute inset-0 z-10 cursor-pointer"
