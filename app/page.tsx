@@ -5,6 +5,7 @@ import SidePanel from "@/app/components/layout/SidePanel";
 import ConstellationCanvas from "./components/constellation/ConstellationCanvas";
 import CaseStudyPreview from "./components/layout/CaseStudyPreview";
 import { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 
 type HoveredCase = {
   id: string;
@@ -38,19 +39,23 @@ export default function Home() {
       <div className="flex flex-col md:flex-row items-center justify-between w-screen h-screen">
         <div className="relative flex-1 flex items-center justify-center h-full">
           <ConstellationCanvas hidden={!isMobile && !!hoveredCase} />
-          
-          {!isMobile && hoveredCase && (
-            <div className="absolute inset-0 flex items-center justify-center">
-               <CaseStudyPreview caseStudy={hoveredCase} />
-            </div>
-          )}
+
+          <AnimatePresence>
+            {!isMobile && hoveredCase && (
+              <CaseStudyPreview
+                key={hoveredCase.id}
+                caseStudy={hoveredCase}
+              />
+            )}
+          </AnimatePresence>
         </div>
-        
+
         <SidePanel onHover={handleHover} />
       </div>
 
-      <div className="fixed top-4 right-4 md:top-auto md:right-auto md:bottom-4 md:left-4 ![letter-spacing:0em] point uppercase text-[9px] md:text-sm leading-[120%] z-[99] pointer-events-none ">© 2026 Jaine Shin. <br className="md:hidden" />
-  {" "}Hand-coded with {"<3"}</div>
+      <div className="fixed top-4 right-4 md:top-auto md:right-auto md:bottom-4 md:left-4 ![letter-spacing:0em] point uppercase text-[9px] md:text-sm leading-[120%] z-[99] pointer-events-none ">
+        © 2026 Jaine Shin. <br className="md:hidden" /> Hand-coded with {"<3"}
+      </div>
     </div>
   );
 }

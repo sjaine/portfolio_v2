@@ -64,7 +64,7 @@ export default function CaseStudyItem({
       onMouseLeave={() => {
         leaveTimeoutRef.current = setTimeout(() => {
           onLeave();
-        }, 3000);
+        }, 1000);
       }}
     >
       <div className="relative z-10 flex w-full justify-between items-center group gap-3">
