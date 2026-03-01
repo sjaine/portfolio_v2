@@ -61,11 +61,7 @@ export default function CaseStudyItem({
 
         onHover({ id, thumbnail, title, description });
       }}
-      onMouseLeave={() => {
-        leaveTimeoutRef.current = setTimeout(() => {
-          onLeave();
-        }, 1000);
-      }}
+      onMouseLeave={() => onLeave()}
     >
       <div className="relative z-10 flex w-full justify-between items-center group gap-3">
         <div className="flex gap-3 items-center">
