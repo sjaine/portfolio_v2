@@ -17,12 +17,12 @@ export default function Contacts() {
   return (
     <motion.div
       initial={false}
-      className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-6 py-4 bg-white/50 rounded-lg border border-white overflow-hidden"
+      className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-4 bg-white/50 rounded-lg border border-white overflow-hidden"
       style={{ gap: isOpen ? "20px" : "0px" }}
     >
       {/* Header */}
       <div onClick={() => setIsOpen(!isOpen)} className="flex w-full justify-between items-center h-[32px cursor-pointer">
-        <motion.p layout className="">
+        <motion.p layout className="text-sm md:text-base">
           CONTACT
         </motion.p>
 
@@ -86,7 +86,7 @@ function ContactLink({ label, href }: { label: string; href: string }) {
     <motion.a
       href={href}
       target="_blank"
-      className="relative flex justify-between items-center group cursor-pointer p-1 transition-colors
+      className="relative flex justify-between items-center group cursor-pointer p-0 md:p-1 transition-colors
       before:absolute before:-inset-y-1 before:-inset-x-3 
       before:rounded-md before:bg-transparent before:transition-colors
       before:duration-300
@@ -94,13 +94,13 @@ function ContactLink({ label, href }: { label: string; href: string }) {
       initial={{ y: 5, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
     >
-      <div className="relative flex items-center gap-3">
+      <div className="relative flex items-center justify-center gap-2 md:gap-3">
         <span className="transition-colors">{renderIcon()}</span>
-        <span className="text-sm md:text-base">
+        <span className="text-xs md:text-base">
           {label}
         </span>
       </div>
-      <ArrowTopRightIcon className="w-4 h-4 transition-colors" />
+      <ArrowTopRightIcon className="w-3 h-3 md:w-4 md:h-4 transition-colors" />
     </motion.a>
   );
 }
