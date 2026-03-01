@@ -53,16 +53,17 @@ export default function InstagramProject() {
         link="https://gwsk.studio/"
       />
 
-      <div className="h-full w-full bg-black overflow-hidden">
-        <video
-          src="/images/preview.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="object-cover"
-        />
+      <div className="flex h-screen w-full items-center justify-center bg-black">
+        <div className="relative aspect-[9/16] w-full h-full max-h-screen overflow-hidden">
+          <video
+            src="/images/preview.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-cover"
+          />
+        </div>
       </div>
 
       <div className="pt-12 px-48 flex max-w-[1500px]">
@@ -77,14 +78,21 @@ export default function InstagramProject() {
               id="overview"
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
-              <h3>Still in construction! :D You can check the final result from here ↓</h3>
-              <Link href="https://gwsk.studio/"  target="_blank" className="w-full h-[660px] rounded-2xl overflow-hidden border border-gray-200">
+              <h3>
+                Still in construction! :D You can check the final result from
+                here ↓
+              </h3>
+              <Link
+                href="https://gwsk.studio/"
+                target="_blank"
+                className="w-full h-[660px] rounded-2xl overflow-hidden border border-gray-200"
+              >
                 <Image
-                    src="/images/gwsk.png"
-                    alt="GWSK"
-                    width={1000}
-                    height={1000}
-                    className="object-cover"
+                  src="/images/gwsk.png"
+                  alt="GWSK"
+                  width={1000}
+                  height={1000}
+                  className="object-cover"
                 />
               </Link>
             </article>

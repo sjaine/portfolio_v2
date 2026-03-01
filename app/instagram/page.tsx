@@ -64,18 +64,18 @@ export default function InstagramProject() {
         link="https://jaineinstaaccessibility.netlify.app/"
       />
 
-<div className="flex h-screen w-full items-center justify-center bg-black">
-  <div className="relative aspect-[9/16] w-full h-full max-h-screen overflow-hidden">
-    <video
-      src="/images/instagram/instagram.mp4"
-      autoPlay
-      muted
-      loop
-      playsInline
-      className="h-full w-full object-cover"
-    />
-  </div>
-</div>
+      <div className="flex h-screen w-full items-center justify-center bg-black">
+        <div className="relative aspect-[9/16] w-full h-full max-h-screen overflow-hidden">
+          <video
+            src="/images/instagram/instagram.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </div>
       <div className="pt-0 px-4 w-full md:pt-12 md:px-48 flex max-w-[1500px]">
         <SideNav
           activeSection={activeSection}

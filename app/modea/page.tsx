@@ -52,19 +52,20 @@ export default function InstagramProject() {
         link="/modea"
       />
 
-      <div className="h-full w-full bg-black overflow-hidden">
-        <video
-          src="/images/preview.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="object-cover"
-        />
+<div className="flex h-screen w-full items-center justify-center bg-black">
+        <div className="relative aspect-[9/16] w-full h-full max-h-screen overflow-hidden">
+          <video
+            src="/images/preview.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-cover"
+          />
+        </div>
       </div>
 
-      <div className="pt-12 px-48 flex max-w-[1500px]">
+      <div className="pt-12 px-48 flex max-w-[2000px]">
         <div className="flex-[9] min-w-[840px]">
           {/* TL;DR */}
           <motion.section
@@ -77,12 +78,12 @@ export default function InstagramProject() {
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h3>Still in construction! :D You can check the progress so far ↓</h3>
-              <div className="w-full h-[480px] rounded-2xl overflow-hidden border border-gray-200">
+              <div className="w-full h-[480px] rounded-xl no-scrollbar overflow-hidden border border-gray-200">
                 <iframe
                   src="/thesis.pdf#toolbar=0"
                   width="100%"
                   height="100%"
-                  className="border-none"
+                  className="border-none no-scrollbar"
                 />
               </div>
             </article>
