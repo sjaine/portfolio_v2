@@ -40,6 +40,7 @@ export default function GradientOrb({
         alt={alt}
         width={size * 2}
         height={size * 2}
+        draggable={false}
         className="h-full w-full object-cover"
         priority={size > 24}
       />
