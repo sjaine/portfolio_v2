@@ -16,7 +16,13 @@ type HoveredCase = {
 
 export default function Home() {
   const [hoveredCase, setHoveredCase] = useState<HoveredCase>(null);
+  const [isMouseOnPreview, setIsMouseOnPreview] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  const handleLeave = () => {
+    if (isMouseOnPreview) return;
+    setHoveredCase(null);
+  };
 
   useEffect(() => {
     const checkMobile = () => {
@@ -45,6 +51,11 @@ export default function Home() {
               <CaseStudyPreview
                 key={hoveredCase.id}
                 caseStudy={hoveredCase}
+                onMouseEnter={() => setIsMouseOnPreview(true)}
+                onMouseLeave={() => {
+                  setIsMouseOnPreview(false);
+                  setHoveredCase(null);
+                }}
               />
             )}
           </AnimatePresence>

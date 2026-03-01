@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import { DM_Mono } from "next/font/google";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const ibmSans = IBM_Plex_Sans({
@@ -17,7 +17,7 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "jaineysshin",
-  description: "Welcome to Jaine's world",
+  description: "Annyeong, Welcome!",
 };
 
 export default function RootLayout({
