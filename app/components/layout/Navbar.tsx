@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <>
-      <div className="fixed pointer-events-none backdrop z-0" />
+      <div className="fixed pointer-events-none backdrop z-10" />
       <header className="fixed top-4 left-4 z-50">
         <nav className="text-base flex justify-center items-center gap-7">
           <Link href="/" className="relative aspect-square w-[30px] cursor-pointer">
