@@ -181,7 +181,7 @@ export default function ProfileModal({
                 Let me show you a little bit more...
               </h2>
 
-              <div className="w-full overflow-hidden pb-10">
+              <div className="w-full overflow-hidden pb-10 mb:pb-0">
                 <motion.div
                   className="flex gap-10 w-max"
                   animate={{
