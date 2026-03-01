@@ -45,7 +45,7 @@ export default function ProjectHeader({ title, role, timeline, team, tools, link
             <Link 
               href={link} 
               target="_blank" 
-              className="p-3 bg-white inline-flex items-center justify-center rounded-xl hover:bg-gray-50 transition-colors w-full md:w-auto"
+              className="p-3 bg-white inline-flex items-center justify-center rounded-xl hover:bg-gray-50 transition-colors w-full md:w-auto cursor-pointer"
             >
               <GlobeIcon className="w-6 h-6 mr-2 md:mr-0" />
               <span className="md:hidden text-sm font-medium">Visit Website</span>
