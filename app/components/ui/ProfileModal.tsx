@@ -13,7 +13,14 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import "swiper/css";
 import "swiper/css/effect-cards";
 
-const images = ["/images/about/1.png", "/images/about/2.png", "/images/about/3.png", "/images/about/4.png", "/images/about/5.png", "/images/about/6.png"];
+const images = [
+  "/images/about/1.png",
+  "/images/about/2.png",
+  "/images/about/3.png",
+  "/images/about/4.png",
+  "/images/about/5.png",
+  "/images/about/6.png",
+];
 const duplicatedImages = [...images, ...images, ...images];
 
 export default function ProfileModal({
@@ -102,7 +109,7 @@ export default function ProfileModal({
                     draggable={false}
                   />
                 </motion.div>
-                
+
                 <div className="flex justify-center w-full md:w-auto">
                   <Swiper
                     effect={"cards"}
@@ -114,7 +121,12 @@ export default function ProfileModal({
                     modules={[EffectCards]}
                     className="mySwiper w-[260px] md:w-[400px]"
                   >
-                    {[ "/images/jaine.png", "/images/about/8.png", "/images/about/jaine.png", "/images/about/7.png" ].map((src, i) => (
+                    {[
+                      "/images/jaine.png",
+                      "/images/about/8.png",
+                      "/images/about/jaine.png",
+                      "/images/about/7.png",
+                    ].map((src, i) => (
                       <SwiperSlide key={i}>
                         <div className="w-5/6 p-2 md:p-3 bg-white border border-black/10 rounded-xl">
                           <Image
@@ -132,27 +144,42 @@ export default function ProfileModal({
 
                 <div className="flex flex-col gap-6 md:gap-10">
                   <p className="font-semibold text-3xl md:text-5xl text-[#a3a3a3]">
-                    Meet Jaine Shin!
+                    Hi, I'm Jaine Shin!
                   </p>
                   <div className="flex flex-col gap-4 text-sm md:text-base">
                     <p>
-                      Jaine (she/her) is a multidisciplinary designer passionate
-                      about bridging the gap between design and development through
-                      strong, impactful visual. Over the past few years, she has
-                      sharpened her front-end development skills, enabling her to
-                      make her design work come alive in digital spaces and
-                      collaborate seamlessly across teams with a technical
-                      foundation.
+                      Jaine (she/her) is a <span className="text-[#6D8EEB] font-bold">multidisciplinary designer</span> passionate
+                      about bridging the gap between design and development
+                      through strong, impactful visual. Over the past few years,
+                      she has sharpened her front-end development skills,
+                      enabling her to make her design work come alive in digital
+                      spaces and collaborate seamlessly across teams with a
+                      technical foundation.
                     </p>
                     <p>
-                      Outside of work, you can find her <span className="text-[#6D8EEB] font-bold">watching films, taking
-                      photos, or climbing.</span> :D
+                      Outside of work, you can find her{" "}
+                      <span className="text-[#6D8EEB] font-bold">
+                        watching films, taking photos, or climbing.
+                      </span>{" "}
+                      :D Track her movie journey on the{" "}
+                      <a
+                        href="https://filmclothing.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative inline-block group"
+                      >
+                        <span className="relative z-10">handmade site ↗</span>
+
+                        <span className="absolute bottom-1 left-0 w-full h-[12px] bg-yellow-200/60 -z-0  group-hover:bg-yellow-300 transition-colors" />
+                      </a>
                     </p>
                   </div>
                 </div>
               </div>
 
-              <h2 className="px-0 py-6 md:px-3 text-sm md:text-base">Let me show you a little bit more...</h2>
+              <h2 className="px-0 py-6 md:px-3 text-sm md:text-base">
+                Let me show you a little bit more...
+              </h2>
 
               <div className="w-full overflow-hidden pb-10">
                 <motion.div
