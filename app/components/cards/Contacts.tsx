@@ -22,7 +22,7 @@ export default function Contacts() {
     >
       {/* Header */}
       <div onClick={() => setIsOpen(!isOpen)} className="flex w-full justify-between items-center h-[32px cursor-pointer">
-        <motion.p layout className="text-sm md:text-base">
+        <motion.p layout className="text-sm md:text-base select-none">
           CONTACT
         </motion.p>
 
