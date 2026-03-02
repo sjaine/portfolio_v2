@@ -41,7 +41,7 @@ type CaseStudiesProps = {
 
 export default function CaseStudies({ onHover }: CaseStudiesProps) {
   return (
-    <div className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white">
+    <div className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-5 gap-8 items-end bg-white/50 rounded-lg border border-white select-none">
       <div className="flex flex-col gap-2 w-full">
         {/* title */}
         <div className="flex gap-2 items-center select-none">
@@ -54,7 +54,7 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
         </p> */}
       </div>
 
-      <div className="flex w-full flex-col gap-6">
+      <div className="flex w-full flex-col gap-6 select-none">
         {CASE_STUDIES.map((item, index) => (
           <CaseStudyItem
             id={item.id}
