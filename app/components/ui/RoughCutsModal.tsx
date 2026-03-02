@@ -102,7 +102,7 @@ export default function ProfileModal({
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1300px] bg-white rounded-[24px] shadow-2xl z-[100] h-[80vh] flex flex-col overflow-hidden"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1300px] bg-white rounded-[24px] shadow-2xl z-[100] h-[85vh] flex flex-col overflow-hidden"
           >
             <LinkButton
               onClick={onClose}
