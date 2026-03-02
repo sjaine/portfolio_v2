@@ -9,7 +9,7 @@ const CASE_STUDIES = [
     id: "Instagram Accessibility",
     title: "Instagram Accessibility",
     href: "/instagram",
-    thumbnail: "/images/instagram/instagram.png",
+    thumbnail: "/images/instagram/instagram.mp4",
     description:
       "Improving Instagram's Accessibility for people with visual impairments.",
   },
