@@ -113,31 +113,51 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
         </p>
       </div>
 
-      <div className="flex w-full flex-col gap-6">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={isDevMode ? "dev" : "design"}
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -5 }}
-            transition={{ duration: 0.2 }}
-            className="flex flex-col gap-6 w-full"
-          >
-            {currentStudies.map((item, index) => (
+      <div className="relative w-full">
+        <div className="invisible pointer-events-none">
+          <div className="flex flex-col gap-6">
+            {(CASE_STUDIES.length >= DEV_STUDIES.length ? CASE_STUDIES : DEV_STUDIES).map((item, index) => (
               <CaseStudyItem
+                key={`ghost-${item.id}`}
                 id={item.id}
-                key={item.id}
                 index={index + 1}
                 title={item.title}
                 href={item.href}
                 thumbnail={item.thumbnail}
                 description={item.description}
-                onHover={onHover}
-                onLeave={() => onHover(null)}
+                onHover={() => {}}
+                onLeave={() => {}}
               />
             ))}
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 w-full h-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={isDevMode ? "dev" : "design"}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col gap-6 w-full"
+            >
+              {(isDevMode ? DEV_STUDIES : CASE_STUDIES).map((item, index) => (
+                <CaseStudyItem
+                  id={item.id}
+                  key={item.id}
+                  index={index + 1}
+                  title={item.title}
+                  href={item.href}
+                  thumbnail={item.thumbnail}
+                  description={item.description}
+                  onHover={onHover}
+                  onLeave={() => onHover(null)}
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
