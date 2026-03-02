@@ -30,8 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${ibmSans.variable} ${dmMono.variable} antialiased`}>
-        <CustomCursor />
         {children}
+        {/* <CustomCursor /> */}
         <Analytics />
         <SpeedInsights />
       </body>

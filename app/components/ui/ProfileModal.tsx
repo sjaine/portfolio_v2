@@ -201,8 +201,9 @@ export default function ProfileModal({
                     <div key={i} className="flex items-center gap-4">
                       <img
                         src={src}
+                        draggable={false}
                         alt=""
-                        className="h-[120px] md:h-[180px] w-[200px] md:w-[280px] object-cover rounded-lg"
+                        className="h-[120px] md:h-[180px] w-[200px] md:w-[280px] object-cover rounded-lg select-none"
                       />
                     </div>
                   ))}
