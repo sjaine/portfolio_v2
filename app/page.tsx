@@ -64,7 +64,7 @@ export default function Home() {
         <SidePanel onHover={handleHover} />
       </div>
 
-      <div className="fixed top-4 right-4 md:top-auto md:right-auto md:bottom-4 md:left-4 ![letter-spacing:0em] point uppercase text-[9px] md:text-sm leading-[120%] z-[99] pointer-events-none ">
+      <div className="fixed top-4 right-4 md:top-auto md:right-auto md:bottom-4 md:left-4 ![letter-spacing:0em] point uppercase text-[9px] md:text-sm leading-[120%] z-501 md:z-[99] pointer-events-none">
         © 2026 Jaine Shin. <br className="md:hidden" /> Hand-coded with {"<3"}
       </div>
     </div>

@@ -82,7 +82,7 @@ export default function InstagramProject() {
           isParentActive={isParentActive}
         />
 
-        <div className="flex-[9]">
+        <div className="flex-[9] pt-12 md:pt-0">
           {/* TL;DR */}
           <motion.section
             {...fadeIn}
