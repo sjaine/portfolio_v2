@@ -57,16 +57,16 @@ export default function ProfileModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[999]"
           />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1000px] h-[85vh] bg-white rounded-[24px] shadow-2xl z-[9999] overflow-hidden flex flex-col"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1000px] h-[85vh] bg-white rounded-[24px] shadow-2xl z-[999] overflow-hidden flex flex-col"
           >
-            <div className="absolute top-6 left-6 z-[10001]">
+            <div className="absolute top-6 left-6 z-[1000]">
               <LinkButton
                 onClick={onClose}
                 className="text-gray-400 hover:text-black transition-colors"

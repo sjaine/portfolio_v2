@@ -44,6 +44,16 @@ export default function ProfileModal({
     setMousePos({ x: e.clientX, y: e.clientY });
   };
 
+  useEffect(() => {
+    if (hoveredIndex !== null) {
+      document.body.setAttribute("data-hide-cursor", "true");
+    } else {
+      document.body.removeAttribute("data-hide-cursor");
+    }
+  
+    return () => document.body.removeAttribute("data-hide-cursor");
+  }, [hoveredIndex]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -53,8 +63,9 @@ export default function ProfileModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[99]"
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[999]"
           />
+          
           <AnimatePresence>
             {hoveredIndex !== null && (
               <motion.div
@@ -75,7 +86,7 @@ export default function ProfileModal({
                 className="fixed pointer-events-none z-[1000] px-4 py-2 bg-white/60 backdrop-blur-sm border border-white/50 shadow-xl rounded-xl text-sm font-medium text-black flex items-center justify-center whitespace-nowrap"
                 style={{
                   translateX: "-50%",
-                  translateY: "-120%",
+                  translateY: "-80%",
                 }}
                 transition={{
                   type: "spring",
@@ -102,11 +113,11 @@ export default function ProfileModal({
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1300px] bg-white rounded-[24px] shadow-2xl z-[100] h-[85vh] flex flex-col overflow-hidden"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1300px] bg-white rounded-[24px] shadow-2xl z-[999] h-[85vh] flex flex-col overflow-hidden"
           >
             <LinkButton
               onClick={onClose}
-              className="absolute top-6 left-6 text-gray-400 hover:text-black transition-colors z-[101]"
+              className="absolute top-6 left-6 text-gray-400 hover:text-black transition-colors z-[1000]"
             >
               <Cross2Icon />
             </LinkButton>

@@ -16,12 +16,13 @@ export default function Contacts() {
 
   return (
     <motion.div
+      onClick={() => setIsOpen(!isOpen)}
       initial={false}
-      className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-4 bg-white/50 rounded-lg border border-white overflow-hidden"
+      className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-4 bg-white/50 rounded-lg border border-white overflow-hidden cursor-pointer"
       style={{ gap: isOpen ? "20px" : "0px" }}
     >
       {/* Header */}
-      <div onClick={() => setIsOpen(!isOpen)} className="flex w-full justify-between items-center h-[32px cursor-pointer">
+      <div className="flex w-full justify-between items-center h-[32px]">
         <motion.p layout className="text-sm md:text-base select-none">
           CONTACT
         </motion.p>
@@ -96,9 +97,7 @@ function ContactLink({ label, href }: { label: string; href: string }) {
     >
       <div className="relative flex items-center justify-center gap-2 md:gap-3">
         <span className="transition-colors">{renderIcon()}</span>
-        <span className="text-xs md:text-base">
-          {label}
-        </span>
+        <span className="text-xs md:text-base">{label}</span>
       </div>
       <ArrowTopRightIcon className="w-3 h-3 md:w-4 md:h-4 transition-colors" />
     </motion.a>

@@ -27,6 +27,17 @@
   display: none; /* Chrome, Safari, Opera */
 }
 
+/* globals.css */
+* {
+  /* 모든 요소에서 브라우저 기본 커서를 숨김 */
+  cursor: none;
+}
+
+/* Next.js나 라이브러리에서 강제로 넣는 스타일까지 덮어쓰기 */
+a, button, input, [role="button"] {
+  cursor: none;
+}
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

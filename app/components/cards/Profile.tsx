@@ -25,7 +25,7 @@ export default function Profile() {
         {" "}
         <div
           onClick={() => setIsProfileOpen(true)}
-          className="flex-1 bg-white/50 rounded-lg border border-white flex flex-col items-start justify-between p-4 transition-transform"
+          className="flex-1 bg-white/50 rounded-lg border border-white flex flex-col items-start justify-between p-4 transition-transform active:scale-[0.98]"
         >
           <div className="w-[80px] h-[80px] bg-black rounded-lg relative">
             <Image
@@ -37,7 +37,12 @@ export default function Profile() {
           </div>
           <div className="w-full flex justify-between items-center">
             <p className="text-sm">HI, JAINE! 👋</p>
-            <Button>
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsProfileOpen(true);
+              }}
+            >
               <SizeIcon />
             </Button>
           </div>
@@ -47,7 +52,12 @@ export default function Profile() {
           className="flex-1 bg-white/50 rounded-lg border border-white flex items-end justify-between p-4 active:scale-[0.98] transition-transform"
         >
           <p className="text-sm">ARCHIVE 💡</p>
-          <Button>
+          <Button
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsModalOpen(true);
+            }}
+          >
             <SizeIcon />
           </Button>
         </div>

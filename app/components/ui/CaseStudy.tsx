@@ -84,7 +84,9 @@ export default function CaseStudyItem({
           </div>
         </div>
 
-        <Button>
+        <Button onClick={(e) => {
+              e.stopPropagation();
+            }}>
           <ArrowTopRightIcon />
         </Button>
       </div>

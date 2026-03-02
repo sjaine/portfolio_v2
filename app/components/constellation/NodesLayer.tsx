@@ -43,7 +43,19 @@ export function NodesLayer({
   height,
   onCenterClick,
 }: Props) {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isJaineHovered, setIsJaineHovered] = useState(false);
   const [showInitialBubble, setShowInitialBubble] = useState(false);
+
+  useEffect(() => {
+    if (isJaineHovered) {
+      document.body.setAttribute("data-hide-cursor", "true");
+    } else {
+      document.body.removeAttribute("data-hide-cursor");
+    }
+    return () => document.body.removeAttribute("data-hide-cursor");
+  }, [isJaineHovered]);
+  
 
   useEffect(() => {
     const startTimer = setTimeout(() => setShowInitialBubble(true), 200);
@@ -55,10 +67,44 @@ export function NodesLayer({
     };
   }, []);
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setMousePos({ x: e.clientX, y: e.clientY });
+  };
+
   if (!width || !height) return null;
 
   return (
-    <>
+    <div onMouseMove={handleMouseMove} className="relative w-full h-full">
+      <AnimatePresence>
+        {isJaineHovered && (
+          <motion.div
+            key="jaine-cursor"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            className="fixed pointer-events-none z-[1000] px-4 py-2 bg-white/70 backdrop-blur-md border border-white shadow-xl rounded-xl text-sm font-medium text-black/80 flex items-center justify-center whitespace-nowrap"
+            style={{
+              left: mousePos.x,
+              top: mousePos.y,
+              translateX: "-50%",
+              translateY: "-80%",
+            }}
+            transition={{
+              type: "spring",
+              damping: 25,
+              stiffness: 1000,
+              mass: 0.2,
+              opacity: { duration: 0.1 },
+            }}
+          >
+            Click to see profile!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {Object.entries(nodePositions).map(([id, pos], index) => {
         const nodeId = id as NodeId;
         const x = pos.x * width;
@@ -76,7 +122,9 @@ export function NodesLayer({
         return (
           <div
             key={nodeId}
-            className="absolute flex flex-col items-center cursor-pointer select-none"
+            className={`absolute flex flex-col items-center select-none ${
+              isCenter ? "cursor-none" : "cursor-pointer"
+            }`}
             style={{
               left: x,
               top: y,
@@ -85,11 +133,17 @@ export function NodesLayer({
             }}
             onMouseEnter={() => {
               onHover(nodeId);
+              if (isCenter) setIsJaineHovered(true);
               setShowInitialBubble(false);
             }}
-            onMouseLeave={() => onHover(null)}
+            onMouseLeave={() => {
+              onHover(null);
+              if (isCenter) setIsJaineHovered(false);
+            }}
             onClick={() => {
               if (isCenter && onCenterClick) {
+                setIsJaineHovered(false); 
+                document.body.removeAttribute("data-hide-cursor");
                 onCenterClick();
               }
             }}
@@ -190,6 +244,6 @@ export function NodesLayer({
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
