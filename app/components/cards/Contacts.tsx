@@ -23,7 +23,7 @@ export default function Contacts() {
     >
       {/* Header */}
       <div className="flex w-full justify-between items-center h-[32px]">
-        <motion.p layout className="text-sm md:text-base select-none">
+        <motion.p className="text-sm md:text-base select-none">
           CONTACT
         </motion.p>
 

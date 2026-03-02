@@ -46,7 +46,7 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
         {/* title */}
         <div className="flex gap-2 items-center select-none">
           <AvailabilityDot />
-          <div>CASE STUDIES</div>
+          <div className="text-sm md:text-base">CASE STUDIES</div>
         </div>
         {/* description */}
         {/* <p className="text-xs text-gray-500">
