@@ -11,6 +11,8 @@ export default function CaseStudyPreview({
   onMouseLeave: () => void;
 }) {
   if (!caseStudy) return null;
+  const isVideo = caseStudy.thumbnail.endsWith(".mp4");
+  
 
   return (
     <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
@@ -30,16 +32,28 @@ export default function CaseStudyPreview({
         className="relative w-[80%] max-w-[900px] aspect-[3/2] pointer-events-none"
       >
         <div className="flex justify-between items-center absolute z-10 inset-x-3 bottom-3 bg-white/70 rounded-lg p-4 backdrop-blur-[10px] text-lg">
-          <p className="font-bold text-gray-900">{caseStudy.title}</p>
-          <p className="text-gray-700">{caseStudy.description}</p>
+          <p className="font-bold text-black/80">{caseStudy.title}</p>
+          <p className="text-black/80">{caseStudy.description}</p>
         </div>
 
-        <Image
-          src={caseStudy.thumbnail}
-          alt={caseStudy.title}
-          fill
-          className="rounded-xl shadow-2xl object-cover border border-white/20"
-        />
+        {isVideo ? (
+          <video
+            src={caseStudy.thumbnail}
+            preload="none"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover rounded-lg"
+          />
+        ) : (
+          <Image
+            src={caseStudy.thumbnail}
+            alt={caseStudy.title}
+            fill
+            className="object-cover rounded-lg"
+          />
+        )}
       </motion.div>
     </div>
   );

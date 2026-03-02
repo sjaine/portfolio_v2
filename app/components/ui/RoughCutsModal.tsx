@@ -9,18 +9,17 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 
 const PROJECT_DATA = [
   {
-    src: "/images/archive/filmsclothing.mp4",
-    label: "Filmsclothing: My Movie Records",
+    src: "/images/archive/vhsplayer.png",
+    label: "Retro VHS Player Interface (WIP)",
     symbol: "↗",
-    link: "https://filmclothing.vercel.app/",
+    link: "https://vhs-player.vercel.app/",
   },
   {
-    src: "/images/archive/mminfo.mp4",
-    label: "MMINFO: Mood-based AI Recommendations",
+    src: "/images/archive/pcv-records.png",
+    label: "Redesign PCV Records website",
     symbol: "↗",
-    link: "https://mminfo.vercel.app/",
+    link: "https://pcv-records.vercel.app/",
   },
-  { src: "/images/archive/vhsplayer.png", label: "Retro VHS Player Interface" },
   { src: "/images/archive/arborday.gif", label: "Arbor Day Celebration" },
   { src: "/images/archive/watering.png", label: "UI Design" },
   { src: "/images/archive/book.png", label: "Book Cover Design" },

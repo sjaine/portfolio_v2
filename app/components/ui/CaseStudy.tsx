@@ -4,7 +4,6 @@ import Button from "@/app/components/ui/LinkButton";
 import Image from "next/image";
 import { useRef } from "react";
 
-
 type CaseStudyItemProps = {
   id: string;
   index: number;
@@ -32,10 +31,14 @@ export default function CaseStudyItem({
   onLeave,
 }: CaseStudyItemProps) {
   const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isVideo = thumbnail.endsWith(".mp4");
+  const isExternal = href.startsWith("http");
 
   return (
     <Link
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="
         cursor-pointer
         relative
@@ -67,12 +70,24 @@ export default function CaseStudyItem({
         <div className="flex gap-3 items-center">
           {/* Thumbnail */}
           <div className="relative w-[50px] h-[50px] rounded-lg aspect-square">
-            <Image
-              src={thumbnail}
-              alt={title}
-              fill
-              className="object-cover rounded-lg"
-            />
+            {isVideo ? (
+              <video
+                src={thumbnail}
+                autoPlay
+                preload="none"
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover rounded-lg"
+              />
+            ) : (
+              <Image
+                src={thumbnail}
+                alt={title}
+                fill
+                className="object-cover rounded-lg"
+              />
+            )}
           </div>
 
           {/* Text */}
@@ -84,9 +99,11 @@ export default function CaseStudyItem({
           </div>
         </div>
 
-        <Button onClick={(e) => {
-              e.stopPropagation();
-            }}>
+        <Button
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
           <ArrowTopRightIcon />
         </Button>
       </div>
