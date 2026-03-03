@@ -73,13 +73,12 @@ export default function ConstellationCanvas({
               onHover={setHovered}
               width={size.width}
               height={size.height}
-              // 중앙 노드 클릭 시 모달 오픈 함수 전달
+              scale={scale}
               onCenterClick={() => setIsModalOpen(true)} 
             />
           </div>
         </div>
 
-        {/* Profile Modal 연결 */}
         <ProfileModal 
           isOpen={isModalOpen} 
           onClose={() => setIsModalOpen(false)} 

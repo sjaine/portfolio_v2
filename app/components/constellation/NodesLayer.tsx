@@ -42,7 +42,8 @@ export function NodesLayer({
   width,
   height,
   onCenterClick,
-}: Props) {
+  scale = 1,
+}: Props & { scale?: number }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isJaineHovered, setIsJaineHovered] = useState(false);
   const [showInitialBubble, setShowInitialBubble] = useState(false);
@@ -55,7 +56,6 @@ export function NodesLayer({
     }
     return () => document.body.removeAttribute("data-hide-cursor");
   }, [isJaineHovered]);
-  
 
   useEffect(() => {
     const startTimer = setTimeout(() => setShowInitialBubble(true), 200);
@@ -68,7 +68,11 @@ export function NodesLayer({
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    setMousePos({ x: e.clientX, y: e.clientY });
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({ 
+      x: (e.clientX - rect.left) / scale, 
+      y: (e.clientY - rect.top) / scale 
+    });
   };
 
   if (!width || !height) return null;
@@ -79,25 +83,32 @@ export function NodesLayer({
         {isJaineHovered && (
           <motion.div
             key="jaine-cursor"
-            initial={{ opacity: 0, scale: 0.5 }}
+            initial={{
+              opacity: 0,
+              scale: 0.5,
+              left: mousePos.x,
+              top: mousePos.y,
+            }}
             animate={{
               opacity: 1,
               scale: 1,
+              left: mousePos.x,
+              top: mousePos.y,
             }}
             exit={{ opacity: 0, scale: 0.5 }}
-            className="fixed pointer-events-none z-[1000] px-4 py-2 bg-white/70 backdrop-blur-md border border-white shadow-xl rounded-xl text-sm font-medium text-black/80 flex items-center justify-center whitespace-nowrap"
+            className="absolute pointer-events-none z-[1000] px-4 py-2 bg-white/60 backdrop-blur-sm border border-white/50 shadow-xl rounded-xl text-sm font-medium text-black/80 flex items-center justify-center whitespace-nowrap"
             style={{
               left: mousePos.x,
               top: mousePos.y,
               translateX: "-50%",
-              translateY: "-80%",
+              translateY: "-80%", 
             }}
             transition={{
               type: "spring",
               damping: 25,
               stiffness: 1000,
               mass: 0.2,
-              opacity: { duration: 0.1 },
+              opacity: { duration: 0.05 },
             }}
           >
             Click to see profile!
@@ -142,7 +153,7 @@ export function NodesLayer({
             }}
             onClick={() => {
               if (isCenter && onCenterClick) {
-                setIsJaineHovered(false); 
+                setIsJaineHovered(false);
                 document.body.removeAttribute("data-hide-cursor");
                 onCenterClick();
               }

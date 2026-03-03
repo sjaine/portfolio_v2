@@ -100,7 +100,7 @@ export default function ProfileModal({
                   top: mousePos.y,
                 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="fixed pointer-events-none z-[1000] px-4 py-2 bg-white/60 backdrop-blur-sm border border-white/50 shadow-xl rounded-xl text-sm font-medium text-black flex items-center justify-center whitespace-nowrap"
+                className="fixed pointer-events-none z-[1000] px-4 py-2 bg-white/60 backdrop-blur-sm border border-white/50 shadow-xl rounded-xl text-sm font-medium text-black/80 flex items-center justify-center whitespace-nowrap"
                 style={{
                   translateX: "-50%",
                   translateY: "-80%",
