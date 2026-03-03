@@ -6,7 +6,7 @@ export default function CaseStudyPreview({
   onMouseEnter,
   onMouseLeave,
 }: {
-  caseStudy: null | { thumbnail: string; title: string; description: string };
+  caseStudy: null | { thumbnail: string; title: string; description: string; posterUrl: string };
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) {
@@ -39,6 +39,7 @@ export default function CaseStudyPreview({
         {isVideo ? (
           <video
             src={caseStudy.thumbnail}
+            poster={caseStudy.posterUrl}
             preload="none"
             autoPlay
             loop

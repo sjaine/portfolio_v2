@@ -10,6 +10,7 @@ const CASE_STUDIES = [
     title: "Instagram Accessibility",
     href: "/instagram",
     thumbnail: "/images/instagram/instagram.mp4",
+    posterUrl: "/images/instagram/instagram.png",
     description:
       "Improving Instagram's Accessibility for people with visual impairments.",
   },
@@ -35,6 +36,7 @@ const DEV_STUDIES = [
     title: "Filmsclothing",
     href: "https://filmclothing.vercel.app/",
     thumbnail: "/images/archive/filmsclothing.mp4",
+    posterUrl: "/images/instagram/instagram.png",
     description:
       "Track my movie records!",
   },
@@ -43,6 +45,7 @@ const DEV_STUDIES = [
     title: "MMINFO",
     href: "https://mminfo.vercel.app/",
     thumbnail: "/images/archive/mminfo.mp4",
+    posterUrl: "/images/instagram/instagram.png",
     description: "Mood-based AI Recommendations integrating Gemini API.",
   },
   {
@@ -59,6 +62,7 @@ type HoveredCase = {
   thumbnail: string;
   title: string;
   description: string;
+  posterUrl?: string;
 } | null;
 
 type CaseStudiesProps = {

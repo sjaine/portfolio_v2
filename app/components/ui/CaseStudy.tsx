@@ -10,6 +10,7 @@ type CaseStudyItemProps = {
   title: string;
   href: string;
   thumbnail: string;
+  posterUrl?: string;
   description: string;
   onHover: (data: {
     id: string;
