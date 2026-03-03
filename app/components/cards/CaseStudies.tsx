@@ -92,18 +92,19 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
               <span>Dev</span>
             </div>
 
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="popLayout">
               <motion.span
                 key={isDevMode ? "dev" : "design"}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
+                initial={{ rotateX: -90, opacity: 0, y: 10 }}
+                animate={{ rotateX: 0, opacity: 1, y: 0 }}
+                exit={{ rotateX: 90, opacity: 0, y: -10 }}
                 transition={{
                   type: "spring",
-                  stiffness: 500,
-                  damping: 30,
+                  stiffness: 300,
+                  damping: 35,
                 }}
                 className="absolute flex items-center gap-2 text-white text-sm uppercase whitespace-nowrap"
+                style={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
               >
                 <div className={`w-1 h-1 rounded-full ${isDevMode ? 'bg-blue-400' : 'bg-green-400'}`} />
                 {isDevMode ? "Dev" : "UI/UX"}
