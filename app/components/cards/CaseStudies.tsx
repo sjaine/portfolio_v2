@@ -36,7 +36,7 @@ const DEV_STUDIES = [
     title: "Filmsclothing",
     href: "https://filmclothing.vercel.app/",
     thumbnail: "/images/archive/filmsclothing.mp4",
-    posterUrl: "/images/instagram/instagram.png",
+    posterUrl: "/images/archive/filmsclothing.png",
     description: "Track my movie records!",
   },
   {
@@ -44,7 +44,7 @@ const DEV_STUDIES = [
     title: "MMINFO",
     href: "https://mminfo.vercel.app/",
     thumbnail: "/images/archive/mminfo.mp4",
-    posterUrl: "/images/instagram/instagram.png",
+    posterUrl: "/images/archive/mminfo.png",
     description: "Mood-based AI Recommendations integrating Gemini API.",
   },
   {
@@ -134,6 +134,7 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
                 title={item.title}
                 href={item.href}
                 thumbnail={item.thumbnail}
+                posterUrl={item.posterUrl}
                 description={item.description}
                 onHover={() => {}}
                 onLeave={() => {}}
@@ -160,6 +161,7 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
                   title={item.title}
                   href={item.href}
                   thumbnail={item.thumbnail}
+                  posterUrl={item.posterUrl}
                   description={item.description}
                   onHover={onHover}
                   onLeave={() => onHover(null)}

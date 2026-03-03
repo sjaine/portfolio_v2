@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import Button from "@/app/components/ui/LinkButton";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 type CaseStudyItemProps = {
   id: string;
@@ -28,12 +28,14 @@ export default function CaseStudyItem({
   href,
   thumbnail,
   description,
+  posterUrl,
   onHover,
   onLeave,
 }: CaseStudyItemProps) {
   const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isVideo = thumbnail.endsWith(".mp4");
   const isExternal = href.startsWith("http");
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
     <Link
@@ -70,17 +72,40 @@ export default function CaseStudyItem({
       <div className="relative z-10 flex w-full justify-between items-center group gap-3">
         <div className="flex gap-3 items-center">
           {/* Thumbnail */}
-          <div className="relative w-[50px] h-[50px] rounded-lg aspect-square">
+          <div className="relative w-[50px] h-[50px] rounded-lg aspect-square overflow-hidden">
             {isVideo ? (
-              <video
-                src={thumbnail}
-                autoPlay
-                preload="none"
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover rounded-lg"
-              />
+              <>
+                {posterUrl && (
+                  <Image
+                    src={posterUrl}
+                    alt={title}
+                    fill
+                    className={`
+                    object-cover
+                    rounded-lg
+                    ${isVideoLoaded ? "opacity-0" : "opacity-100"}
+                  `}
+                  />
+                )}
+
+                {/* Video */}
+                <video
+                  src={thumbnail}
+                  autoPlay
+                  preload="none"
+                  loop
+                  muted
+                  playsInline
+                  onPlaying={() => setIsVideoLoaded(true)}
+                  className={`
+                  absolute inset-0
+                  w-full h-full
+                  object-cover
+                  rounded-lg
+                  ${isVideoLoaded ? "opacity-100" : "opacity-0"}
+                `}
+                />
+              </>
             ) : (
               <Image
                 src={thumbnail}

@@ -9,12 +9,14 @@ import "./globals.css";
 const ibmSans = IBM_Plex_Sans({
   variable: "--font-ibm-sans",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 const dmMono = DM_Mono({
   weight: ["400"],
   variable: "--font-dm-mono",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {

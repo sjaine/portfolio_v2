@@ -12,7 +12,6 @@ export default function CaseStudyPreview({
 }) {
   if (!caseStudy) return null;
   const isVideo = caseStudy.thumbnail.endsWith(".mp4");
-  
 
   return (
     <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
@@ -40,7 +39,7 @@ export default function CaseStudyPreview({
           <video
             src={caseStudy.thumbnail}
             poster={caseStudy.posterUrl}
-            preload="none"
+            preload="metadata"
             autoPlay
             loop
             muted

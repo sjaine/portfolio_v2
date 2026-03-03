@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export default function Navbar() {
   return (
     <>
-      <div className="fixed pointer-events-none backdrop z-500 md:z-2" />
+      <div className="fixed pointer-events-none backdrop backdrop-blur-[2px] md:backdrop-blur-[5px] z-500 md:z-2" />
       <header className="fixed top-4 left-4 z-501 md:z-50">
         <nav className="text-base flex justify-center items-center gap-7">
           <Link
