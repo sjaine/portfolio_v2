@@ -6,7 +6,7 @@ export default function CaseStudyPreview({
   onMouseEnter,
   onMouseLeave,
 }: {
-  caseStudy: null | { thumbnail: string; title: string; description: string; posterUrl: string };
+  caseStudy: null | { thumbnail: string; title: string; description: string; posterUrl?: string };
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) {
