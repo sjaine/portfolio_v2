@@ -40,7 +40,7 @@ export default function Home() {
   };
 
   return (
-    <div className="overflow-hidden gradient scrollbar-hide">
+    <main className="overflow-hidden gradient scrollbar-hide">
       <Navbar />
       <div className="flex flex-col md:flex-row items-center justify-between w-screen h-screen">
         <div className="relative flex-1 flex items-center justify-center h-full">
@@ -67,6 +67,6 @@ export default function Home() {
       <div className="fixed top-4 right-4 md:top-auto md:right-auto md:bottom-4 md:left-4 ![letter-spacing:0em] point uppercase text-[9px] md:text-sm leading-[120%] z-501 md:z-[99] pointer-events-none">
         © 2026 Jaine Shin. <br className="md:hidden" /> Hand-coded with {"<3"}
       </div>
-    </div>
+    </main>
   );
 }

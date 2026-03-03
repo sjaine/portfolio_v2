@@ -89,6 +89,7 @@ export default function CaseStudyItem({
                 )}
 
                 <video
+                  aria-hidden="true"
                   src={thumbnail}
                   autoPlay
                   preload="none"

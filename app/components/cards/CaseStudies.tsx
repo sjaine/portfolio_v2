@@ -82,6 +82,7 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
           </div>
 
           <motion.button
+            aria-hidden="true"
             onClick={() => setIsDevMode(!isDevMode)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -104,9 +105,16 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
                   damping: 35,
                 }}
                 className="absolute flex items-center gap-2 text-white text-sm uppercase whitespace-nowrap"
-                style={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
+                style={{
+                  backfaceVisibility: "hidden",
+                  transformStyle: "preserve-3d",
+                }}
               >
-                <div className={`w-1 h-1 rounded-full ${isDevMode ? 'bg-blue-400' : 'bg-green-400'}`} />
+                <div
+                  className={`w-1 h-1 rounded-full ${
+                    isDevMode ? "bg-blue-400" : "bg-green-400"
+                  }`}
+                />
                 {isDevMode ? "Dev" : "UI/UX"}
               </motion.span>
             </AnimatePresence>

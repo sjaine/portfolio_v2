@@ -52,7 +52,7 @@ export default function InstagramProject() {
         link="/modea"
       />
 
-<div className="flex h-screen w-full items-center justify-center bg-black">
+      <div className="flex h-screen w-full items-center justify-center bg-black">
         <div className="relative aspect-[9/16] w-full h-full max-h-screen overflow-hidden">
           <video
             src="/images/preview.mp4"
@@ -77,7 +77,9 @@ export default function InstagramProject() {
               id="overview"
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
-              <h3>Still in construction! :D You can check the progress so far ↓</h3>
+              <h3>
+                Still in construction! :D You can check the progress so far ↓
+              </h3>
               <div className="w-full h-[480px] rounded-xl no-scrollbar overflow-hidden border border-gray-200">
                 <iframe
                   src="/thesis.pdf#toolbar=0"

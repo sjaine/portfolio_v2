@@ -39,6 +39,7 @@ export default function Profile() {
           <div className="w-full flex justify-between items-center">
             <p className="text-sm">HI, JAINE! 👋</p>
             <Button
+              aria-hidden="true"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsProfileOpen(true);
@@ -54,6 +55,7 @@ export default function Profile() {
         >
           <p className="text-sm">ARCHIVE 💡</p>
           <Button
+            aria-hidden="true"
             onClick={(e) => {
               e.stopPropagation();
               setIsModalOpen(true);
@@ -86,6 +88,7 @@ export default function Profile() {
           src="/images/jaine2.png"
           alt="jaine"
           fill
+          priority
           className="object-cover rounded-lg"
         />
       </div>
@@ -93,6 +96,7 @@ export default function Profile() {
       <div className="flex w-full justify-between gap-18">
         <p>ARCHIVE 💡</p>
         <Button
+          aria-hidden="true"
           onClick={(e) => {
             e.stopPropagation();
             setIsModalOpen(true);
