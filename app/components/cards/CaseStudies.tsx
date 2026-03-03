@@ -82,7 +82,7 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
           </div>
 
           <motion.button
-            aria-hidden="true"
+            aria-label="Switch views"
             onClick={() => setIsDevMode(!isDevMode)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

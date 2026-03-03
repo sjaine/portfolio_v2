@@ -2,13 +2,18 @@ import { ReactNode, MouseEventHandler } from "react";
 
 interface IconButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  children?: ReactNode; 
-  className?: string; 
+  children?: ReactNode;
+  className?: string;
 }
 
-export default function IconButton({ onClick, children, className }: IconButtonProps) {
+export default function IconButton({
+  onClick,
+  children,
+  className,
+}: IconButtonProps) {
   return (
     <button
+      aria-hidden="true"
       onClick={onClick}
       disabled={!onClick}
       className={`

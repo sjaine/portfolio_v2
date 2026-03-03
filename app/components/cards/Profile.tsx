@@ -40,6 +40,7 @@ export default function Profile() {
             <p className="text-sm">HI, JAINE! 👋</p>
             <Button
               aria-hidden="true"
+              aria-label="Open profile"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsProfileOpen(true);
@@ -56,6 +57,7 @@ export default function Profile() {
           <p className="text-sm">ARCHIVE 💡</p>
           <Button
             aria-hidden="true"
+            aria-label="Open archive"
             onClick={(e) => {
               e.stopPropagation();
               setIsModalOpen(true);
@@ -96,6 +98,7 @@ export default function Profile() {
       <div className="flex w-full justify-between gap-18">
         <p>ARCHIVE 💡</p>
         <Button
+          aria-label="Open archive"
           aria-hidden="true"
           onClick={(e) => {
             e.stopPropagation();
