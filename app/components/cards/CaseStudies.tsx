@@ -37,8 +37,7 @@ const DEV_STUDIES = [
     href: "https://filmclothing.vercel.app/",
     thumbnail: "/images/archive/filmsclothing.mp4",
     posterUrl: "/images/instagram/instagram.png",
-    description:
-      "Track my movie records!",
+    description: "Track my movie records!",
   },
   {
     id: "mminfo",
@@ -82,15 +81,17 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
             <div className="text-sm md:text-base">CASE STUDIES</div>
           </div>
 
-          <button
+          <motion.button
             onClick={() => setIsDevMode(!isDevMode)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             className="group relative flex items-center justify-center bg-black hover:bg-black/70 transition-colors px-3 py-1.5 md:py-0 rounded-full overflow-hidden shadow-sm cursor-pointer"
           >
             <div className="invisible flex flex-col h-0 opacity-0 pointer-events-none text-sm uppercase py-2">
               <span>Design</span>
               <span>Dev</span>
             </div>
-            
+
             <AnimatePresence mode="wait">
               <motion.span
                 key={isDevMode ? "dev" : "design"}
@@ -99,15 +100,16 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
                 exit={{ y: -20, opacity: 0 }}
                 transition={{
                   type: "spring",
-                  stiffness: 400,
+                  stiffness: 500,
                   damping: 30,
                 }}
-                className="absolute text-white text-sm uppercase whitespace-nowrap"
+                className="absolute flex items-center gap-2 text-white text-sm uppercase whitespace-nowrap"
               >
+                <div className={`w-1 h-1 rounded-full ${isDevMode ? 'bg-blue-400' : 'bg-green-400'}`} />
                 {isDevMode ? "Dev" : "UI/UX"}
               </motion.span>
             </AnimatePresence>
-          </button>
+          </motion.button>
         </div>
 
         <p className="text-xs leading-relaxed text-gray-500">
@@ -120,7 +122,10 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
       <div className="relative w-full">
         <div className="invisible pointer-events-none">
           <div className="flex flex-col gap-6">
-            {(CASE_STUDIES.length >= DEV_STUDIES.length ? CASE_STUDIES : DEV_STUDIES).map((item, index) => (
+            {(CASE_STUDIES.length >= DEV_STUDIES.length
+              ? CASE_STUDIES
+              : DEV_STUDIES
+            ).map((item, index) => (
               <CaseStudyItem
                 key={`ghost-${item.id}`}
                 id={item.id}
