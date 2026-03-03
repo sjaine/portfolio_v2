@@ -28,6 +28,7 @@ export default function Contacts() {
         </motion.p>
 
         <button
+          aria-label="Expand"
           onClick={() => setIsOpen(!isOpen)}
           className="bg-white rounded-md p-1 aspect-square w-[24px] h-[24px] cursor-pointer flex items-center justify-center transition-colors"
         >
@@ -99,7 +100,11 @@ function ContactLink({ label, href }: { label: string; href: string }) {
         <span className="transition-colors">{renderIcon()}</span>
         <span className="text-xs md:text-base">{label}</span>
       </div>
-      <ArrowTopRightIcon aria-label="Open links" aria-hidden="true" className="w-3 h-3 md:w-4 md:h-4 transition-colors" />
+      <ArrowTopRightIcon
+        aria-label="Open links"
+        aria-hidden="true"
+        className="w-3 h-3 md:w-4 md:h-4 transition-colors"
+      />
     </motion.a>
   );
 }
