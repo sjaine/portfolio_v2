@@ -27,7 +27,7 @@ export default function Profile() {
           onClick={() => setIsProfileOpen(true)}
           className="flex-1 bg-white/50 rounded-lg border border-white flex flex-col items-start justify-between p-4 transition-transform active:scale-[0.98]"
         >
-          <div className="w-[80px] h-[80px] bg-black rounded-lg relative">
+          <div className="w-[80px] h-[80px] bg-gray-200 rounded-lg relative">
             <Image
               src="/images/jaine2.png"
               alt="jaine"
