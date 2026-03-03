@@ -46,6 +46,7 @@ export default function Navbar() {
                 src="/images/logo-white.svg"
                 alt="Jaine Shin Logo"
                 fill
+                priority
                 draggable={false}
                 className="object-contain select-none pointer-events-none"
               />

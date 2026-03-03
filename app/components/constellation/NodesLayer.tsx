@@ -213,9 +213,9 @@ export function NodesLayer({
                   alt="Jaine Shin"
                   width={scale <= 0.9 ? 80 : 100}
                   height={scale <= 0.9 ? 80 : 100}
+                  priority
                   draggable={false}
                   className="rounded-md object-cover"
-                  priority
                 />
               )}
 

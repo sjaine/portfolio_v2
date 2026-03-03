@@ -32,6 +32,7 @@ export default function Profile() {
               src="/images/jaine2.png"
               alt="jaine"
               fill
+              priority
               className="object-cover rounded-lg"
             />
           </div>
