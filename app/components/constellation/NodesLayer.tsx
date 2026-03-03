@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import GradientOrb from "@/app/components/ui/GradientOrb";
-import { nodePositions, nodeLabels } from "./data";
+import { nodePositions, TABLET_POSITIONS, nodeLabels } from "./data";
 import type { NodeId } from "./data";
 import { useState, useEffect } from "react";
 
@@ -47,6 +47,7 @@ export function NodesLayer({
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isJaineHovered, setIsJaineHovered] = useState(false);
   const [showInitialBubble, setShowInitialBubble] = useState(false);
+  const currentPositions = scale <= 0.9 ? TABLET_POSITIONS : nodePositions;
 
   useEffect(() => {
     if (isJaineHovered) {
@@ -69,9 +70,9 @@ export function NodesLayer({
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({ 
-      x: (e.clientX - rect.left) / scale, 
-      y: (e.clientY - rect.top) / scale 
+    setMousePos({
+      x: (e.clientX - rect.left) / scale,
+      y: (e.clientY - rect.top) / scale,
     });
   };
 
@@ -101,7 +102,7 @@ export function NodesLayer({
               left: mousePos.x,
               top: mousePos.y,
               translateX: "-50%",
-              translateY: "-80%", 
+              translateY: "-80%",
             }}
             transition={{
               type: "spring",
@@ -116,7 +117,7 @@ export function NodesLayer({
         )}
       </AnimatePresence>
 
-      {Object.entries(nodePositions).map(([id, pos], index) => {
+      {Object.entries(currentPositions).map(([id, pos], index) => {
         const nodeId = id as NodeId;
         const x = pos.x * width;
         const y = pos.y * height;
@@ -210,8 +211,8 @@ export function NodesLayer({
                 <Image
                   src="/images/jaine.jpg"
                   alt="Jaine Shin"
-                  width={100}
-                  height={100}
+                  width={scale <= 0.9 ? 80 : 100}
+                  height={scale <= 0.9 ? 80 : 100}
                   draggable={false}
                   className="rounded-md object-cover"
                   priority
@@ -225,7 +226,7 @@ export function NodesLayer({
                       ? "/images/gradient-orb-uiux.png"
                       : "/images/gradient-orb-ct.png"
                   }
-                  size={25}
+                  size={scale <= 0.9 ? 15 : 25}
                   alt={nodeLabels[nodeId]}
                 />
               )}

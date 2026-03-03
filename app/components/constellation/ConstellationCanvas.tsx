@@ -8,9 +8,10 @@ import type { NodeId } from "./data";
 
 import ProfileModal from "../ui/ProfileModal";
 
+const SCALE_XS = 1000;
+const SCALE_SM = 1300;
 const SCALE_MD = 1750;
 const SCALE_XL = 1980;
-const SCALE_SM = 1100;
 
 type ConstellationCanvasProps = {
   hidden?: boolean;
@@ -31,9 +32,11 @@ export default function ConstellationCanvas({
       if (width >= SCALE_XL) {
         setScale(1.2);
       } else if (width >= SCALE_MD) {
-        setScale(1.2);
+        setScale(1.1);
       } else if (width <= SCALE_SM) {
-        setScale (1.1);
+        setScale(0.9);
+      } else if (width <= SCALE_XS) {
+        setScale(0.7);
       } else {
         setScale(1);
       }
@@ -46,7 +49,6 @@ export default function ConstellationCanvas({
 
   return (
     <div className="flex justify-center items-center w-full overflow-hidden">
-
       <div
         className={`hidden md:block max-w-[1400px] overflow-hidden
           transition-all duration-500 ease-in-out
@@ -74,17 +76,16 @@ export default function ConstellationCanvas({
               width={size.width}
               height={size.height}
               scale={scale}
-              onCenterClick={() => setIsModalOpen(true)} 
+              onCenterClick={() => setIsModalOpen(true)}
             />
           </div>
         </div>
 
-        <ProfileModal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
+        <ProfileModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
         />
       </div>
-
     </div>
   );
 }
