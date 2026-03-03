@@ -73,8 +73,8 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
   const currentStudies = isDevMode ? DEV_STUDIES : CASE_STUDIES;
 
   return (
-    <div className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-5 gap-5 items-end bg-white/50 rounded-lg border border-white select-none">
-      <div className="flex flex-col gap-2 w-full">
+    <div className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-5 gap-6 items-end bg-white/50 rounded-lg border border-white select-none">
+      <div className="flex flex-col gap-3 w-full">
         <div className="flex justify-between">
           <div className="flex gap-1 items-center select-none">
             <AvailabilityDot />
@@ -115,8 +115,8 @@ export default function CaseStudies({ onHover }: CaseStudiesProps) {
 
         <p className="text-xs leading-relaxed text-gray-500">
           {isDevMode
-            ? "Switch to UI/UX case studies by turning on <UI/UX Mode>."
-            : "Switch to dev case studies by turning on <Dev Mode>."}
+            ? "Tap the toggle to switch to UI/UX."
+            : "Tap the toggle to switch to Dev."}
         </p>
       </div>
 
