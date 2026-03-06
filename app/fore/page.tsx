@@ -44,12 +44,12 @@ export default function InstagramProject() {
     <main className="pt-4 flex flex-col justify-center items-center w-screen page-gradient scroll-smooth">
       <Navbar />
       <ProjectHeader
-        title="Modea"
+        title="Fore"
         role={["UI/UX Designer", "Front-end Developer"]}
         timeline={["From August 2025", "To April 2026"]}
         team="Solo project"
         tools={["Figma, Visual Studio Code,", "ShortCuts, Next.js"]}
-        link="/modea"
+        link="/fore"
       />
 
       <div className="flex h-screen w-full items-center justify-center bg-black">
