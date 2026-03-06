@@ -15,9 +15,9 @@ const CASE_STUDIES = [
       "Improving Instagram's Accessibility for people with visual impairments.",
   },
   {
-    id: "modea",
-    title: "Modea",
-    href: "/modea",
+    id: "fore",
+    title: "Fore",
+    href: "/fore",
     thumbnail: "/images/preview.png",
     description: "Redefining context switching in remote work.",
   },
