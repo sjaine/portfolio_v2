@@ -680,9 +680,9 @@ export default function InstagramProject() {
                     <div className="flex flex-col gap-[10px] pr-0 md:pr-24">
                       <p className="text-2xl font-bold">Main Feed</p>
                       <p className="text-lg">
-                        In the main feed, the ALT text box is positioned below
+                        In the main feed, the alt text box is positioned below
                         each photo. When a user clicks on a photo,{" "}
-                        <strong>VoiceOver</strong> reads the ALT text.
+                        <strong>VoiceOver</strong> reads the alt text.
                       </p>
                     </div>
                   </div>
@@ -780,9 +780,9 @@ export default function InstagramProject() {
                     <div className="flex flex-col gap-[10px] pr-0 md:pr-24">
                       <p className="text-2xl font-bold">Edit alt text</p>
                       <p className="text-lg">
-                        Users can <strong>review</strong> their ALT text before
+                        Users can <strong>review</strong> their alt text before
                         uploading the photo. Since screen readers typically read
-                        from the top, the ALT text is placed below the caption
+                        from the top, the alt text is placed below the caption
                         for better accessibility.
                       </p>
                     </div>
