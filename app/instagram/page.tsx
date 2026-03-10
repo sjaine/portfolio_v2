@@ -16,10 +16,11 @@ import {
   ReactCompareSliderImage,
 } from "react-compare-slider";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Scrollbar } from "swiper/modules";
+import { Autoplay, Scrollbar, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/scrollbar";
+import 'swiper/css/pagination';
 
 const fadeIn = {
   initial: { opacity: 0, y: 100 },
@@ -155,14 +156,14 @@ export default function InstagramProject() {
                     centeredSlides={true}
                     loop={true}
                     autoplay={{
-                      delay: 2500,
+                      delay: 4000,
                       disableOnInteraction: false,
                     }}
-                    scrollbar={{
-                      draggable: true,
+                    pagination={{
+                      clickable: true,
                     }}
-                    modules={[Scrollbar, Autoplay]}
-                    className="mySwiper w-full h-full"
+                    modules={[Scrollbar, Autoplay, Pagination]}
+                    className="mySwiper w-full h-full pb-10"
                   >
                     <SwiperSlide>
                       <Image
@@ -255,13 +256,13 @@ export default function InstagramProject() {
                     centeredSlides={true}
                     loop={true}
                     autoplay={{
-                      delay: 2500,
+                      delay: 4000,
                       disableOnInteraction: false,
                     }}
-                    scrollbar={{
-                      draggable: true,
+                    pagination={{
+                      clickable: true,
                     }}
-                    modules={[Scrollbar, Autoplay]}
+                    modules={[Scrollbar, Autoplay, Pagination]}
                     className="mySwiper w-full h-full"
                   >
                     <SwiperSlide>

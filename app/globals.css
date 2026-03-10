@@ -88,6 +88,14 @@ h3 {
   mask-image: linear-gradient(to bottom, white 0%, white 60%, transparent 60% 100%); 
 } 
  
+.mySwiper {
+  padding-bottom: 40px !important;
+} 
+
+.swiper-pagination {
+  bottom: 10px !important; 
+}
+
 .gradient {
   background: linear-gradient(
     135deg,
