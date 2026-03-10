@@ -64,7 +64,7 @@ export default function InstagramProject() {
         link="https://jaineinstaaccessibility.netlify.app/"
       />
 
-      <div className="flex h-screen w-full items-center justify-center bg-black">
+      <div className="flex h-screen w-full items-center justify-center">
         <div className="relative aspect-[9/16] w-full h-full max-h-screen overflow-hidden">
           <video
             src="/images/instagram/instagram.mp4"
@@ -383,20 +383,20 @@ export default function InstagramProject() {
                 with the platform.
               </p>
               <div className="flex gap-12 flex-col md:flex-row">
-                <div className="flex flex-col items-center bg-black text-white p-10 flex-1 rounded-2xl">
-                  <h4 className="text-6xl text-bold font-[IBM_Plex_Sans] pb-5">
+                <div className="flex flex-col items-center border border-white bg-white/50 text-white p-10 flex-1 rounded-2xl">
+                  <h4 className="text-6xl text-bold text-[#6D8EEB] pb-5">
                     ①
                   </h4>
-                  <p className="text-lg text-center">
+                  <p className="text-lg text-black text-center">
                     The alt text feature is difficult to find and lacks clear
                     writing guidance.
                   </p>
                 </div>
-                <div className="flex flex-col items-center bg-black text-white p-10 flex-1 rounded-2xl">
-                  <h4 className="text-6xl text-bold font-[IBM_Plex_Sans] pb-5">
+                <div className="flex flex-col items-center border border-white bg-white/50 text-white p-10 flex-1 rounded-2xl">
+                  <h4 className="text-6xl text-bold text-[#6D8EEB] pb-5">
                     ②
                   </h4>
-                  <p className="text-lg text-center">
+                  <p className="text-lg text-black text-center">
                     Current auto-generated descriptions are often inaccurate or
                     insufficient.
                   </p>
@@ -558,7 +558,7 @@ export default function InstagramProject() {
                     />
                     <ArrowDownIcon className="w-8 h-10 shrink-0" />
 
-                    <div className="flex flex-col w-full bg-black text-white p-6 gap-2 rounded-lg min-h-[148px] md:h-[148px]">
+                    <div className="flex flex-col w-full bg-[#1a1a1a] text-white p-6 gap-2 rounded-lg min-h-[148px] md:h-[148px]">
                       <Image
                         src="/images/instagram/staricon.svg"
                         alt="Star Icon"
@@ -665,7 +665,7 @@ export default function InstagramProject() {
               <div className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px]">
                 <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
-                    <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
+                    <div className="flex flex-col w-[280px] bg-[#1a1a1a] text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
                       <Image
                         src="/images/instagram/staricon.svg"
                         alt="Star Icon"
@@ -698,7 +698,7 @@ export default function InstagramProject() {
                 </div>
                 <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
-                    <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
+                    <div className="flex flex-col w-[280px] bg-[#1a1a1a] text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
                       <Image
                         src="/images/instagram/staricon.svg"
                         alt="Star Icon"
@@ -731,7 +731,7 @@ export default function InstagramProject() {
                 </div>
                 <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
-                    <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
+                    <div className="flex flex-col w-[280px] bg-[#1a1a1a] text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
                       <Image
                         src="/images/instagram/staricon.svg"
                         alt="Star Icon"
@@ -766,7 +766,7 @@ export default function InstagramProject() {
                 </div>
                 <div className="flex flex-col gap-[40px] md:gap-0 md:flex-row">
                   <div className="flex flex-col flex-5 gap-[40px] justify-center">
-                    <div className="flex flex-col w-[280px] bg-black text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
+                    <div className="flex flex-col w-[280px] bg-[#1a1a1a] text-white p-6 gap-2 rounded-lg h-[170px] items-start justify-center">
                       <Image
                         src="/images/instagram/staricon.svg"
                         alt="Star Icon"
@@ -903,8 +903,8 @@ export default function InstagramProject() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
                 {/* Reflection 1 */}
-                <div className="relative p-6 bg-black text-white rounded-2xl flex flex-col">
-                  <h4 className="font-bold text-lg mb-2 leading-snug">
+                <div className="relative p-6 rounded-2xl flex flex-col text-black border border-white bg-white/50">
+                  <h4 className="font-bold text-lg mb-2 leading-snug text-[#6D8EEB]">
                     From Sympathy to <br className="hidden lg:block" />{" "}
                     Inclusive Thinking
                   </h4>
@@ -916,8 +916,8 @@ export default function InstagramProject() {
                 </div>
 
                 {/* Reflection 2 */}
-                <div className="relative p-6 bg-black text-white rounded-2xl flex flex-col">
-                  <h4 className="font-bold text-lg mb-2">
+                <div className="relative p-6 rounded-2xl flex flex-col text-black border border-white bg-white/50">
+                  <h4 className="font-bold text-lg mb-2 leading-snug text-[#6D8EEB]">
                     Designing Within <br className="hidden lg:block" /> Real
                     Constraints
                   </h4>
@@ -928,8 +928,8 @@ export default function InstagramProject() {
                 </div>
 
                 {/* Reflection 3 */}
-                <div className="relative p-6 bg-black text-white rounded-2xl flex flex-col">
-                  <h4 className="font-bold text-lg mb-2">
+                <div className="relative p-6 rounded-2xl flex flex-col text-black border border-white bg-white/50">
+                  <h4 className="font-bold text-lg mb-2 leading-snug text-[#6D8EEB]">
                     Connecting Design with <br className="hidden lg:block" />{" "}
                     Technical Reality
                   </h4>
