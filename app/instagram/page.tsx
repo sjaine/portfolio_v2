@@ -342,7 +342,7 @@ export default function InstagramProject() {
                         <Counter to={35} suffix="%" />
                       </div>
                       <p>
-                        Users struggle <strong>to find</strong> the alt text
+                        Users <strong>struggle to find</strong> the alt text
                         option
                       </p>
                     </div>
