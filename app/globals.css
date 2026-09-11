@@ -13,6 +13,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-ibm-sans: var(--font-ibm-sans);
+  --font-archivo: var(--font-archivo), sans-serif;
   --color-gray: var(--gray);
   --color-warm-white: var(--warm-white);
 }
