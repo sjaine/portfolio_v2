@@ -2,7 +2,12 @@ import { ReactNode } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import GradientOrb from "@/app/components/ui/GradientOrb";
-import { nodePositions, TABLET_POSITIONS, nodeLabels } from "./data";
+import {
+  nodePositions,
+  TABLET_POSITIONS,
+  nodeLabels,
+  nodeCaseStudies,
+} from "./data";
 import type { NodeId } from "./data";
 import { useState, useEffect } from "react";
 
@@ -128,8 +133,9 @@ export function NodesLayer({
         const shouldShowBubble = isHovered || (isCenter && showInitialBubble);
 
         const isClickable = isCenter || isRole;
-
         const hasBubble = (isCenter || isRole) && BUBBLE_CONTENT[nodeId];
+
+        const caseStudy = nodeCaseStudies[nodeId];
 
         return (
           <div
@@ -141,7 +147,10 @@ export function NodesLayer({
               left: x,
               top: y,
               transform: "translate(-50%, -50%)",
-              zIndex: shouldShowBubble && hasBubble ? 50 : 1,
+              zIndex:
+                (shouldShowBubble && hasBubble) || (isHovered && caseStudy)
+                  ? 50
+                  : 1,
             }}
             onMouseEnter={() => {
               onHover(nodeId);
@@ -157,6 +166,8 @@ export function NodesLayer({
                 setIsJaineHovered(false);
                 document.body.removeAttribute("data-hide-cursor");
                 onCenterClick();
+              } else if (caseStudy?.link) {
+                window.location.href = caseStudy.link;
               }
             }}
           >
@@ -186,9 +197,49 @@ export function NodesLayer({
               )}
             </AnimatePresence>
 
+            <AnimatePresence>
+              {caseStudy && isHovered && (
+                <motion.div
+                  initial={{ opacity: 0, y: 5, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 5, scale: 0.9 }}
+                  className="absolute bottom-full mb-5 w-48 p-2.5 bg-white/50 backdrop-blur-md border border-white text-black shadow-lg rounded-2xl z-50 pointer-events-none flex flex-col gap-2 items-center z-600"
+                >
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/50">
+                    <Image
+                      src={caseStudy.image}
+                      alt={caseStudy.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative inline-block w-fit px-1">
+                    <span className="relative z-10 text-xs font-semibold text-center block">
+                    Featured Project ↗
+                    </span>
+                    <span className="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-200/60 -z-0 rounded-full" />
+                  </div>
+
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 -bottom-[16px] w-8 h-8 overflow-hidden"
+                    style={{
+                      clipPath: "polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%)",
+                    }}
+                  >
+                    <div
+                      className="w-full h-full bg-white/60 backdrop-blur-md rotate-45 border-r border-b border-white"
+                      style={{
+                        marginTop: "-50%",
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <motion.div
               animate={
-                shouldShowBubble
+                shouldShowBubble || (isHovered && caseStudy)
                   ? { scale: 1.1, y: -5 }
                   : { y: isClickable ? [0, -4, 0] : [0, -2, 0] }
               }

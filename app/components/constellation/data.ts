@@ -97,4 +97,63 @@ export const nodeLabels: Record<NodeId, string> = {
   interactions: "INTERACTIONS",
 };
 
+export type NodeCaseStudy = {
+  title: string;
+  image: string;
+  link: string; 
+};
+
+export const nodeCaseStudies: Partial<Record<NodeId, NodeCaseStudy>> = {
+  readability: {
+    title: "Preview",
+    image: "/images/instagram/instagram.png",
+    link: "/instagram",
+  },
+  clarity: {
+    title: "Preview",
+    image: "/images/fore.jpg",
+    link: "/fore",
+  },
+  detail: {
+    title: "Preview",
+    image: "/images/fore.jpg",
+    link: "/fore",
+  },
+  empathy: {
+    title: "Preview",
+    image: "/images/instagram/instagram.png",
+    link: "/instagram",
+  },
+  flow: {
+    title: "Preview",
+    image: "/images/fore.jpg",
+    link: "/fore",
+  },
+  exploration: {
+    title: "Preview",
+    image: "/images/archive/vhsplayer.png",
+    link: "https://vhs-player.vercel.app/",
+  },
+  motion: {
+    title: "Preview",
+    image: "/images/archive/pcv-records.png",
+    link: "https://pcv-records.vercel.app/",
+  },
+  curiosity: {
+    title: "Preview",
+    image: "/images/archive/mminfo.png",
+    link: "https://mminfo.vercel.app/",
+  },
+  play: {
+    title: "Preview",
+    image: "/images/archive/filmsclothing.png",
+    link: "https://filmclothing.vercel.app/",
+  },
+  interactions: {
+    title: "Preview",
+    image: "/images/archive/pcv-records.png",
+    link: "https://pcv-records.vercel.app/",
+  },
+};
+
 export type NodeId = keyof typeof nodePositions;

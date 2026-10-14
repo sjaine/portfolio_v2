@@ -18,7 +18,7 @@ const CASE_STUDIES = [
     id: "fore",
     title: "Fore",
     href: "/fore",
-    thumbnail: "/images/preview.png",
+    thumbnail: "/images/fore.jpg",
     description: "Redefining context switching in remote work.",
   },
   {

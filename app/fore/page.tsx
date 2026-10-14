@@ -73,12 +73,10 @@ export default function InstagramProject() {
 
       <div className="flex h-screen w-full items-center justify-center bg-black">
         <div className="relative aspect-[9/16] w-full h-full max-h-screen overflow-hidden">
-          <video
-            src="/images/preview.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
+          <Image
+            alt="Fore"
+            src="/images/fore.jpg"
+            fill
             className="h-full w-full object-cover"
           />
         </div>
@@ -146,7 +144,7 @@ export default function InstagramProject() {
               <h2>Final Solution</h2>
               <div className="flex h-full w-full flex-col md:flex-row">
                 <div className="flex-[4] pb-16 md:pb-0 pr-0 md:pr-16 flex justify-between">
-                 <p>NEED TO ADD</p>
+                  <p>NEED TO ADD</p>
                 </div>
               </div>
             </article>
@@ -754,10 +752,13 @@ export default function InstagramProject() {
                       </p>
                     </div>
                     <h4 className="font-bold text-sm leading-snug">
-                    Personalized app recommendations
+                      Personalized app recommendations
                     </h4>
                     <p className="leading-relaxed opacity-90 text-sm">
-                    During onboarding, users input their job role. The app uses this to recommend which apps to open during Work mode, reducing the cognitive load of manual setup supported by AI.
+                      During onboarding, users input their job role. The app
+                      uses this to recommend which apps to open during Work
+                      mode, reducing the cognitive load of manual setup
+                      supported by AI.
                     </p>
                   </div>
                 </div>
@@ -771,10 +772,12 @@ export default function InstagramProject() {
                       </p>
                     </div>
                     <h4 className="font-bold text-sm leading-snug">
-                    Distraction blocking
+                      Distraction blocking
                     </h4>
                     <p className="leading-relaxed opacity-90 text-sm">
-                    Users select which apps to block during Work mode. Once confirmed, blocking activates automatically every time Work mode is triggered — no repeat configuration needed.
+                      Users select which apps to block during Work mode. Once
+                      confirmed, blocking activates automatically every time
+                      Work mode is triggered — no repeat configuration needed.
                     </p>
                   </div>
 
@@ -800,7 +803,7 @@ export default function InstagramProject() {
 
                 {/* 4 */}
                 <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-6 items-center w-full rounded-2xl flex flex-col text-black border border-white bg-white/50">
-                <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
                     <video
                       src="/images/fore/screenRecord/4.mov"
                       autoPlay
@@ -841,10 +844,12 @@ export default function InstagramProject() {
                       </p>
                     </div>
                     <h4 className="font-bold text-sm leading-snug">
-                    Intentional rest with Pomodoro
+                      Intentional rest with Pomodoro
                     </h4>
                     <p className="leading-relaxed opacity-90 text-sm">
-                    Three focus rhythm presets — Deep Focus, Standard, and Light Pace — provide structured work and break intervals. Rest is built into the work session, not an afterthought.
+                      Three focus rhythm presets — Deep Focus, Standard, and
+                      Light Pace — provide structured work and break intervals.
+                      Rest is built into the work session, not an afterthought.
                     </p>
                   </div>
                 </div>
@@ -858,10 +863,13 @@ export default function InstagramProject() {
                       </p>
                     </div>
                     <h4 className="font-bold text-sm leading-snug">
-                    After Work Suggestions
+                      After Work Suggestions
                     </h4>
                     <p className="leading-relaxed opacity-90 text-sm">
-                    After the workday ends, the app recommends activities based on the user's energy level. Planned next step: link these suggestions directly to Apple Reminders via Shortcuts.
+                      After the workday ends, the app recommends activities
+                      based on the user's energy level. Planned next step: link
+                      these suggestions directly to Apple Reminders via
+                      Shortcuts.
                     </p>
                   </div>
 
@@ -913,10 +921,12 @@ export default function InstagramProject() {
                       </p>
                     </div>
                     <h4 className="font-bold text-sm leading-snug">
-                    Shortcuts export
+                      Shortcuts export
                     </h4>
                     <p className="leading-relaxed opacity-90 text-sm">
-                    At the end of onboarding, a step-by-step guide walks users through setting up their Apple Shortcuts configuration — making a technically complex setup feel straightforward.
+                      At the end of onboarding, a step-by-step guide walks users
+                      through setting up their Apple Shortcuts configuration —
+                      making a technically complex setup feel straightforward.
                     </p>
                   </div>
                 </div>
@@ -933,7 +943,10 @@ export default function InstagramProject() {
                       Home Screen
                     </h4>
                     <p className="leading-relaxed opacity-90 text-sm">
-                    All active settings are visible and editable from a single screen — schedule, Pomodoro rhythm, managed apps, and after-work suggestions. Everything in one place, nothing buried.
+                      All active settings are visible and editable from a single
+                      screen — schedule, Pomodoro rhythm, managed apps, and
+                      after-work suggestions. Everything in one place, nothing
+                      buried.
                     </p>
                   </div>
 
