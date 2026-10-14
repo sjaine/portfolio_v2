@@ -7,6 +7,7 @@
   --foreground: #171717;
   --gray: #e5e5e5;
   --warm-white: #f8f8f8;
+  --own-blue: #6D8EEB;
 }
 
 @theme inline {
@@ -16,6 +17,7 @@
   --font-archivo: var(--font-archivo), sans-serif;
   --color-gray: var(--gray);
   --color-warm-white: var(--warm-white);
+  --color-own-blue: var(--own-blue);
 }
 
 * {
