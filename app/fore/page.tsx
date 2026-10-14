@@ -143,8 +143,13 @@ export default function InstagramProject() {
             >
               <h2>Final Solution</h2>
               <div className="flex h-full w-full flex-col md:flex-row">
-                <div className="flex-[4] pb-16 md:pb-0 pr-0 md:pr-16 flex justify-between">
-                  <p>NEED TO ADD</p>
+                <div className="relative aspect-video h-full w-full">
+                  <Image
+                  alt="preview"
+                  src="/images/fore/thumbnail.png"
+                  fill
+                  className="h-full w-full object-cover rounded-2xl"
+                  />
                 </div>
               </div>
             </article>
