@@ -623,7 +623,7 @@ export default function InstagramProject() {
                 <div className="aspect-square relative">
                   <Image
                     alt="Xcode"
-                    src="/images/fore/xcode.svg"
+                    src="/images/fore/Xcode.svg"
                     width={34}
                     height={34}
                     className="object-contain"
