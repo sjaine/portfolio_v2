@@ -48,9 +48,9 @@ export default function ConstellationCanvas({
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full overflow-hidden">
+    <div className="flex justify-center items-center w-full">
       <div
-        className={`hidden md:block max-w-[1400px] overflow-hidden
+        className={`hidden md:block max-w-[1400px]
           transition-all duration-500 ease-in-out
           ${hidden ? "opacity-0 pointer-events-none" : "w-full opacity-100"}`}
         style={{

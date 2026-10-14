@@ -114,6 +114,11 @@ export const nodeCaseStudies: Partial<Record<NodeId, NodeCaseStudy>> = {
     image: "/images/fore.jpg",
     link: "/fore",
   },
+  communication: {
+    title: "Preview",
+    image: "/images/gwsk.png",
+    link: "/fore",
+  },
   detail: {
     title: "Preview",
     image: "/images/fore.jpg",
