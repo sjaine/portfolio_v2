@@ -156,8 +156,8 @@ export const nodeCaseStudies: Partial<Record<NodeId, NodeCaseStudy>> = {
   },
   interactions: {
     title: "Preview",
-    image: "/images/archive/pcv-records.png",
-    link: "https://pcv-records.vercel.app/",
+    image: "/images/archive/ssuarchive.gif",
+    link: "https://posters.jaineysshin.com/",
   },
 };
 

@@ -52,25 +52,25 @@ export function NodesLayer({
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isJaineHovered, setIsJaineHovered] = useState(false);
   const [showInitialBubble, setShowInitialBubble] = useState(false);
+  const [isBubbleHovered, setIsBubbleHovered] = useState(false);
+  // 말풍선 위에서는 따라다니는 커서 라벨 대신 기본 포인터를 보여줌
+  const showCursorLabel = isJaineHovered && !isBubbleHovered;
   const currentPositions = scale <= 0.9 ? TABLET_POSITIONS : nodePositions;
 
   useEffect(() => {
-    if (isJaineHovered) {
+    if (showCursorLabel) {
       document.body.setAttribute("data-hide-cursor", "true");
     } else {
       document.body.removeAttribute("data-hide-cursor");
     }
     return () => document.body.removeAttribute("data-hide-cursor");
-  }, [isJaineHovered]);
+  }, [showCursorLabel]);
 
+  // 첫 화면이 자리 잡은 뒤 등장하고, 사용자가 노드에 처음 호버할 때까지 유지
+  // (닫히는 건 각 노드의 onMouseEnter에서 처리)
   useEffect(() => {
-    const startTimer = setTimeout(() => setShowInitialBubble(true), 200);
-    const endTimer = setTimeout(() => setShowInitialBubble(false), 3000);
-
-    return () => {
-      clearTimeout(startTimer);
-      clearTimeout(endTimer);
-    };
+    const startTimer = setTimeout(() => setShowInitialBubble(true), 900);
+    return () => clearTimeout(startTimer);
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -86,7 +86,7 @@ export function NodesLayer({
   return (
     <div onMouseMove={handleMouseMove} className="relative w-full h-full">
       <AnimatePresence>
-        {isJaineHovered && (
+        {showCursorLabel && (
           <motion.div
             key="jaine-cursor"
             initial={{
@@ -136,6 +136,7 @@ export function NodesLayer({
         const hasBubble = (isCenter || isRole) && BUBBLE_CONTENT[nodeId];
 
         const caseStudy = nodeCaseStudies[nodeId];
+        const isLifted = shouldShowBubble || (isHovered && !!caseStudy);
 
         return (
           <div
@@ -164,6 +165,7 @@ export function NodesLayer({
             onClick={() => {
               if (isCenter && onCenterClick) {
                 setIsJaineHovered(false);
+                setIsBubbleHovered(false);
                 document.body.removeAttribute("data-hide-cursor");
                 onCenterClick();
               } else if (caseStudy?.link) {
@@ -177,7 +179,15 @@ export function NodesLayer({
                   initial={{ opacity: 0, y: 5, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 5, scale: 0.9 }}
-                  className="absolute bottom-full mb-7 w-50 p-3 bg-white/50 backdrop-blur-xs border border-white text-black shadow-lg rounded-2xl text-sm leading-relaxed z-50 pointer-events-none"
+                  onMouseEnter={isCenter ? () => setIsBubbleHovered(true) : undefined}
+                  onMouseLeave={isCenter ? () => setIsBubbleHovered(false) : undefined}
+                  className={`absolute bottom-full mb-7 w-50 p-3 bg-white/50 backdrop-blur-xs border border-white text-black shadow-lg rounded-2xl text-sm leading-relaxed z-50 ${
+                    isCenter
+                      ? // 클릭 가능 + 말풍선과 사진 사이 간격(mb-7)을 투명 영역으로 이어서
+                        // 말풍선에서 사진으로 내려갈 때 호버가 끊기지 않게 함
+                        "group cursor-pointer pointer-events-auto after:absolute after:inset-x-0 after:top-full after:h-7"
+                      : "pointer-events-none"
+                  }`}
                 >
                   {BUBBLE_CONTENT[nodeId]}
                   <div
@@ -239,12 +249,14 @@ export function NodesLayer({
 
             <motion.div
               animate={
-                shouldShowBubble || (isHovered && caseStudy)
+                isLifted
                   ? { scale: 1.1, y: -5 }
                   : { y: isClickable ? [0, -4, 0] : [0, -2, 0] }
               }
               transition={
-                isHovered
+                // animate와 같은 조건을 써야 함: 떠 있는 상태에 반복 transition이
+                // 적용되면 y가 -5까지 천천히 오른 뒤 처음으로 튀어 돌아감
+                isLifted
                   ? { type: "spring", stiffness: 400, damping: 17 }
                   : {
                       y: {
