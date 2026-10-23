@@ -9,6 +9,12 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 
 const PROJECT_DATA = [
   {
+    src: "/images/archive/ssuarchive.gif",
+    label: "SSU Work Archive",
+    symbol: "↗",
+    link: "https://posters.jaineysshin.com/",
+  },
+  {
     src: "/images/archive/vhsplayer.png",
     label: "Retro VHS Player Interface (WIP)",
     symbol: "↗",
