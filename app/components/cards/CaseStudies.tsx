@@ -1,10 +1,16 @@
-import Link from "next/link";
 import AvailabilityDot from "@/app/components/ui/AvailabilityDot";
 import CaseStudyItem from "@/app/components/ui/CaseStudy";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import Button from "@/app/components/ui/LinkButton";
+import { ArrowTopRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const CASE_STUDIES = [
+  {
+    id: "fore",
+    title: "Fore",
+    href: "/fore",
+    thumbnail: "/images/fore.jpg",
+    description: "Redefining context switching in remote work.",
+  },
   {
     id: "Instagram Accessibility",
     title: "Instagram Accessibility",
@@ -14,45 +20,38 @@ const CASE_STUDIES = [
     description:
       "Improving Instagram's Accessibility for people with visual impairments.",
   },
-  {
-    id: "fore",
-    title: "Fore",
-    href: "/fore",
-    thumbnail: "/images/fore.jpg",
-    description: "Redefining context switching in remote work.",
-  },
-  {
-    id: "gwsk",
-    title: "GWSK Studio",
-    href: "/gwsk",
-    thumbnail: "/images/gwsk.png",
-    description: "Redesigned & Developed GWSK studio's new website.",
-  },
 ];
 
-const DEV_STUDIES = [
+type Build = {
+  id: string;
+  title: string;
+  summary: string;
+  href: string;
+  repo?: string;
+  thumbnail: string;
+  posterUrl?: string;
+  description: string;
+};
+
+const BUILDS: Build[] = [
   {
-    id: "filmsclothing",
-    title: "Filmsclothing",
-    href: "https://filmclothing.vercel.app/",
-    thumbnail: "/images/archive/filmsclothing.mp4",
-    posterUrl: "/images/archive/filmsclothing.png",
-    description: "Track my movie records!",
+    id: "ssuarchive",
+    title: "SSU Poster Wall",
+    summary: "Graphic design archive site",
+    href: "https://posters.jaineysshin.com/",
+    thumbnail: "/images/archive/ssuarchive.mp4",
+    posterUrl: "/images/archive/ssuarchive.png",
+    description: "Posters I designed at SSU. (Sep 2025 – Apr 2026)",
   },
   {
     id: "mminfo",
     title: "MMINFO",
+    summary: "Mood-based AI recs",
     href: "https://mminfo.vercel.app/",
+    // repo: "https://github.com/sjaine/...",
     thumbnail: "/images/archive/mminfo.mp4",
     posterUrl: "/images/archive/mminfo.png",
     description: "Mood-based AI Recommendations integrating Gemini API.",
-  },
-  {
-    id: "pcv records",
-    title: "PCV Records",
-    href: "/",
-    thumbnail: "/images/preview2.png",
-    description: "Coming Soon...",
   },
 ];
 
@@ -69,116 +68,96 @@ type CaseStudiesProps = {
 };
 
 export default function CaseStudies({ onHover }: CaseStudiesProps) {
-  const [isDevMode, setIsDevMode] = useState(false);
-  const currentStudies = isDevMode ? DEV_STUDIES : CASE_STUDIES;
+  return (
+    <div className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-5 gap-6 bg-white/50 rounded-lg border border-white select-none">
+      {/* ===== Case studies ===== */}
+      <section className="flex flex-col gap-5 w-full">
+        <div className="flex gap-1 items-center">
+          <AvailabilityDot />
+          <div className="text-sm md:text-base">CASE STUDIES</div>
+        </div>
+
+        <div className="flex flex-col gap-6 w-full">
+          {CASE_STUDIES.map((item, index) => (
+            <CaseStudyItem
+              key={item.id}
+              id={item.id}
+              index={index + 1}
+              title={item.title}
+              href={item.href}
+              thumbnail={item.thumbnail}
+              posterUrl={item.posterUrl}
+              description={item.description}
+              onHover={onHover}
+              onLeave={() => onHover(null)}
+            />
+          ))}
+        </div>
+      </section>
+
+      <div className="h-px w-full bg-black/10" />
+
+      <section className="flex flex-col gap-3 w-full">
+        <div className="text-xs md:text-sm text-black/50">BUILDS</div>
+
+        <ul className="flex flex-col gap-1 w-full">
+          {BUILDS.map((build) => (
+            <BuildItem
+              key={build.id}
+              build={build}
+              onHover={onHover}
+              onLeave={() => onHover(null)}
+            />
+          ))}
+        </ul>
+      </section>
+    </div>
+  );
+}
+
+function BuildItem({
+  build,
+  onHover,
+  onLeave,
+}: {
+  build: Build;
+  onHover: (data: HoveredCase) => void;
+  onLeave: () => void;
+}) {
+  const { id, title, summary, href, repo, thumbnail, posterUrl, description } =
+    build;
 
   return (
-    <div className="max-w-full md:max-w-[280px] min-w-[250px] w-full flex flex-col px-4 md:px-6 py-5 gap-6 items-end bg-white/50 rounded-lg border border-white select-none">
-      <div className="flex flex-col gap-3 w-full">
-        <div className="flex justify-between">
-          <div className="flex gap-1 items-center select-none">
-            <AvailabilityDot />
-            <div className="text-sm md:text-base">CASE STUDIES</div>
-          </div>
-
-          <motion.button
-            aria-label="Switch views"
-            onClick={() => setIsDevMode(!isDevMode)}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="group relative flex items-center justify-center bg-black hover:bg-black/70 transition-colors px-3 py-1.5 md:py-0 rounded-full overflow-hidden shadow-sm cursor-pointer"
-          >
-            <div className="invisible flex flex-col h-0 opacity-0 pointer-events-none text-sm uppercase py-2">
-              <span>Design</span>
-              <span>Dev</span>
-            </div>
-
-            <AnimatePresence mode="popLayout">
-              <motion.span
-                key={isDevMode ? "dev" : "design"}
-                initial={{ rotateX: -90, opacity: 0, y: 10 }}
-                animate={{ rotateX: 0, opacity: 1, y: 0 }}
-                exit={{ rotateX: 90, opacity: 0, y: -10 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 35,
-                }}
-                className="absolute flex items-center gap-2 text-white text-sm uppercase whitespace-nowrap"
-                style={{
-                  backfaceVisibility: "hidden",
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                <div
-                  className={`w-1 h-1 rounded-full ${
-                    isDevMode ? "bg-blue-400" : "bg-green-400"
-                  }`}
-                />
-                {isDevMode ? "Dev" : "UI/UX"}
-              </motion.span>
-            </AnimatePresence>
-          </motion.button>
+    <li
+      onMouseEnter={() =>
+        onHover({ id, thumbnail, title, description, posterUrl })
+      }
+      onMouseLeave={onLeave}
+    >
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="
+      relative flex items-center justify-between gap-3 py-1.5 cursor-pointer
+      before:content-[''] before:absolute before:inset-x-[-12px] before:inset-y-[-6px]
+      before:rounded-lg before:bg-gray-400/30 before:backdrop-blur-[5px]
+      before:opacity-0 before:transition-opacity before:pointer-events-none
+      hover:before:opacity-100
+    "
+      >
+        <div className="relative z-10 min-w-0 flex flex-col">
+          <span className="text-sm md:text-base leading-[140%]">{title}</span>
+          <span className="text-xs text-black/50 truncate">{summary}</span>
         </div>
 
-        <p className="text-xs leading-relaxed text-gray-500">
-          {isDevMode
-            ? "Tap the toggle to switch to UI/UX."
-            : "Tap the toggle to switch to Dev."}
-        </p>
-      </div>
-
-      <div className="relative w-full">
-        <div className="invisible pointer-events-none">
-          <div className="flex flex-col gap-6">
-            {(CASE_STUDIES.length >= DEV_STUDIES.length
-              ? CASE_STUDIES
-              : DEV_STUDIES
-            ).map((item, index) => (
-              <CaseStudyItem
-                key={`ghost-${item.id}`}
-                id={item.id}
-                index={index + 1}
-                title={item.title}
-                href={item.href}
-                thumbnail={item.thumbnail}
-                posterUrl={item.posterUrl}
-                description={item.description}
-                onHover={() => {}}
-                onLeave={() => {}}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="absolute inset-0 w-full h-full">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={isDevMode ? "dev" : "design"}
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              transition={{ duration: 0.2 }}
-              className="flex flex-col gap-6 w-full"
-            >
-              {(isDevMode ? DEV_STUDIES : CASE_STUDIES).map((item, index) => (
-                <CaseStudyItem
-                  id={item.id}
-                  key={item.id}
-                  index={index + 1}
-                  title={item.title}
-                  href={item.href}
-                  thumbnail={item.thumbnail}
-                  posterUrl={item.posterUrl}
-                  description={item.description}
-                  onHover={onHover}
-                  onLeave={() => onHover(null)}
-                />
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-    </div>
+        <span
+          aria-hidden="true"
+          className="relative z-10 bg-white rounded-md p-1 aspect-square w-[24px] h-[24px] flex items-center justify-center shrink-0"
+        >
+          <ArrowTopRightIcon />
+        </span>
+      </a>
+    </li>
   );
 }
