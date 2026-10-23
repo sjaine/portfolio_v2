@@ -33,10 +33,10 @@ export default function ConstellationCanvas({
         setScale(1.2);
       } else if (width >= SCALE_MD) {
         setScale(1.1);
-      } else if (width <= SCALE_SM) {
-        setScale(0.9);
       } else if (width <= SCALE_XS) {
         setScale(0.7);
+      } else if (width <= SCALE_SM) {
+        setScale(0.9);
       } else {
         setScale(1);
       }
@@ -48,11 +48,11 @@ export default function ConstellationCanvas({
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full overflow-hidden">
+    <div className="flex justify-center items-center w-full overflow-x-clip">
       <div
-        className={`hidden md:block max-w-[1400px]
-          transition-all duration-500 ease-in-out
-          ${hidden ? "opacity-0 pointer-events-none" : "w-full opacity-100"}`}
+        className={`hidden md:block max-w-[1400px] w-full 
+          transition-all duration-300 ease-in-out
+          ${hidden ? "opacity-0 pointer-events-none" : "opacity-100"}`}
         style={{
           transform: `scale(${scale})`,
         }}
