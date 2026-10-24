@@ -627,7 +627,7 @@ export default function ForeProject() {
                 type, spacing and radius as tokens, with core components built
                 on top. Every screen pulls from the same source.
               </p>
-              <FigmaToSwiftUI showHeader={false} />
+              <FigmaToSwiftUI />
             </article>
           </motion.section>
 
