@@ -145,11 +145,14 @@ export default function ForeProject() {
               <h2>Final Solution</h2>
               <div className="flex h-full w-full flex-col md:flex-row">
                 <div className="relative aspect-video h-full w-full">
-                  <Image
-                    alt="preview"
-                    src="/images/fore/thumbnail.png"
-                    fill
-                    className="h-full w-full object-cover rounded-2xl"
+                  <video
+                    src="/images/fore/fore.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster="/images/fore.jpg"
+                    className="absolute inset-0 h-full w-full object-cover rounded-2xl"
                   />
                 </div>
               </div>
