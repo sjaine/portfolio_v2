@@ -2,6 +2,7 @@
 
 import Navbar from "../components/layout/Navbar";
 import Image from "next/image";
+import LazyVideo from "../components/ui/LazyVideo";
 
 import ProjectHeader from "../components/project/ProjectHeader";
 import SideNav from "@/app/components/project/SideNav";
@@ -18,10 +19,6 @@ import {
   CheckIcon,
   ExclamationTriangleIcon,
 } from "@radix-ui/react-icons";
-
-import "swiper/css";
-import "swiper/css/scrollbar";
-import "swiper/css/pagination";
 
 const fadeIn = {
   initial: { opacity: 0, y: 100 },
@@ -741,12 +738,8 @@ export default function ForeProject() {
                   </div>
 
                   <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                    <video
-                      src="/images/fore/screenRecord/1.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
+                    <LazyVideo
+                      src="/images/fore/screenRecord/1.mp4"
                       className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
                     />
 
@@ -765,12 +758,8 @@ export default function ForeProject() {
                   <div className="hidden md:block"></div>
 
                   <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                    <video
-                      src="/images/fore/screenRecord/2.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
+                    <LazyVideo
+                      src="/images/fore/screenRecord/2.mp4"
                       className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
                     />
 
@@ -818,12 +807,8 @@ export default function ForeProject() {
                   </div>
 
                   <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                    <video
-                      src="/images/fore/screenRecord/3.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
+                    <LazyVideo
+                      src="/images/fore/screenRecord/3.mp4"
                       className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
                     />
 
@@ -842,15 +827,10 @@ export default function ForeProject() {
                   {/* Two phones: side by side on mobile, separate grid cells on desktop */}
                   <div className="flex gap-3 md:contents">
                     <div className="relative flex-1 w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                      <video
-                        src="/images/fore/screenRecord/4.mov"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
+                      <LazyVideo
+                        src="/images/fore/screenRecord/4.mp4"
                         className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
                       />
-
                       <img
                         src="/images/fore/iphoneMockup.svg"
                         alt="iPhone Mockup"
@@ -859,12 +839,8 @@ export default function ForeProject() {
                     </div>
 
                     <div className="relative flex-1 w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                      <video
-                        src="/images/fore/screenRecord/4-2.mov"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
+                      <LazyVideo
+                        src="/images/fore/screenRecord/4-2.mp4"
                         className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
                       />
 
@@ -913,12 +889,8 @@ export default function ForeProject() {
                   </div>
 
                   <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                    <video
-                      src="/images/fore/screenRecord/5.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
+                    <LazyVideo
+                      src="/images/fore/screenRecord/5.mp4"
                       className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
                     />
 
@@ -937,12 +909,8 @@ export default function ForeProject() {
                   <div className="hidden md:block"></div>
 
                   <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                    <video
-                      src="/images/fore/screenRecord/6.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
+                    <LazyVideo
+                      src="/images/fore/screenRecord/6.mp4"
                       className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
                     />
 
@@ -990,12 +958,8 @@ export default function ForeProject() {
                   </div>
 
                   <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                    <video
-                      src="/images/fore/screenRecord/7.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
+                    <LazyVideo
+                      src="/images/fore/screenRecord/7.mp4"
                       className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
                     />
 

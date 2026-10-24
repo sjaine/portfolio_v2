@@ -15,7 +15,7 @@ const CASE_STUDIES = [
     id: "Instagram Accessibility",
     title: "Instagram Accessibility",
     href: "/instagram",
-    thumbnail: "/images/instagram/instagram.mp4",
+    thumbnail: "/images/instagram/instagram-web.mp4",
     posterUrl: "/images/instagram/instagram.png",
     description:
       "Improving Instagram's Accessibility for people with visual impairments.",
@@ -39,7 +39,7 @@ const BUILDS: Build[] = [
     title: "SSU Poster Wall",
     summary: "Graphic design archive site",
     href: "https://posters.jaineysshin.com/",
-    thumbnail: "/images/archive/ssuarchive.mp4",
+    thumbnail: "/images/archive/ssuarchive-web.mp4",
     posterUrl: "/images/archive/ssuarchive.png",
     description: "Posters I designed at SSU. (Sep 2025 – Apr 2026)",
   },
