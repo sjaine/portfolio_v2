@@ -8,7 +8,7 @@ import SideNav from "@/app/components/project/SideNav";
 import { FORE_PROJECT_SECTIONS } from "@/app/components/project/navigation";
 import FigmaToSwiftUI from "../components/project/FigmaToSwiftUI";
 import { useScrollObserver } from "../components/hooks/useScrollObserver";
-import Counter from "../components/project/Counter";
+import Zoomable from "../components/ui/Zoomable";
 
 import { motion } from "framer-motion";
 import {
@@ -144,17 +144,20 @@ export default function ForeProject() {
             >
               <h2>Final Solution</h2>
               <div className="flex h-full w-full flex-col md:flex-row">
-                <div className="relative aspect-video h-full w-full">
-                  <video
-                    src="/images/fore/fore.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster="/images/fore.jpg"
-                    className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                  />
-                </div>
+                <Zoomable label="Final Solution Video">
+                  <div className="relative aspect-video h-full w-full">
+                    <video
+                      src="/images/fore/fore.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      controls
+                      poster="/images/fore.jpg"
+                      className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                    />
+                  </div>
+                </Zoomable>
               </div>
             </article>
           </motion.section>
@@ -592,13 +595,15 @@ export default function ForeProject() {
                 and what runs behind it.
               </p>
               <div className="w-full rounded-2xl text-black border border-white bg-white/50 overflow-x-auto md:overflow-visible">
-                <Image
-                  alt="System Flow"
-                  src="/images/fore/flow.svg"
-                  width={1320}
-                  height={1012}
-                  className="w-full min-w-[760px] md:min-w-0 h-auto object-contain"
-                />
+                <Zoomable label="How it works">
+                  <Image
+                    alt="System Flow"
+                    src="/images/fore/flow.svg"
+                    width={1320}
+                    height={1012}
+                    className="w-full min-w-[760px] md:min-w-0 h-auto object-contain"
+                  />
+                </Zoomable>
               </div>
               <p className="md:hidden -mt-2 font-[family-name:var(--font-dm-mono)] text-[11px] tracking-[1px] text-[#A3A3A3]">
                 SWIPE TO SEE THE FULL FLOW →
