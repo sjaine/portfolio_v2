@@ -18,13 +18,6 @@ import {
   CheckIcon,
   ExclamationTriangleIcon,
 } from "@radix-ui/react-icons";
-import {
-  ReactCompareSlider,
-  ReactCompareSliderHandle,
-  ReactCompareSliderImage,
-} from "react-compare-slider";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Scrollbar, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/scrollbar";
@@ -67,10 +60,10 @@ export default function ForeProject() {
   const { activeSection, isParentActive } = useScrollObserver<SectionId>();
 
   return (
-    <main className="pt-4 flex flex-col justify-center items-center w-screen page-gradient scroll-smooth">
+    <main className="pt-4 flex flex-col justify-center items-center w-full overflow-x-clip page-gradient scroll-smooth">
       <Navbar />
       <ProjectHeader
-        title="Fore"
+        title="FO/RE"
         role={["UI/UX Designer", "Full Stack Developer"]}
         timeline={["From August 2025", "To April 2026"]}
         team="Solo project"
@@ -96,12 +89,12 @@ export default function ForeProject() {
           sections={FORE_PROJECT_SECTIONS}
         />
 
-        <div className="flex-[9] pt-12 md:pt-0">
+        <div className="flex-[9] min-w-0 pt-12 md:pt-0">
           {/* TL;DR */}
           <motion.section
             {...fadeIn}
             id="tldr"
-            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[64px] md:gap-[120px] mb-[80px] md:mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -167,7 +160,7 @@ export default function ForeProject() {
           <motion.section
             {...fadeIn}
             id="problem"
-            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[64px] md:gap-[120px] mb-[80px] md:mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -197,21 +190,21 @@ export default function ForeProject() {
                   working on weekends. (Gallup; SearchLab.)
                 </p>
                 <br />
-                <div className="flex gap-12 flex-col md:flex-row">
-                  <div className="flex flex-col items-left border border-white bg-white/50 text-white p-10 flex-1 rounded-2xl">
-                    <h4 className="text-7xl font-bold text-[#6D8EEB] font-archivo mb-2">
+                <div className="flex gap-4 md:gap-12 flex-col md:flex-row">
+                  <div className="flex flex-col items-left border border-white bg-white/50 text-white p-6 md:p-10 flex-1 rounded-2xl">
+                    <h4 className="text-5xl md:text-7xl font-bold text-[#6D8EEB] font-archivo mb-2">
                       69%
                     </h4>
-                    <p className="text-lg text-black">
+                    <p className="text-base md:text-lg text-black">
                       of remote workers report burnout from{" "}
                       <b>blurred work boundaries.</b>
                     </p>
                   </div>
-                  <div className="flex flex-col items-left border border-white bg-white/50 text-white p-10 flex-1 rounded-2xl">
-                    <h4 className="text-7xl font-bold text-[#6D8EEB] font-archivo mb-2">
+                  <div className="flex flex-col items-left border border-white bg-white/50 text-white p-6 md:p-10 flex-1 rounded-2xl">
+                    <h4 className="text-5xl md:text-7xl font-bold text-[#6D8EEB] font-archivo mb-2">
                       72%
                     </h4>
-                    <p className="text-lg text-black">
+                    <p className="text-base md:text-lg text-black">
                       of remote/hybrid workers{" "}
                       <b>use their bedroom or living room</b> for work.
                     </p>
@@ -243,13 +236,13 @@ export default function ForeProject() {
                 <br />
                 <p>A 5 Whys analysis confirmed this:</p>
                 <br />
-                <div className="aspect-auto relative">
+                <div className="relative -mx-4 px-4 overflow-x-auto md:mx-0 md:px-0 md:overflow-visible">
                   <Image
                     alt="5 Whys"
                     src="/images/fore/5whys.svg"
                     width={745}
                     height={495}
-                    className="w-full h-auto object-contain"
+                    className="w-full min-w-[560px] md:min-w-0 h-auto object-contain"
                   />
                 </div>
               </div>
@@ -260,7 +253,7 @@ export default function ForeProject() {
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h3>Market Gap</h3>
-              <div className="flex flex-row gap-[40px]">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-[40px]">
                 <div className="flex-1">
                   <p>
                     <strong>
@@ -293,12 +286,12 @@ export default function ForeProject() {
               id="hmwstatement"
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
-              <div className="flex flex-col gap-3 bg-[#6D8EEB] text-white/80 rounded-xl px-[30px] py-[40px]">
-                <p className="flex items-center text-2xl font-medium gap-2">
+              <div className="flex flex-col gap-3 bg-[#6D8EEB] text-white/80 rounded-xl px-6 py-8 md:px-[30px] md:py-[40px]">
+                <p className="flex items-center text-xl md:text-2xl font-medium gap-2">
                   <CheckCircledIcon className="w-[22px] h-[22px]" />
                   Opportunity
                 </p>
-                <p className="text-lg">
+                <p className="text-base md:text-lg">
                   The opportunity wasn't to build another productivity app. It
                   was to design the signal itself.
                 </p>
@@ -307,10 +300,11 @@ export default function ForeProject() {
 
             <article className="flex flex-col gap-[10px] text-center">
               <p className="text-xs text-[#6D8EEB]">HOW MIGHT WE...</p>
-              <p className="text-3xl leading-[160%]">
+              <p className="text-xl md:text-3xl leading-[160%]">
                 incorporate physical cues to help users{" "}
                 <strong>
-                  switch <br /> seamlessly between work and personal modes
+                  switch <br className="hidden md:block" /> seamlessly between
+                  work and personal modes
                 </strong>{" "}
                 in digital spaces for better work–life balance?
               </p>
@@ -321,7 +315,7 @@ export default function ForeProject() {
           <motion.section
             {...fadeIn}
             id="research"
-            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[64px] md:gap-[120px] mb-[80px] md:mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -340,8 +334,8 @@ export default function ForeProject() {
                   points of the users:
                 </p>
                 <br />
-                <div className="flex gap-3 w-full">
-                  <div className="flex flex-col flex-1 items-left border border-white bg-white/50 text-white p-8 rounded-xl">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
+                  <div className="flex flex-col gap-2 items-left border border-white bg-white/50 text-white p-5 md:p-8 rounded-xl">
                     <Image
                       src="/images/fore/staricon.svg"
                       alt="Star Icon"
@@ -352,7 +346,7 @@ export default function ForeProject() {
                       Work mode <strong>bleeding into</strong> personal space
                     </p>
                   </div>
-                  <div className="flex flex-col flex-1 items-left border border-white bg-white/50 text-white p-8 rounded-xl">
+                  <div className="flex flex-col gap-2 items-left border border-white bg-white/50 text-white p-5 md:p-8 rounded-xl">
                     <Image
                       src="/images/fore/staricon.svg"
                       alt="Star Icon"
@@ -363,7 +357,7 @@ export default function ForeProject() {
                       Constant <strong>minor interruptions</strong>
                     </p>
                   </div>
-                  <div className="flex flex-col flex-1 items-left border border-white bg-white/50 text-white p-8 rounded-xl">
+                  <div className="flex flex-col gap-2 items-left border border-white bg-white/50 text-white p-5 md:p-8 rounded-xl">
                     <Image
                       src="/images/fore/staricon.svg"
                       alt="Star Icon"
@@ -375,7 +369,7 @@ export default function ForeProject() {
                       <strong>unrefreshing</strong> breaks
                     </p>
                   </div>
-                  <div className="flex flex-col flex-1 items-left border border-white bg-white/50 text-white p-8 rounded-xl">
+                  <div className="flex flex-col gap-2 items-left border border-white bg-white/50 text-white p-5 md:p-8 rounded-xl">
                     <Image
                       src="/images/fore/staricon.svg"
                       alt="Star Icon"
@@ -488,9 +482,9 @@ export default function ForeProject() {
               <h3>Key insights</h3>
               <div className="flex flex-col gap-[20px]">
                 <p>Across all four hypotheses, one pattern kept emerging:</p>
-                <div className="flex flex-col gap-3 bg-[#FFDB6E] text-black/80 rounded-xl px-[30px] py-[40px]">
-                  <p className="flex items-center text-lg font-medium gap-3">
-                    <ExclamationTriangleIcon />
+                <div className="flex flex-col gap-3 bg-[#FFDB6E] text-black/80 rounded-xl px-6 py-8 md:px-[30px] md:py-[40px]">
+                  <p className="flex items-start md:items-center text-base md:text-lg font-medium gap-3">
+                    <ExclamationTriangleIcon className="shrink-0 mt-1 md:mt-0" />
                     People don't need more features. They need a clearer signal.
                   </p>
                 </div>
@@ -553,7 +547,7 @@ export default function ForeProject() {
           <motion.section
             {...fadeIn}
             id="development"
-            className="flex flex-col gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[64px] md:gap-[120px] mb-[80px] md:mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -568,13 +562,13 @@ export default function ForeProject() {
               <h3>Concept Exploration</h3>
               <div className="flex flex-col gap-[20px]">
                 <p>Three directions were evaluated:</p>
-                <div className="aspect-auto relative">
+                <div className="relative -mx-4 px-4 overflow-x-auto md:mx-0 md:px-0 md:overflow-visible">
                   <Image
                     alt="Concept Exploration"
                     src="/images/fore/conceptexplo.svg"
                     width={745}
                     height={495}
-                    className="w-full h-auto object-contain"
+                    className="w-full min-w-[560px] md:min-w-0 h-auto object-contain"
                   />
                 </div>
                 <p>
@@ -594,17 +588,20 @@ export default function ForeProject() {
                 From a one-time setup to a single daily tap: what the user does,
                 and what runs behind it.
               </p>
-              <div className="w-full rounded-2xl flex text-black border border-white bg-white/50">
+              <div className="w-full rounded-2xl text-black border border-white bg-white/50 overflow-x-auto md:overflow-visible">
                 <Image
                   alt="System Flow"
                   src="/images/fore/flow.svg"
                   width={1320}
                   height={1012}
-                  className="w-full h-auto object-contain"
+                  className="w-full min-w-[760px] md:min-w-0 h-auto object-contain"
                 />
               </div>
-              <div className="flex gap-3 items-center p-4 bg-[#EBEBEB] text-[#A3A3A3] border border-[#A3A3A3] border-dashed rounded-lg w-fit">
-                <div className="aspect-square relative bg-white rounded-sm p-2">
+              <p className="md:hidden -mt-2 font-[family-name:var(--font-dm-mono)] text-[11px] tracking-[1px] text-[#A3A3A3]">
+                SWIPE TO SEE THE FULL FLOW →
+              </p>
+              <div className="flex gap-3 items-start md:items-center p-4 bg-[#EBEBEB] text-[#A3A3A3] border border-[#A3A3A3] border-dashed rounded-lg w-full md:w-fit">
+                <div className="aspect-square relative shrink-0 bg-white rounded-sm p-2">
                   <Image
                     alt="Gemini API icon"
                     src="/images/gemini.svg"
@@ -630,7 +627,7 @@ export default function ForeProject() {
                 type, spacing and radius as tokens, with core components built
                 on top. Every screen pulls from the same source.
               </p>
-              <FigmaToSwiftUI />
+              <FigmaToSwiftUI showHeader={false} />
             </article>
           </motion.section>
 
@@ -638,7 +635,7 @@ export default function ForeProject() {
           <motion.section
             {...fadeIn}
             id="solution"
-            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[64px] md:gap-[120px] mb-[80px] md:mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -646,12 +643,10 @@ export default function ForeProject() {
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
 
-            <article
-              className="flex flex-col gap-[20px] scroll-mt-20"
-            >
+            <article className="flex flex-col gap-[20px] scroll-mt-20">
               <h3>solution</h3>
-              <div className="flex gap-3 items-center p-4 bg-[#EBEBEB] text-[#A3A3A3] border border-[#A3A3A3] border-dashed rounded-lg w-fit">
-                <div className="aspect-square relative">
+              <div className="flex gap-3 items-start md:items-center p-4 bg-[#EBEBEB] text-[#A3A3A3] border border-[#A3A3A3] border-dashed rounded-lg w-full md:w-fit">
+                <div className="aspect-square relative shrink-0">
                   <Image
                     alt="Xcode"
                     src="/images/fore/Xcode.svg"
@@ -668,7 +663,7 @@ export default function ForeProject() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
                 {/* 1 */}
-                <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 aspect-square gap-[10px]">
+                <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 md:aspect-square gap-[10px]">
                   <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                     <p className="w-[12px] h-[12px] text-white text-sm flex items-center justify-center">
                       1
@@ -684,7 +679,7 @@ export default function ForeProject() {
                 </div>
 
                 {/* 2 */}
-                <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 aspect-square gap-[10px]">
+                <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 md:aspect-square gap-[10px]">
                   <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                     <p className="w-[12px] h-[12px] text-white text-sm flex items-center justify-center">
                       2
@@ -701,7 +696,7 @@ export default function ForeProject() {
                 </div>
 
                 {/* 3 */}
-                <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 aspect-square gap-[10px]">
+                <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 md:aspect-square gap-[10px]">
                   <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                     <p className="w-[12px] h-[12px] text-white text-sm flex items-center justify-center">
                       3
@@ -718,10 +713,10 @@ export default function ForeProject() {
                 </div>
               </div>
 
-              <div className="mt-[30px] flex flex-col gap-[50px]">
+              <div className="mt-[30px] flex flex-col gap-6 md:gap-[50px]">
                 {/* 1 */}
-                <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-6 items-center w-full rounded-2xl flex flex-col text-black border border-white bg-white/50">
-                  <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 p-4 md:p-5 gap-6 items-center w-full rounded-2xl text-black border border-white bg-white/50">
+                  <div className="order-first md:order-none relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
                     <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                       <p className="w-[8px] h-[8px] text-white text-sm flex items-center justify-center">
                         1
@@ -737,7 +732,7 @@ export default function ForeProject() {
                     </p>
                   </div>
 
-                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                  <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
                     <video
                       src="/images/fore/screenRecord/1.mov"
                       autoPlay
@@ -758,10 +753,10 @@ export default function ForeProject() {
                 </div>
 
                 {/* 2 */}
-                <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-6 items-center w-full rounded-2xl flex flex-col text-black border border-white bg-white/50">
+                <div className="grid grid-cols-1 md:grid-cols-3 p-4 md:p-5 gap-6 items-center w-full rounded-2xl text-black border border-white bg-white/50">
                   <div className="hidden md:block"></div>
 
-                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                  <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
                     <video
                       src="/images/fore/screenRecord/2.mov"
                       autoPlay
@@ -778,7 +773,7 @@ export default function ForeProject() {
                     />
                   </div>
 
-                  <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
+                  <div className="order-first md:order-none relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
                     <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                       <p className="w-[8px] h-[8px] text-white text-sm flex items-center justify-center">
                         2
@@ -797,8 +792,8 @@ export default function ForeProject() {
                 </div>
 
                 {/* 3 */}
-                <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-6 items-center w-full rounded-2xl flex flex-col text-black border border-white bg-white/50">
-                  <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 p-4 md:p-5 gap-6 items-center w-full rounded-2xl text-black border border-white bg-white/50">
+                  <div className="order-first md:order-none relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
                     <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                       <p className="w-[8px] h-[8px] text-white text-sm flex items-center justify-center">
                         3
@@ -814,7 +809,7 @@ export default function ForeProject() {
                     </p>
                   </div>
 
-                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                  <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
                     <video
                       src="/images/fore/screenRecord/3.mov"
                       autoPlay
@@ -835,42 +830,45 @@ export default function ForeProject() {
                 </div>
 
                 {/* 4 */}
-                <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-6 items-center w-full rounded-2xl flex flex-col text-black border border-white bg-white/50">
-                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                    <video
-                      src="/images/fore/screenRecord/4.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-3 p-4 md:p-5 gap-6 items-center w-full rounded-2xl text-black border border-white bg-white/50">
+                  {/* Two phones: side by side on mobile, separate grid cells on desktop */}
+                  <div className="flex gap-3 md:contents">
+                    <div className="relative flex-1 w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                      <video
+                        src="/images/fore/screenRecord/4.mov"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
+                      />
 
-                    <img
-                      src="/images/fore/iphoneMockup.svg"
-                      alt="iPhone Mockup"
-                      className="absolute inset-0 w-full h-full object-contain pointer-events-none z-10"
-                    />
+                      <img
+                        src="/images/fore/iphoneMockup.svg"
+                        alt="iPhone Mockup"
+                        className="absolute inset-0 w-full h-full object-contain pointer-events-none z-10"
+                      />
+                    </div>
+
+                    <div className="relative flex-1 w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                      <video
+                        src="/images/fore/screenRecord/4-2.mov"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
+                      />
+
+                      <img
+                        src="/images/fore/iphoneMockup.svg"
+                        alt="iPhone Mockup"
+                        className="absolute inset-0 w-full h-full object-contain pointer-events-none z-10"
+                      />
+                    </div>
                   </div>
 
-                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
-                    <video
-                      src="/images/fore/screenRecord/4-2.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="absolute top-[3%] left-[4%] w-[92%] h-[94%] object-cover rounded-[38px] overflow-hidden m-auto"
-                    />
-
-                    <img
-                      src="/images/fore/iphoneMockup.svg"
-                      alt="iPhone Mockup"
-                      className="absolute inset-0 w-full h-full object-contain pointer-events-none z-10"
-                    />
-                  </div>
-
-                  <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
+                  <div className="order-first md:order-none relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
                     <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                       <p className="w-[8px] h-[8px] text-white text-sm flex items-center justify-center">
                         4
@@ -888,8 +886,8 @@ export default function ForeProject() {
                 </div>
 
                 {/* 5 */}
-                <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-6 items-center w-full rounded-2xl flex flex-col text-black border border-white bg-white/50">
-                  <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 p-4 md:p-5 gap-6 items-center w-full rounded-2xl text-black border border-white bg-white/50">
+                  <div className="order-first md:order-none relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
                     <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                       <p className="w-[8px] h-[8px] text-white text-sm flex items-center justify-center">
                         5
@@ -906,7 +904,7 @@ export default function ForeProject() {
                     </p>
                   </div>
 
-                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                  <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
                     <video
                       src="/images/fore/screenRecord/5.mov"
                       autoPlay
@@ -927,10 +925,10 @@ export default function ForeProject() {
                 </div>
 
                 {/* 6 */}
-                <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-6 items-center w-full rounded-2xl flex flex-col text-black border border-white bg-white/50">
+                <div className="grid grid-cols-1 md:grid-cols-3 p-4 md:p-5 gap-6 items-center w-full rounded-2xl text-black border border-white bg-white/50">
                   <div className="hidden md:block"></div>
 
-                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                  <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
                     <video
                       src="/images/fore/screenRecord/6.mov"
                       autoPlay
@@ -947,7 +945,7 @@ export default function ForeProject() {
                     />
                   </div>
 
-                  <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
+                  <div className="order-first md:order-none relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
                     <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                       <p className="w-[8px] h-[8px] text-white text-sm flex items-center justify-center">
                         6
@@ -965,8 +963,8 @@ export default function ForeProject() {
                 </div>
 
                 {/* 7 */}
-                <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-6 items-center w-full rounded-2xl flex flex-col text-black border border-white bg-white/50">
-                  <div className="relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 p-4 md:p-5 gap-6 items-center w-full rounded-2xl text-black border border-white bg-white/50">
+                  <div className="order-first md:order-none relative p-5 rounded-2xl flex flex-col text-black border border-white bg-white/50 justify-center gap-[10px]">
                     <div className="bg-[#6D8EEB] p-2 w-fit rounded-sm">
                       <p className="w-[8px] h-[8px] text-white text-sm flex items-center justify-center">
                         7
@@ -983,7 +981,7 @@ export default function ForeProject() {
                     </p>
                   </div>
 
-                  <div className="relative w-full max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
+                  <div className="relative w-full max-w-[220px] md:max-w-[280px] aspect-[9/19] mx-auto flex items-center justify-center">
                     <video
                       src="/images/fore/screenRecord/7.mov"
                       autoPlay
@@ -1010,7 +1008,7 @@ export default function ForeProject() {
           <motion.section
             {...fadeIn}
             id="reflection"
-            className="flex flex-col gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
+            className="flex flex-col gap-[64px] md:gap-[120px] mb-[80px] md:mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
@@ -1062,7 +1060,7 @@ export default function ForeProject() {
             </article>
             <article className="flex flex-col gap-6">
               <h3>Future Opportunities</h3>
-              <div className="flex flex-col gap-4 py-6 bg-white/50 border border-white px-6 rounded-3xl">
+              <div className="flex flex-col gap-3 md:gap-4 p-3 md:py-6 md:px-6 bg-white/50 border border-white rounded-3xl">
                 {[
                   {
                     title: "Android and Windows compatibility",

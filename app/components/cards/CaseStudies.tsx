@@ -6,10 +6,10 @@ import { ArrowTopRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 const CASE_STUDIES = [
   {
     id: "fore",
-    title: "Fore",
+    title: "FO/RE",
     href: "/fore",
     thumbnail: "/images/fore.jpg",
-    description: "Redefining context switching in remote work.",
+    description: "One tap to start and end the remote workday.",
   },
   {
     id: "Instagram Accessibility",
