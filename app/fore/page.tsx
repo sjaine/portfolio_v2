@@ -145,10 +145,10 @@ export default function InstagramProject() {
               <div className="flex h-full w-full flex-col md:flex-row">
                 <div className="relative aspect-video h-full w-full">
                   <Image
-                  alt="preview"
-                  src="/images/fore/thumbnail.png"
-                  fill
-                  className="h-full w-full object-cover rounded-2xl"
+                    alt="preview"
+                    src="/images/fore/thumbnail.png"
+                    fill
+                    className="h-full w-full object-cover rounded-2xl"
                   />
                 </div>
               </div>
@@ -989,8 +989,83 @@ export default function InstagramProject() {
               <h2>{"< REFLECTION >"}</h2>
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
-            <article className="flex flex-col gap-[20px] py-10">
-              <p>NEED TO ADD</p>
+            <article className="flex flex-col gap-[20px]">
+              <h3>Takeaways & Reflection</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                {/* Reflection 1 */}
+                <div className="relative p-6 rounded-2xl flex flex-col text-black border border-white bg-white/50">
+                  <h4 className="font-bold text-lg mb-2 leading-snug text-[#6D8EEB]">
+                    Reframing the problem
+                  </h4>
+                  <p className="leading-relaxed opacity-90 flex-grow">
+                    I started this project by asking what was broken in remote
+                    work. However, after research I asked a different question:
+                    which moment do people need help with? The answer was the
+                    transition, not the work itself.
+                  </p>
+                </div>
+
+                {/* Reflection 2 */}
+                <div className="relative p-6 rounded-2xl flex flex-col text-black border border-white bg-white/50">
+                  <h4 className="font-bold text-lg mb-2 leading-snug text-[#6D8EEB]">
+                    A ritual, not an interface
+                  </h4>
+                  <p className="leading-relaxed opacity-90 flex-grow">
+                    The most important interaction in FO/RE doesn’t happen on a
+                    screen. I was designing a ritual, and the physical item
+                    mattered more than any button I drew.
+                  </p>
+                </div>
+
+                {/* Reflection 3 */}
+                <div className="relative p-6 rounded-2xl flex flex-col text-black border border-white bg-white/50">
+                  <h4 className="font-bold text-lg mb-2 leading-snug text-[#6D8EEB]">
+                    Less is harder
+                  </h4>
+                  <p className="leading-relaxed opacity-90 flex-grow">
+                    My own research said fewer features were better, but it was
+                    hard to choose which features I should keep. I kept daily
+                    use to one tap and moved the rest to setup. Designing that
+                    flow was hardest part.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article className="flex flex-col gap-6">
+              <h3>Future Opportunities</h3>
+              <div className="flex flex-col gap-4 py-6 bg-white/50 border border-white px-6 rounded-3xl">
+                {[
+                  {
+                    title: "Android and Windows compatibility",
+                    desc: "The system currently assumes an Apple ecosystem, which limits who it can reach.",
+                  },
+                  {
+                    title:
+                      "A portable trigger for workers without a fixed desk",
+                    desc: "The card works best in one place, so people who move between spaces need a different cue.",
+                  },
+                  {
+                    title: "Extend to team-level context switching",
+                    desc: "Hybrid teams have the same boundary problem at a collective level: no shared signal for when collaboration begins and when focused work does.",
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-4 items-start p-4 bg-white rounded-xl"
+                  >
+                    <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-[#6D8EEB] text-white rounded text-base font-bold">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h4 className="font-bold">{item.title}</h4>
+                      <p className="text-sm text-gray-500 mt-2 leading-[170%]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </article>
           </motion.section>
         </div>
