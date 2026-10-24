@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import ProjectHeader from "../components/project/ProjectHeader";
 import SideNav from "@/app/components/project/SideNav";
+import { FORE_PROJECT_SECTIONS } from "@/app/components/project/navigation";
 import FigmaToSwiftUI from "../components/project/FigmaToSwiftUI";
 import { useScrollObserver } from "../components/hooks/useScrollObserver";
 import Counter from "../components/project/Counter";
@@ -47,17 +48,22 @@ export type SectionId =
   | "finalsolution"
   | "problem"
   | "problemspace"
-  | "researchinsights"
-  | "challenge"
+  | "5whys"
+  | "marketgap"
   | "hmwstatement"
+  | "research"
+  | "painpoint"
+  | "hypothesis"
+  | "keyinsight"
   | "designprinciples"
-  | "userflow"
-  | "figma"
   | "development"
+  | "conceptexploration"
+  | "howitworks"
+  | "designsystem"
   | "solution"
   | "reflection";
 
-export default function InstagramProject() {
+export default function ForeProject() {
   const { activeSection, isParentActive } = useScrollObserver<SectionId>();
 
   return (
@@ -87,6 +93,7 @@ export default function InstagramProject() {
         <SideNav
           activeSection={activeSection}
           isParentActive={isParentActive}
+          sections={FORE_PROJECT_SECTIONS}
         />
 
         <div className="flex-[9] pt-12 md:pt-0">
@@ -283,7 +290,7 @@ export default function InstagramProject() {
 
             {/* Opportunity */}
             <article
-              id="painpoint"
+              id="hmwstatement"
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <div className="flex flex-col gap-3 bg-[#6D8EEB] text-white/80 rounded-xl px-[30px] py-[40px]">
@@ -296,52 +303,6 @@ export default function InstagramProject() {
                   was to design the signal itself.
                 </p>
               </div>
-              {/* <div className="flex gap-3 w-full">
-                <div className="flex flex-col flex-1 items-left border border-white bg-white/50 text-white p-8 rounded-xl">
-                  <Image
-                    src="/images/fore/staricon.svg"
-                    alt="Star Icon"
-                    width={14}
-                    height={14}
-                  />
-                  <p className="text-sm text-black">
-                    Make the transition into work mode explicit
-                  </p>
-                </div>
-                <div className="flex flex-col flex-1 items-left border border-white bg-white/50 text-white p-8 rounded-xl">
-                  <Image
-                    src="/images/fore/staricon.svg"
-                    alt="Star Icon"
-                    width={14}
-                    height={14}
-                  />
-                  <p className="text-sm text-black">
-                    Minimize friction to maintain deep focus
-                  </p>
-                </div>
-                <div className="flex flex-col flex-1 items-left border border-white bg-white/50 text-white p-8 rounded-xl">
-                  <Image
-                    src="/images/fore/staricon.svg"
-                    alt="Star Icon"
-                    width={14}
-                    height={14}
-                  />
-                  <p className="text-sm text-black">
-                    Encourage soft, intentional breaks
-                  </p>
-                </div>
-                <div className="flex flex-col flex-1 items-left border border-white bg-white/50 text-white p-8 rounded-xl">
-                  <Image
-                    src="/images/fore/staricon.svg"
-                    alt="Star Icon"
-                    width={14}
-                    height={14}
-                  />
-                  <p className="text-sm text-black">
-                    Create an intentional trigger to conclude the workday
-                  </p>
-                </div>
-              </div> */}
             </article>
 
             <article className="flex flex-col gap-[10px] text-center">
@@ -429,7 +390,10 @@ export default function InstagramProject() {
               </div>
             </article>
 
-            <article id="hypothesis" className="flex flex-col gap-[20px]">
+            <article
+              id="hypothesis"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <h3>Hypothesis</h3>
               <p>
                 I came in with four hypotheses. One of them was completely wrong
@@ -538,7 +502,10 @@ export default function InstagramProject() {
               </div>
             </article>
 
-            <article id="designprinciples" className="flex flex-col gap-[20px]">
+            <article
+              id="designprinciples"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
               <h3>Design Principles</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -585,7 +552,7 @@ export default function InstagramProject() {
           {/* DEVELOPMENT */}
           <motion.section
             {...fadeIn}
-            id="reflection"
+            id="development"
             className="flex flex-col gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
@@ -619,7 +586,7 @@ export default function InstagramProject() {
             </article>
 
             <article
-              id="conceptexploration"
+              id="howitworks"
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h3>How it works</h3>
@@ -654,7 +621,7 @@ export default function InstagramProject() {
             </article>
 
             <article
-              id="conceptexploration"
+              id="designsystem"
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h3>Design System</h3>
@@ -680,7 +647,6 @@ export default function InstagramProject() {
             </header>
 
             <article
-              id="solution"
               className="flex flex-col gap-[20px] scroll-mt-20"
             >
               <h3>solution</h3>

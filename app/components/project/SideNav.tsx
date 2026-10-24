@@ -1,16 +1,22 @@
-import { INSTAGRAM_PROJECT_SECTIONS } from "./navigation"
+import { INSTAGRAM_PROJECT_SECTIONS, type NavSection } from "./navigation";
 
 interface SideNavProps {
   activeSection: string;
-  isParentActive: (parent: any, children: any) => boolean;
+  isParentActive: (parent: string, children: string[]) => boolean;
+  /** Sections for this page. Defaults to the Instagram case study. */
+  sections?: readonly NavSection[];
 }
 
-export default function SideNav({ activeSection, isParentActive }: SideNavProps) {
+export default function SideNav({
+  activeSection,
+  isParentActive,
+  sections = INSTAGRAM_PROJECT_SECTIONS,
+}: SideNavProps) {
   return (
     <nav className="flex-[3] relative hidden md:block ">
       <ul className="sticky top-20 text-sm leading-[35px] text-[#a3a3a3]">
-        {INSTAGRAM_PROJECT_SECTIONS.map((parent) => {
-          const childIds = parent.children.map((c) => c.id);
+        {sections.map((parent) => {
+          const childIds: string[] = parent.children.map((c) => c.id);
           const isParentActiveState = isParentActive(parent.id, childIds);
 
           return (

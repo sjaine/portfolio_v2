@@ -1,7 +1,6 @@
 // hooks/useScrollObserver.ts
 import { useEffect, useState } from "react";
 
-// T는 메인 페이지에서 정의한 SectionId 타입이 됩니다.
 export function useScrollObserver<T extends string>() {
   const [activeSection, setActiveSection] = useState<T | "">("");
 
@@ -27,8 +26,8 @@ export function useScrollObserver<T extends string>() {
     return () => observer.disconnect();
   }, []);
 
-  const isParentActive = (parent: T, children: T[] = []) => {
-    return activeSection === parent || children.includes(activeSection as T);
+  const isParentActive = (parent: string, children: string[] = []) => {
+    return activeSection === parent || children.includes(activeSection);
   };
 
   return { activeSection, isParentActive };
