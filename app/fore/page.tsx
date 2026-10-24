@@ -5,12 +5,13 @@ import Image from "next/image";
 
 import ProjectHeader from "../components/project/ProjectHeader";
 import SideNav from "@/app/components/project/SideNav";
+import FigmaToSwiftUI from "../components/project/FigmaToSwiftUI";
 import { useScrollObserver } from "../components/hooks/useScrollObserver";
 import Counter from "../components/project/Counter";
 
 import { motion } from "framer-motion";
 import {
-  ArrowDownIcon,
+  ArrowRightIcon,
   CheckCircledIcon,
   Cross2Icon,
   CheckIcon,
@@ -581,15 +582,15 @@ export default function InstagramProject() {
             </article>
           </motion.section>
 
-          {/* SOLUTION */}
+          {/* DEVELOPMENT */}
           <motion.section
             {...fadeIn}
-            id="solution"
-            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
+            id="reflection"
+            className="flex flex-col gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
           >
             <header className="flex items-center gap-4">
               <div className="flex-1 h-px higlight-gray-bg"></div>
-              <h2>{"< SOLUTION >"}</h2>
+              <h2>{"< DEVELOPMENT >"}</h2>
               <div className="flex-1 h-px higlight-gray-bg"></div>
             </header>
 
@@ -616,6 +617,67 @@ export default function InstagramProject() {
                 </p>
               </div>
             </article>
+
+            <article
+              id="conceptexploration"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
+              <h3>How it works</h3>
+              <p>
+                From a one-time setup to a single daily tap: what the user does,
+                and what runs behind it.
+              </p>
+              <div className="w-full rounded-2xl flex text-black border border-white bg-white/50">
+                <Image
+                  alt="System Flow"
+                  src="/images/fore/flow.svg"
+                  width={1320}
+                  height={1012}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+              <div className="flex gap-3 items-center p-4 bg-[#EBEBEB] text-[#A3A3A3] border border-[#A3A3A3] border-dashed rounded-lg w-fit">
+                <div className="aspect-square relative bg-white rounded-sm p-2">
+                  <Image
+                    alt="Gemini API icon"
+                    src="/images/gemini.svg"
+                    width={25}
+                    height={25}
+                    className="object-contain"
+                  />
+                </div>
+                <p>
+                  The Gemini API suggests work-app and blocked-app presets based
+                  on the user’s job.
+                </p>
+              </div>
+            </article>
+
+            <article
+              id="conceptexploration"
+              className="flex flex-col gap-[20px] scroll-mt-20"
+            >
+              <h3>Design System</h3>
+              <p className="max-w-[760px] leading-relaxed opacity-90">
+                I translated the Figma variables into one SwiftUI file: colour,
+                type, spacing and radius as tokens, with core components built
+                on top. Every screen pulls from the same source.
+              </p>
+              <FigmaToSwiftUI />
+            </article>
+          </motion.section>
+
+          {/* SOLUTION */}
+          <motion.section
+            {...fadeIn}
+            id="solution"
+            className="flex flex-col gap-[80px] md:gap-[80px] md:gap-[120px] mb-[100px] scroll-mt-20"
+          >
+            <header className="flex items-center gap-4">
+              <div className="flex-1 h-px higlight-gray-bg"></div>
+              <h2>{"< SOLUTION >"}</h2>
+              <div className="flex-1 h-px higlight-gray-bg"></div>
+            </header>
 
             <article
               id="solution"
