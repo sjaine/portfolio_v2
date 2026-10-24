@@ -33,10 +33,10 @@ export default function ConstellationCanvas({
         setScale(1.2);
       } else if (width >= SCALE_MD) {
         setScale(1.1);
-      } else if (width <= SCALE_XS) {
-        setScale(0.7);
       } else if (width <= SCALE_SM) {
         setScale(0.9);
+      } else if (width <= SCALE_XS) {
+        setScale(0.7);
       } else {
         setScale(1);
       }
@@ -65,6 +65,7 @@ export default function ConstellationCanvas({
               hovered={hovered}
               width={size.width}
               height={size.height}
+              scale={scale}
             />
           </div>
 

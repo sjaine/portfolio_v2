@@ -3,10 +3,9 @@ import Image from "next/image";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import GradientOrb from "@/app/components/ui/GradientOrb";
 import {
-  nodePositions,
-  TABLET_POSITIONS,
   nodeLabels,
   nodeCaseStudies,
+  getNodePositions,
 } from "./data";
 import type { NodeId } from "./data";
 import { useState, useEffect } from "react";
@@ -53,9 +52,8 @@ export function NodesLayer({
   const [isJaineHovered, setIsJaineHovered] = useState(false);
   const [showInitialBubble, setShowInitialBubble] = useState(false);
   const [isBubbleHovered, setIsBubbleHovered] = useState(false);
-  // 말풍선 위에서는 따라다니는 커서 라벨 대신 기본 포인터를 보여줌
   const showCursorLabel = isJaineHovered && !isBubbleHovered;
-  const currentPositions = scale <= 0.9 ? TABLET_POSITIONS : nodePositions;
+  const currentPositions = getNodePositions(scale);
 
   useEffect(() => {
     if (showCursorLabel) {
@@ -66,8 +64,6 @@ export function NodesLayer({
     return () => document.body.removeAttribute("data-hide-cursor");
   }, [showCursorLabel]);
 
-  // 첫 화면이 자리 잡은 뒤 등장하고, 사용자가 노드에 처음 호버할 때까지 유지
-  // (닫히는 건 각 노드의 onMouseEnter에서 처리)
   useEffect(() => {
     const startTimer = setTimeout(() => setShowInitialBubble(true), 900);
     return () => clearTimeout(startTimer);

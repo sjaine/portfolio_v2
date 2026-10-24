@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { nodePositions, connections } from "./data";
+import { connections, getNodePositions } from "./data";
 import { NODE_ANCHOR_OFFSET } from "./nodeAnchors";
 import type { NodeId } from "./data";
 
@@ -7,6 +7,7 @@ interface Props {
   hovered: NodeId | null;
   width: number;
   height: number;
+  scale: number;
 }
 
 function getLinesForHover(
@@ -56,10 +57,11 @@ function getLinesForHover(
   return connections[hovered].map((to) => [hovered, to] as [NodeId, NodeId]);
 }
 
-export function LinesLayer({ hovered, width, height }: Props) {
+export function LinesLayer({ hovered, width, height, scale }: Props) {
   if (!hovered || !width || !height) return null;
 
   const lines = getLinesForHover(hovered, connections);
+  const nodePositions = getNodePositions(scale);
 
   return (
     <svg

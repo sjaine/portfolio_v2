@@ -162,3 +162,8 @@ export const nodeCaseStudies: Partial<Record<NodeId, NodeCaseStudy>> = {
 };
 
 export type NodeId = keyof typeof nodePositions;
+
+/** Node layout for the current canvas scale. Shared by nodes AND lines so they always match. */
+export function getNodePositions(scale: number) {
+  return scale <= 0.9 ? TABLET_POSITIONS : nodePositions;
+}
